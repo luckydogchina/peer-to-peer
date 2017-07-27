@@ -216,22 +216,25 @@ CTcp::~CTcp()
 
 int CTcp::connect(const char* ip, short port, unsigned int sec)
 {
-	int reslt;
-	fd_set r_set, w_set;
+	int reslt, error = 0;
+	fd_set w_set;	
 	timeval timeout;
 	sockaddr_in address;
+	
+	unsigned int len=sizeof(error);
 
 	if (!ip) 
 		return -1;
 
-	//if(!noblock(this->socket_m, true))
-	//	return	-1;
+	if(!noblock(this->socket_m, true))
+		return	-1;
 	
 	memset(&address, 0, sizeof(address));
 	address.sin_addr.s_addr = inet_addr(ip);
 	address.sin_port= htons(port);
 	address.sin_family=AF_INET;
-
+	
+	printf("connect .....\n");	
 	reslt = ::connect(this->socket_m,(sockaddr*)&address, sizeof(address));
 	if (!reslt)
 	{
@@ -248,16 +251,13 @@ int CTcp::connect(const char* ip, short port, unsigned int sec)
 		return -1;
 	}
 
-	FD_ZERO(&r_set);
 	FD_ZERO(&w_set);
-	FD_SET(this->socket_m, &r_set);
 	FD_SET(this->socket_m, &w_set);
 
 	memset(&timeout, 0, sizeof(timeout));
 	timeout.tv_sec= sec;	
 	
-	
- 	reslt = select(this->socket_m + 1, &r_set, NULL, NULL, &timeout);
+ 	reslt = select(this->socket_m + 1, NULL, &w_set, NULL, &timeout);
 	switch(reslt)
 	{
 	case 0:
@@ -270,10 +270,17 @@ int CTcp::connect(const char* ip, short port, unsigned int sec)
 		noblock(this->socket_m, false);
 		return -1;
 	default :
-		printf("the relst is %d  %d\n", reslt , this->socket_m);
-		if(FD_ISSET(this->socket_m, &r_set) && reslt == this->socket_m)
+		if(FD_ISSET(this->socket_m, &w_set))
 		{
-			printf("connect is success, default!\n");	
+			if(0 <= getsockopt(this->socket_m,SOL_SOCKET,SO_ERROR,(void*)&error,&len)
+					&& error)
+			{
+					         
+				printf("getsockopt error:%s\n",strerror(error));
+				return -1;
+			}
+			
+			printf("connect is success!\n");	
 			noblock(this->socket_m, false);
 			return 0;
 		}
@@ -485,6 +492,8 @@ void* CTcp::recv_proc_server(void* p)
 s_end:
 	for(iter = s_list.begin(); iter!=s_list.end();iter++)
 		close(*iter);
+
+	printf("exit the thread \n");
 	return NULL;
 }
 

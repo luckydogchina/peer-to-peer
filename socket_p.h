@@ -1,3 +1,6 @@
+#ifndef __SOCKET_H__
+#define __SOCKET_H__
+
 #include <stdio.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -113,3 +116,5 @@ bool noblock(int& s, bool is_no);
 #define UDP_PORT 7395
 
 #define TCP_PORT 7394
+
+#endif
