@@ -1,0 +1,76 @@
+syntax = "proto2";
+
+package p2p;
+
+
+enum ActionType {
+	PEERONLINE = 1; //当前在线peer地址
+	CONNECTA = 2;	//A方发起链接 
+	CONNECTB = 4;	//B方发起链接
+	HELLO = 3; //初始化消息	
+	HOLE = 5; //打洞
+	HEART = 6; //心跳包
+}
+
+enum StatusType {
+	SUCCESS = 1;
+	FAILURE = 2;
+	READY = 3;
+	CLOSE = 4;
+	RUNNING = 5;
+}
+
+
+message Address {
+	required string ip = 1;
+	required int32  port = 2;
+}
+
+message Request {
+	required ActionType action = 1;
+	optional Address adr = 3; //直接指定对方地址
+	optional string id = 2; //指定要链接的对象名称进行打洞
+}
+
+message Respond {
+	required ActionType action = 1;
+	repeated string id = 3; 
+	optional StatusType result = 4 [default = SUCCESS];
+}
+
+message Command {
+	required ActionType action = 1;
+	required string id = 2;
+} 
+
+message Indication {
+	required ActionType action = 1;
+	required StatusType result = 2 [default = SUCCESS];
+	optional string id = 3;
+	optional Address adr = 4;
+}
+
+message Transcation {
+	required int32 len = 1;
+	required bytes msg = 2;
+}
+
+message Msg {
+	required string version = 1 [default = "0.1.0"];
+	
+	enum MsgType {
+		REQUEST = 1;
+		RESPOND = 2;
+		COMMAND = 3;
+		INDICATION = 4;
+		TRANSCATION = 5;
+	}
+	
+	required MsgType type = 2;
+	optional Request rqs = 3;
+	optional Respond rsp = 4;
+	optional Command cmd = 5;
+	optional Indication idt = 6;
+	optional Transcation trs = 7;
+}
+
