@@ -9,7 +9,21 @@
 #include <stdlib.h>
 #include <pthread.h>
 
-typedef void* (*RECV_CALLBACK)(void* p, const char* message, unsigned int len, int& s);
+typedef void* (*RECV_CALLBACK_UDP)(void* p, const char* message, unsigned int len, int& s, sockaddr_in addr);
+typedef void* (*RECV_CALLBACK_TCP)(void* p, const char* message, unsigned int len, int& s);
+typedef void* (*WRITE_CALLBACK)(void* p, int &s);
+typedef WRITE_CALLBACK EXCEPTION_CALLBACK;
+typedef WRITE_CALLBACK EXIT_CALLBACK;
+typedef WRITE_CALLBACK TIMEOUT_CALLBACK;
+
+
+enum cbtype{
+	READ = 0,
+	WRITE,
+	EXCEPTION,
+	TIMEOUT,
+	EXIT
+};
 
 class CBase
 {
@@ -25,16 +39,21 @@ public:
 	 * @return:
 	 * 	int : Success 0, errno get the error code
 	 * */
-	int bindaddr(short port);
+	int bindaddr(const char *ip, short port);
 
-	void registercb(RECV_CALLBACK cb, void* p);
+	void registercb(void* cb, void* p, cbtype t);
+
+	void* getcb(cbtype t);
 protected:
 	int socket_m;
-
 	
-	RECV_CALLBACK recv_cb;
+	pthread_mutex_t	recv_cb_lock;
+	
+	pthread_mutexattr_t recv_cb_lock_mt;	
 
-	void* pcb;
+	void* recv_cb[5];
+
+	void* pcb[5];
 };
 
 class CUdp:public CBase
@@ -51,7 +70,9 @@ public:
 	 * @return:
 	 * 	Success: the number of send message bytes, Failure -1
 	 * */
-	int sendmessage(const char* ip, short port,const char* message);
+	int sendmessage(const char* ip, short port,const char* message, unsigned int len);
+
+	int sendmessage(sockaddr_in addr, const char* message, unsigned int len);
 	/**
 	 * @func:
 	 * 	recv the message from the ip:port

@@ -9,38 +9,68 @@
 
 CBase::CBase()
 {
-	this->recv_cb = NULL;
-	this->pcb = NULL;
+	memset(this->recv_cb, 0, sizeof(this->recv_cb));
+	memset(this->pcb, 0, sizeof(this->pcb));
+	pthread_mutexattr_init(&this->recv_cb_lock_mt);
+	pthread_mutexattr_settype(&this->recv_cb_lock_mt, PTHREAD_MUTEX_RECURSIVE_NP);
+	pthread_mutex_init(&this->recv_cb_lock, &this->recv_cb_lock_mt);	
 }
 
 CBase::~CBase()
 {
-
+	pthread_mutex_destroy(&this->recv_cb_lock);
+	pthread_mutexattr_destroy(&this->recv_cb_lock_mt);
 }
 
 
-int CBase::bindaddr(short port)
+int CBase::bindaddr(const char *ip, short port)
 {
 	struct sockaddr_in address;
 	address.sin_family=AF_INET;
-	address.sin_addr.s_addr=htonl(INADDR_ANY);
+	if(ip)
+	{
+		address.sin_addr.s_addr=inet_addr(ip);
+	}
+	else
+	{
+		address.sin_addr.s_addr=htonl(INADDR_ANY);
+	}
 	address.sin_port=htons(port);
 
 	return bind(this->socket_m, (sockaddr*)&address, sizeof(sockaddr));
 }
 
-void CBase::registercb(RECV_CALLBACK cb, void* p)
+void CBase::registercb(void* cb, void* p, cbtype t)
 {
-	this->pcb = p;
-	this->recv_cb = cb;
+	if ((int)t < (int)sizeof(this->recv_cb))
+	{
+		pthread_mutex_lock(&this->recv_cb_lock);	
+		this->recv_cb[t] = cb;
+		this->pcb[t] = p;
+		pthread_mutex_unlock(&this->recv_cb_lock);
+	}
 	return;
+}
+
+void* CBase::getcb(cbtype t)
+{
+	void* cb = NULL;
+	
+	if((int)t < (int)sizeof(this->recv_cb))
+	{
+		pthread_mutex_lock(&this->recv_cb_lock);
+		cb = this->recv_cb[t];
+		pthread_mutex_unlock(&this->recv_cb_lock);
+	}
+
+	return cb;
 }
 
 CUdp::CUdp()
 {
 	unsigned int ok = 1;	
 	this->socket_m = socket(AF_INET, SOCK_DGRAM, 0);
-	setsockopt( this->socket_m, SOL_SOCKET, SO_REUSEADDR, ( const char* )&ok, sizeof(ok));
+//	setsockopt( this->socket_m, SOL_SOCKET, SO_REUSEADDR, ( const char* )&ok, sizeof(ok));
 	memset(&this->recv_proc_id, 0, sizeof(pthread_t));
 	this->isrun = true;
 }
@@ -63,7 +93,7 @@ int CUdp::recv()
 		return -1;
 
 	//bind the socket on `7395` port in local ip.
-	reslt = bindaddr(UDP_PORT);
+	reslt = bindaddr(NULL, UDP_PORT);
 	if(0 != reslt) 
 		return reslt;
 
@@ -84,13 +114,15 @@ void* CUdp::recv_proc(void* p)
 	struct sockaddr_in address;
 	unsigned int size_addr;
 	struct timeval t;
-	
+
+	void* cb = NULL;
+
 	memset(&t,0,sizeof(t));
 	t.tv_sec=3;
 	
 	FD_ZERO(&o_set);
 	FD_SET(U->socket_m,&o_set);
-	
+
 	while(U->isrun)
 	{
 		r_set = e_set = o_set;	
@@ -100,6 +132,8 @@ void* CUdp::recv_proc(void* p)
 		switch(reslt)
 		{
 		case 0:
+			if(NULL != (cb = U->getcb(TIMEOUT)))
+				((TIMEOUT_CALLBACK)cb)(U->pcb[ TIMEOUT], U->socket_m);
 			continue;
 		case -1:
 			goto end;
@@ -107,6 +141,11 @@ void* CUdp::recv_proc(void* p)
 			//the expection is throw;
 			if(FD_ISSET(U->socket_m, &e_set))
 			{
+				if(NULL != (cb = U->getcb( EXCEPTION)))
+				{
+					((EXCEPTION_CALLBACK)cb)(U->pcb, U->socket_m);
+				}
+
 				goto end;
 			}
 			
@@ -123,10 +162,10 @@ void* CUdp::recv_proc(void* p)
 
 				if(reslt > 0)
 				{
-					if(U->recv_cb)
+					if(NULL !=(cb = U->getcb( READ)))
 					{
 				
-						U->recv_cb(U->pcb, buffer, reslt, U->socket_m);
+						((RECV_CALLBACK_UDP)cb)(U->pcb[READ], buffer, reslt, U->socket_m, address);
 					}
 				}
 			
@@ -142,20 +181,33 @@ void* CUdp::recv_proc(void* p)
 		
 	}								
 end:
+	if(NULL !=(cb = U->getcb( EXIT)))
+	{
+		((EXIT_CALLBACK)cb)(U->pcb[ EXIT], U->socket_m);
+	}
+	
 	return NULL;
 }
 
-int CUdp::sendmessage(const char* ip, short port, const char* message)
+int CUdp::sendmessage(const char* ip, short port, const char* message, unsigned int len)
 {
 	struct sockaddr_in address;
+	if(!ip)
+	{
+		return -1;
+	}
+	
 	memset(&address, 0, sizeof(address));
 	address.sin_family=AF_INET;
 	address.sin_port=htons(port);
 	address.sin_addr.s_addr=inet_addr(ip);
-
-	int reslt = sendto(this->socket_m, message, strlen(message) ,0,(struct sockaddr*)&address, sizeof(sockaddr_in));
 	
-	return reslt;
+	return sendmessage(address, message, len);
+}
+
+int CUdp::sendmessage(sockaddr_in addr, const char* message, unsigned int len)
+{
+	return sendto(this->socket_m, message, len ,0,(struct sockaddr*)&addr, sizeof(sockaddr_in));
 }
 
 int CUdp::recvmessage(const char* ip, short port, char* message, unsigned int len)
@@ -321,6 +373,8 @@ void* CTcp::recv_proc_client(void* p)
 	FD_ZERO(&o_set); 
 	FD_SET(T->socket_m, &o_set);
 	
+	void* cb = NULL;
+
 	while(T->isrun)
 	{
 		r_set = e_set = o_set;		
@@ -330,6 +384,8 @@ void* CTcp::recv_proc_client(void* p)
 		switch(reslt)
 		{
 		case 0:
+			if ( NULL != (cb = T->getcb(TIMEOUT)))
+				((TIMEOUT_CALLBACK)(cb))(T->pcb[TIMEOUT], T->socket_m);
 			continue;
 		case -1:
 			goto end;
@@ -337,6 +393,8 @@ void* CTcp::recv_proc_client(void* p)
 			//the expection is throw;
 			if(FD_ISSET(T->socket_m, &e_set))
 			{
+				if (NULL != (cb = T->getcb(EXCEPTION)))
+					((EXCEPTION_CALLBACK)cb)(T->pcb[EXCEPTION], T->socket_m);
 				goto end;
 			}
 			
@@ -351,14 +409,14 @@ void* CTcp::recv_proc_client(void* p)
 
 				if(reslt > 0)
 				{
-					if(T->recv_cb)
+					if(NULL !=(cb = T->getcb(READ)))
 					{
-				
-						T->recv_cb(T->pcb, buffer, reslt, T->socket_m);
+						((RECV_CALLBACK_TCP)cb)(T->pcb[READ], buffer, reslt, T->socket_m);
 					}
+				
 				}
 			
-				if(reslt < 0)
+				if(reslt <= 0)
 				{
 					printf("the recv tcp is error: %s \n", strerror(errno));
 					goto end;
@@ -371,6 +429,9 @@ void* CTcp::recv_proc_client(void* p)
 		
 	}								
 end:
+	
+	if (NULL != (cb = T->getcb(EXIT)))
+		((EXIT_CALLBACK)cb)(T->pcb[EXIT], T->socket_m);
 	return NULL;
 }
 
@@ -409,6 +470,7 @@ void* CTcp::recv_proc_server(void* p)
 	FD_ZERO(&o_set);
 	FD_SET(T->socket_m, &o_set);
 
+	void* cb;
 	while(T->isrun)
 	{
 		r_set = e_set = o_set;	
@@ -424,6 +486,8 @@ void* CTcp::recv_proc_server(void* p)
 		{
 		case 0:
 			printf("the server time is out\n");
+			if(NULL != (cb = T->getcb(TIMEOUT)))
+				((TIMEOUT_CALLBACK)cb)(T->pcb[TIMEOUT], T->socket_m);
 			continue;
 		case -1:
 			printf("the server select is wrong %s \n", strerror(errno));
@@ -448,9 +512,9 @@ void* CTcp::recv_proc_server(void* p)
 						
 						continue;
 					}
-					else if(T->recv_cb)
+					else if(NULL != (cb = T->getcb(READ)))
 					{
-						T->recv_cb(T->pcb, buffer, recv_len, *iter);
+						((RECV_CALLBACK_TCP)cb)(T->pcb[READ], buffer, recv_len, *iter);
 					}
 				}
 				else if(FD_ISSET(*iter, &e_set))
@@ -461,7 +525,9 @@ void* CTcp::recv_proc_server(void* p)
 					FD_CLR(*iter,&o_set);
 					change = (Max_Fd == *iter);
 					iter = s_list.erase(iter);
-				
+					
+					if(NULL != (cb = T->getcb(EXCEPTION)))	
+							((EXCEPTION_CALLBACK)cb)(T->pcb[EXCEPTION],*iter);
 					continue;
 				}
 
@@ -484,6 +550,8 @@ void* CTcp::recv_proc_server(void* p)
 			printf("<<<<<<<<<<<<<<<<<<<\n");
 			if(FD_ISSET(T->socket_m, &e_set))
 			{
+				if (NULL != (cb = T->getcb(EXCEPTION)))
+					((EXCEPTION_CALLBACK)cb)(T->pcb[EXCEPTION], T->socket_m);
 				goto s_end;
 			}
 		}	
@@ -492,6 +560,10 @@ void* CTcp::recv_proc_server(void* p)
 s_end:
 	for(iter = s_list.begin(); iter!=s_list.end();iter++)
 		close(*iter);
+
+	
+	if (NULL != (cb = T->getcb(EXIT)))
+		((EXIT_CALLBACK)cb)(T->pcb[ EXIT], T->socket_m);
 
 	printf("exit the thread \n");
 	return NULL;
