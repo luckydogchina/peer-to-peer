@@ -279,6 +279,76 @@ static void* recv_cb_ch(void* p, const char* message , unsigned int len, int& s)
 	return NULL;
 }
 
+typedef int(*SERVANT_API)(Packet& p);
+
+int servant_connect(Packet& p)
+{
+	if (!p.has_cnt())
+	{
+		printf("the connect struct is not exist!\n");
+		return -1;
+	}
+
+	Connect cnt = p.cnt();
+	if (!cnt.has_peer())
+	{
+		printf("the peer is not exist!\n");
+		return -1;
+	}
+
+	//TODO: Info the B 
+
+	//TODO: get the A socket, end return the reuslt 
+}
+
+int servant_getuseronline(Packet& p)
+{
+	GetUserOnline_r lr;
+	for (std::map<string, SUser>::iterator iter = list_usr.begin();
+		iter != list_usr.end(); iter++)
+	{
+		lr.add_user_online(iter->first);
+	}
+
+	//TODO: sent to requester;
+}
+
+int servant_info(Packet& p)
+{
+	
+}
+
+std::map<p2p::API_ID, SERVANT_API> list_api;
+
+static void* recv_cb_ch(void* p, const char* message, unsigned int len, int& s)
+{
+	Packet p;
+	
+	if (!p.has_api_id())
+	{
+		printf("don't have api id\n");
+		return NULL;
+	}
+	
+	std::map<p2p::API_ID, SERVANT_API>::iterator iter;
+	iter = list_api.find(p.api_id());
+
+	if (iter == list_api.end())
+	{
+		printf("the api is not exist\n");
+		return NULL;
+	}
+
+	if (!*iter->second(p))
+	{
+		printf("the reslt is error \n");
+	}
+
+	return NULL;
+}
+
+
+
 int start()
 {
 	CServer = new CUdp();

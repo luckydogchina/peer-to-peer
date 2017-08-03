@@ -32,27 +32,24 @@
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 namespace p2p {
-class Address;
-class AddressDefaultTypeInternal;
-extern AddressDefaultTypeInternal _Address_default_instance_;
-class Command;
-class CommandDefaultTypeInternal;
-extern CommandDefaultTypeInternal _Command_default_instance_;
-class Indication;
-class IndicationDefaultTypeInternal;
-extern IndicationDefaultTypeInternal _Indication_default_instance_;
-class Msg;
-class MsgDefaultTypeInternal;
-extern MsgDefaultTypeInternal _Msg_default_instance_;
-class Request;
-class RequestDefaultTypeInternal;
-extern RequestDefaultTypeInternal _Request_default_instance_;
-class Respond;
-class RespondDefaultTypeInternal;
-extern RespondDefaultTypeInternal _Respond_default_instance_;
-class Transcation;
-class TranscationDefaultTypeInternal;
-extern TranscationDefaultTypeInternal _Transcation_default_instance_;
+class Connect;
+class ConnectDefaultTypeInternal;
+extern ConnectDefaultTypeInternal _Connect_default_instance_;
+class Connect_r;
+class Connect_rDefaultTypeInternal;
+extern Connect_rDefaultTypeInternal _Connect_r_default_instance_;
+class GetUserOnline_r;
+class GetUserOnline_rDefaultTypeInternal;
+extern GetUserOnline_rDefaultTypeInternal _GetUserOnline_r_default_instance_;
+class Info;
+class InfoDefaultTypeInternal;
+extern InfoDefaultTypeInternal _Info_default_instance_;
+class Info_r;
+class Info_rDefaultTypeInternal;
+extern Info_rDefaultTypeInternal _Info_r_default_instance_;
+class Packet;
+class PacketDefaultTypeInternal;
+extern PacketDefaultTypeInternal _Packet_default_instance_;
 }  // namespace p2p
 
 namespace p2p {
@@ -71,50 +68,27 @@ void AddDescriptors();
 void InitDefaults();
 }  // namespace protobuf_peer_2dto_2dpeer_2eproto
 
-enum Msg_MsgType {
-  Msg_MsgType_REQUEST = 1,
-  Msg_MsgType_RESPOND = 2,
-  Msg_MsgType_COMMAND = 3,
-  Msg_MsgType_INDICATION = 4,
-  Msg_MsgType_TRANSCATION = 5
+enum API_ID {
+  GETUSERONLINE = 1,
+  CONNECT = 2,
+  INFO = 3,
+  OFFLINE = 4,
+  HEART = 5
 };
-bool Msg_MsgType_IsValid(int value);
-const Msg_MsgType Msg_MsgType_MsgType_MIN = Msg_MsgType_REQUEST;
-const Msg_MsgType Msg_MsgType_MsgType_MAX = Msg_MsgType_TRANSCATION;
-const int Msg_MsgType_MsgType_ARRAYSIZE = Msg_MsgType_MsgType_MAX + 1;
+bool API_ID_IsValid(int value);
+const API_ID API_ID_MIN = GETUSERONLINE;
+const API_ID API_ID_MAX = HEART;
+const int API_ID_ARRAYSIZE = API_ID_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* Msg_MsgType_descriptor();
-inline const ::std::string& Msg_MsgType_Name(Msg_MsgType value) {
+const ::google::protobuf::EnumDescriptor* API_ID_descriptor();
+inline const ::std::string& API_ID_Name(API_ID value) {
   return ::google::protobuf::internal::NameOfEnum(
-    Msg_MsgType_descriptor(), value);
+    API_ID_descriptor(), value);
 }
-inline bool Msg_MsgType_Parse(
-    const ::std::string& name, Msg_MsgType* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<Msg_MsgType>(
-    Msg_MsgType_descriptor(), name, value);
-}
-enum ActionType {
-  PEERONLINE = 1,
-  CONNECTA = 2,
-  CONNECTB = 4,
-  HELLO = 3,
-  HOLE = 5,
-  HEART = 6
-};
-bool ActionType_IsValid(int value);
-const ActionType ActionType_MIN = PEERONLINE;
-const ActionType ActionType_MAX = HEART;
-const int ActionType_ARRAYSIZE = ActionType_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* ActionType_descriptor();
-inline const ::std::string& ActionType_Name(ActionType value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    ActionType_descriptor(), value);
-}
-inline bool ActionType_Parse(
-    const ::std::string& name, ActionType* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<ActionType>(
-    ActionType_descriptor(), name, value);
+inline bool API_ID_Parse(
+    const ::std::string& name, API_ID* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<API_ID>(
+    API_ID_descriptor(), name, value);
 }
 enum StatusType {
   SUCCESS = 1,
@@ -140,14 +114,14 @@ inline bool StatusType_Parse(
 }
 // ===================================================================
 
-class Address : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:p2p.Address) */ {
+class Connect : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:p2p.Connect) */ {
  public:
-  Address();
-  virtual ~Address();
+  Connect();
+  virtual ~Connect();
 
-  Address(const Address& from);
+  Connect(const Connect& from);
 
-  inline Address& operator=(const Address& from) {
+  inline Connect& operator=(const Connect& from) {
     CopyFrom(from);
     return *this;
   }
@@ -161,26 +135,26 @@ class Address : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Address& default_instance();
+  static const Connect& default_instance();
 
-  static inline const Address* internal_default_instance() {
-    return reinterpret_cast<const Address*>(
-               &_Address_default_instance_);
+  static inline const Connect* internal_default_instance() {
+    return reinterpret_cast<const Connect*>(
+               &_Connect_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
     0;
 
-  void Swap(Address* other);
+  void Swap(Connect* other);
 
   // implements Message ----------------------------------------------
 
-  inline Address* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline Connect* New() const PROTOBUF_FINAL { return New(NULL); }
 
-  Address* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  Connect* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
   void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
   void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const Address& from);
-  void MergeFrom(const Address& from);
+  void CopyFrom(const Connect& from);
+  void MergeFrom(const Connect& from);
   void Clear() PROTOBUF_FINAL;
   bool IsInitialized() const PROTOBUF_FINAL;
 
@@ -196,7 +170,7 @@ class Address : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(Address* other);
+  void InternalSwap(Connect* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -212,55 +186,42 @@ class Address : public ::google::protobuf::Message /* @@protoc_insertion_point(c
 
   // accessors -------------------------------------------------------
 
-  // required string ip = 1;
-  bool has_ip() const;
-  void clear_ip();
-  static const int kIpFieldNumber = 1;
-  const ::std::string& ip() const;
-  void set_ip(const ::std::string& value);
+  // required string peer = 1;
+  bool has_peer() const;
+  void clear_peer();
+  static const int kPeerFieldNumber = 1;
+  const ::std::string& peer() const;
+  void set_peer(const ::std::string& value);
   #if LANG_CXX11
-  void set_ip(::std::string&& value);
+  void set_peer(::std::string&& value);
   #endif
-  void set_ip(const char* value);
-  void set_ip(const char* value, size_t size);
-  ::std::string* mutable_ip();
-  ::std::string* release_ip();
-  void set_allocated_ip(::std::string* ip);
+  void set_peer(const char* value);
+  void set_peer(const char* value, size_t size);
+  ::std::string* mutable_peer();
+  ::std::string* release_peer();
+  void set_allocated_peer(::std::string* peer);
 
-  // required int32 port = 2;
-  bool has_port() const;
-  void clear_port();
-  static const int kPortFieldNumber = 2;
-  ::google::protobuf::int32 port() const;
-  void set_port(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:p2p.Address)
+  // @@protoc_insertion_point(class_scope:p2p.Connect)
  private:
-  void set_has_ip();
-  void clear_has_ip();
-  void set_has_port();
-  void clear_has_port();
-
-  // helper for ByteSizeLong()
-  size_t RequiredFieldsByteSizeFallback() const;
+  void set_has_peer();
+  void clear_has_peer();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr ip_;
-  ::google::protobuf::int32 port_;
+  ::google::protobuf::internal::ArenaStringPtr peer_;
   friend struct protobuf_peer_2dto_2dpeer_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
 
-class Request : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:p2p.Request) */ {
+class Connect_r : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:p2p.Connect_r) */ {
  public:
-  Request();
-  virtual ~Request();
+  Connect_r();
+  virtual ~Connect_r();
 
-  Request(const Request& from);
+  Connect_r(const Connect_r& from);
 
-  inline Request& operator=(const Request& from) {
+  inline Connect_r& operator=(const Connect_r& from) {
     CopyFrom(from);
     return *this;
   }
@@ -274,26 +235,26 @@ class Request : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Request& default_instance();
+  static const Connect_r& default_instance();
 
-  static inline const Request* internal_default_instance() {
-    return reinterpret_cast<const Request*>(
-               &_Request_default_instance_);
+  static inline const Connect_r* internal_default_instance() {
+    return reinterpret_cast<const Connect_r*>(
+               &_Connect_r_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
     1;
 
-  void Swap(Request* other);
+  void Swap(Connect_r* other);
 
   // implements Message ----------------------------------------------
 
-  inline Request* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline Connect_r* New() const PROTOBUF_FINAL { return New(NULL); }
 
-  Request* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  Connect_r* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
   void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
   void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const Request& from);
-  void MergeFrom(const Request& from);
+  void CopyFrom(const Connect_r& from);
+  void MergeFrom(const Connect_r& from);
   void Clear() PROTOBUF_FINAL;
   bool IsInitialized() const PROTOBUF_FINAL;
 
@@ -309,7 +270,7 @@ class Request : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(Request* other);
+  void InternalSwap(Connect_r* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -325,64 +286,34 @@ class Request : public ::google::protobuf::Message /* @@protoc_insertion_point(c
 
   // accessors -------------------------------------------------------
 
-  // optional string id = 2;
-  bool has_id() const;
-  void clear_id();
-  static const int kIdFieldNumber = 2;
-  const ::std::string& id() const;
-  void set_id(const ::std::string& value);
-  #if LANG_CXX11
-  void set_id(::std::string&& value);
-  #endif
-  void set_id(const char* value);
-  void set_id(const char* value, size_t size);
-  ::std::string* mutable_id();
-  ::std::string* release_id();
-  void set_allocated_id(::std::string* id);
+  // required .p2p.StatusType t = 1 [default = SUCCESS];
+  bool has_t() const;
+  void clear_t();
+  static const int kTFieldNumber = 1;
+  ::p2p::StatusType t() const;
+  void set_t(::p2p::StatusType value);
 
-  // optional .p2p.Address adr = 3;
-  bool has_adr() const;
-  void clear_adr();
-  static const int kAdrFieldNumber = 3;
-  const ::p2p::Address& adr() const;
-  ::p2p::Address* mutable_adr();
-  ::p2p::Address* release_adr();
-  void set_allocated_adr(::p2p::Address* adr);
-
-  // required .p2p.ActionType action = 1;
-  bool has_action() const;
-  void clear_action();
-  static const int kActionFieldNumber = 1;
-  ::p2p::ActionType action() const;
-  void set_action(::p2p::ActionType value);
-
-  // @@protoc_insertion_point(class_scope:p2p.Request)
+  // @@protoc_insertion_point(class_scope:p2p.Connect_r)
  private:
-  void set_has_action();
-  void clear_has_action();
-  void set_has_adr();
-  void clear_has_adr();
-  void set_has_id();
-  void clear_has_id();
+  void set_has_t();
+  void clear_has_t();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr id_;
-  ::p2p::Address* adr_;
-  int action_;
+  int t_;
   friend struct protobuf_peer_2dto_2dpeer_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
 
-class Respond : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:p2p.Respond) */ {
+class GetUserOnline_r : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:p2p.GetUserOnline_r) */ {
  public:
-  Respond();
-  virtual ~Respond();
+  GetUserOnline_r();
+  virtual ~GetUserOnline_r();
 
-  Respond(const Respond& from);
+  GetUserOnline_r(const GetUserOnline_r& from);
 
-  inline Respond& operator=(const Respond& from) {
+  inline GetUserOnline_r& operator=(const GetUserOnline_r& from) {
     CopyFrom(from);
     return *this;
   }
@@ -396,26 +327,26 @@ class Respond : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Respond& default_instance();
+  static const GetUserOnline_r& default_instance();
 
-  static inline const Respond* internal_default_instance() {
-    return reinterpret_cast<const Respond*>(
-               &_Respond_default_instance_);
+  static inline const GetUserOnline_r* internal_default_instance() {
+    return reinterpret_cast<const GetUserOnline_r*>(
+               &_GetUserOnline_r_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
     2;
 
-  void Swap(Respond* other);
+  void Swap(GetUserOnline_r* other);
 
   // implements Message ----------------------------------------------
 
-  inline Respond* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline GetUserOnline_r* New() const PROTOBUF_FINAL { return New(NULL); }
 
-  Respond* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  GetUserOnline_r* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
   void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
   void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const Respond& from);
-  void MergeFrom(const Respond& from);
+  void CopyFrom(const GetUserOnline_r& from);
+  void MergeFrom(const GetUserOnline_r& from);
   void Clear() PROTOBUF_FINAL;
   bool IsInitialized() const PROTOBUF_FINAL;
 
@@ -431,7 +362,7 @@ class Respond : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(Respond* other);
+  void InternalSwap(GetUserOnline_r* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -447,67 +378,47 @@ class Respond : public ::google::protobuf::Message /* @@protoc_insertion_point(c
 
   // accessors -------------------------------------------------------
 
-  // repeated string id = 3;
-  int id_size() const;
-  void clear_id();
-  static const int kIdFieldNumber = 3;
-  const ::std::string& id(int index) const;
-  ::std::string* mutable_id(int index);
-  void set_id(int index, const ::std::string& value);
+  // repeated string user_online = 1;
+  int user_online_size() const;
+  void clear_user_online();
+  static const int kUserOnlineFieldNumber = 1;
+  const ::std::string& user_online(int index) const;
+  ::std::string* mutable_user_online(int index);
+  void set_user_online(int index, const ::std::string& value);
   #if LANG_CXX11
-  void set_id(int index, ::std::string&& value);
+  void set_user_online(int index, ::std::string&& value);
   #endif
-  void set_id(int index, const char* value);
-  void set_id(int index, const char* value, size_t size);
-  ::std::string* add_id();
-  void add_id(const ::std::string& value);
+  void set_user_online(int index, const char* value);
+  void set_user_online(int index, const char* value, size_t size);
+  ::std::string* add_user_online();
+  void add_user_online(const ::std::string& value);
   #if LANG_CXX11
-  void add_id(::std::string&& value);
+  void add_user_online(::std::string&& value);
   #endif
-  void add_id(const char* value);
-  void add_id(const char* value, size_t size);
-  const ::google::protobuf::RepeatedPtrField< ::std::string>& id() const;
-  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_id();
+  void add_user_online(const char* value);
+  void add_user_online(const char* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField< ::std::string>& user_online() const;
+  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_user_online();
 
-  // required .p2p.ActionType action = 1;
-  bool has_action() const;
-  void clear_action();
-  static const int kActionFieldNumber = 1;
-  ::p2p::ActionType action() const;
-  void set_action(::p2p::ActionType value);
-
-  // optional .p2p.StatusType result = 4 [default = SUCCESS];
-  bool has_result() const;
-  void clear_result();
-  static const int kResultFieldNumber = 4;
-  ::p2p::StatusType result() const;
-  void set_result(::p2p::StatusType value);
-
-  // @@protoc_insertion_point(class_scope:p2p.Respond)
+  // @@protoc_insertion_point(class_scope:p2p.GetUserOnline_r)
  private:
-  void set_has_action();
-  void clear_has_action();
-  void set_has_result();
-  void clear_has_result();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> id_;
-  int action_;
-  int result_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> user_online_;
   friend struct protobuf_peer_2dto_2dpeer_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
 
-class Command : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:p2p.Command) */ {
+class Info : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:p2p.Info) */ {
  public:
-  Command();
-  virtual ~Command();
+  Info();
+  virtual ~Info();
 
-  Command(const Command& from);
+  Info(const Info& from);
 
-  inline Command& operator=(const Command& from) {
+  inline Info& operator=(const Info& from) {
     CopyFrom(from);
     return *this;
   }
@@ -521,26 +432,26 @@ class Command : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Command& default_instance();
+  static const Info& default_instance();
 
-  static inline const Command* internal_default_instance() {
-    return reinterpret_cast<const Command*>(
-               &_Command_default_instance_);
+  static inline const Info* internal_default_instance() {
+    return reinterpret_cast<const Info*>(
+               &_Info_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
     3;
 
-  void Swap(Command* other);
+  void Swap(Info* other);
 
   // implements Message ----------------------------------------------
 
-  inline Command* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline Info* New() const PROTOBUF_FINAL { return New(NULL); }
 
-  Command* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  Info* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
   void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
   void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const Command& from);
-  void MergeFrom(const Command& from);
+  void CopyFrom(const Info& from);
+  void MergeFrom(const Info& from);
   void Clear() PROTOBUF_FINAL;
   bool IsInitialized() const PROTOBUF_FINAL;
 
@@ -556,7 +467,7 @@ class Command : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(Command* other);
+  void InternalSwap(Info* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -572,55 +483,47 @@ class Command : public ::google::protobuf::Message /* @@protoc_insertion_point(c
 
   // accessors -------------------------------------------------------
 
-  // required string id = 2;
-  bool has_id() const;
-  void clear_id();
-  static const int kIdFieldNumber = 2;
-  const ::std::string& id() const;
-  void set_id(const ::std::string& value);
+  // repeated string peer = 1;
+  int peer_size() const;
+  void clear_peer();
+  static const int kPeerFieldNumber = 1;
+  const ::std::string& peer(int index) const;
+  ::std::string* mutable_peer(int index);
+  void set_peer(int index, const ::std::string& value);
   #if LANG_CXX11
-  void set_id(::std::string&& value);
+  void set_peer(int index, ::std::string&& value);
   #endif
-  void set_id(const char* value);
-  void set_id(const char* value, size_t size);
-  ::std::string* mutable_id();
-  ::std::string* release_id();
-  void set_allocated_id(::std::string* id);
+  void set_peer(int index, const char* value);
+  void set_peer(int index, const char* value, size_t size);
+  ::std::string* add_peer();
+  void add_peer(const ::std::string& value);
+  #if LANG_CXX11
+  void add_peer(::std::string&& value);
+  #endif
+  void add_peer(const char* value);
+  void add_peer(const char* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField< ::std::string>& peer() const;
+  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_peer();
 
-  // required .p2p.ActionType action = 1;
-  bool has_action() const;
-  void clear_action();
-  static const int kActionFieldNumber = 1;
-  ::p2p::ActionType action() const;
-  void set_action(::p2p::ActionType value);
-
-  // @@protoc_insertion_point(class_scope:p2p.Command)
+  // @@protoc_insertion_point(class_scope:p2p.Info)
  private:
-  void set_has_action();
-  void clear_has_action();
-  void set_has_id();
-  void clear_has_id();
-
-  // helper for ByteSizeLong()
-  size_t RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr id_;
-  int action_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> peer_;
   friend struct protobuf_peer_2dto_2dpeer_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
 
-class Indication : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:p2p.Indication) */ {
+class Info_r : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:p2p.Info_r) */ {
  public:
-  Indication();
-  virtual ~Indication();
+  Info_r();
+  virtual ~Info_r();
 
-  Indication(const Indication& from);
+  Info_r(const Info_r& from);
 
-  inline Indication& operator=(const Indication& from) {
+  inline Info_r& operator=(const Info_r& from) {
     CopyFrom(from);
     return *this;
   }
@@ -634,26 +537,26 @@ class Indication : public ::google::protobuf::Message /* @@protoc_insertion_poin
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Indication& default_instance();
+  static const Info_r& default_instance();
 
-  static inline const Indication* internal_default_instance() {
-    return reinterpret_cast<const Indication*>(
-               &_Indication_default_instance_);
+  static inline const Info_r* internal_default_instance() {
+    return reinterpret_cast<const Info_r*>(
+               &_Info_r_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
     4;
 
-  void Swap(Indication* other);
+  void Swap(Info_r* other);
 
   // implements Message ----------------------------------------------
 
-  inline Indication* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline Info_r* New() const PROTOBUF_FINAL { return New(NULL); }
 
-  Indication* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  Info_r* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
   void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
   void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const Indication& from);
-  void MergeFrom(const Indication& from);
+  void CopyFrom(const Info_r& from);
+  void MergeFrom(const Info_r& from);
   void Clear() PROTOBUF_FINAL;
   bool IsInitialized() const PROTOBUF_FINAL;
 
@@ -669,7 +572,7 @@ class Indication : public ::google::protobuf::Message /* @@protoc_insertion_poin
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(Indication* other);
+  void InternalSwap(Info_r* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -685,77 +588,34 @@ class Indication : public ::google::protobuf::Message /* @@protoc_insertion_poin
 
   // accessors -------------------------------------------------------
 
-  // optional string id = 3;
-  bool has_id() const;
-  void clear_id();
-  static const int kIdFieldNumber = 3;
-  const ::std::string& id() const;
-  void set_id(const ::std::string& value);
-  #if LANG_CXX11
-  void set_id(::std::string&& value);
-  #endif
-  void set_id(const char* value);
-  void set_id(const char* value, size_t size);
-  ::std::string* mutable_id();
-  ::std::string* release_id();
-  void set_allocated_id(::std::string* id);
+  // required .p2p.StatusType t = 1 [default = SUCCESS];
+  bool has_t() const;
+  void clear_t();
+  static const int kTFieldNumber = 1;
+  ::p2p::StatusType t() const;
+  void set_t(::p2p::StatusType value);
 
-  // optional .p2p.Address adr = 4;
-  bool has_adr() const;
-  void clear_adr();
-  static const int kAdrFieldNumber = 4;
-  const ::p2p::Address& adr() const;
-  ::p2p::Address* mutable_adr();
-  ::p2p::Address* release_adr();
-  void set_allocated_adr(::p2p::Address* adr);
-
-  // required .p2p.ActionType action = 1;
-  bool has_action() const;
-  void clear_action();
-  static const int kActionFieldNumber = 1;
-  ::p2p::ActionType action() const;
-  void set_action(::p2p::ActionType value);
-
-  // required .p2p.StatusType result = 2 [default = SUCCESS];
-  bool has_result() const;
-  void clear_result();
-  static const int kResultFieldNumber = 2;
-  ::p2p::StatusType result() const;
-  void set_result(::p2p::StatusType value);
-
-  // @@protoc_insertion_point(class_scope:p2p.Indication)
+  // @@protoc_insertion_point(class_scope:p2p.Info_r)
  private:
-  void set_has_action();
-  void clear_has_action();
-  void set_has_result();
-  void clear_has_result();
-  void set_has_id();
-  void clear_has_id();
-  void set_has_adr();
-  void clear_has_adr();
-
-  // helper for ByteSizeLong()
-  size_t RequiredFieldsByteSizeFallback() const;
+  void set_has_t();
+  void clear_has_t();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr id_;
-  ::p2p::Address* adr_;
-  int action_;
-  int result_;
+  int t_;
   friend struct protobuf_peer_2dto_2dpeer_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
 
-class Transcation : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:p2p.Transcation) */ {
+class Packet : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:p2p.Packet) */ {
  public:
-  Transcation();
-  virtual ~Transcation();
+  Packet();
+  virtual ~Packet();
 
-  Transcation(const Transcation& from);
+  Packet(const Packet& from);
 
-  inline Transcation& operator=(const Transcation& from) {
+  inline Packet& operator=(const Packet& from) {
     CopyFrom(from);
     return *this;
   }
@@ -769,26 +629,26 @@ class Transcation : public ::google::protobuf::Message /* @@protoc_insertion_poi
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Transcation& default_instance();
+  static const Packet& default_instance();
 
-  static inline const Transcation* internal_default_instance() {
-    return reinterpret_cast<const Transcation*>(
-               &_Transcation_default_instance_);
+  static inline const Packet* internal_default_instance() {
+    return reinterpret_cast<const Packet*>(
+               &_Packet_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
     5;
 
-  void Swap(Transcation* other);
+  void Swap(Packet* other);
 
   // implements Message ----------------------------------------------
 
-  inline Transcation* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline Packet* New() const PROTOBUF_FINAL { return New(NULL); }
 
-  Transcation* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  Packet* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
   void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
   void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const Transcation& from);
-  void MergeFrom(const Transcation& from);
+  void CopyFrom(const Packet& from);
+  void MergeFrom(const Packet& from);
   void Clear() PROTOBUF_FINAL;
   bool IsInitialized() const PROTOBUF_FINAL;
 
@@ -804,7 +664,7 @@ class Transcation : public ::google::protobuf::Message /* @@protoc_insertion_poi
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(Transcation* other);
+  void InternalSwap(Packet* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -817,151 +677,6 @@ class Transcation : public ::google::protobuf::Message /* @@protoc_insertion_poi
   ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
 
   // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // required bytes msg = 2;
-  bool has_msg() const;
-  void clear_msg();
-  static const int kMsgFieldNumber = 2;
-  const ::std::string& msg() const;
-  void set_msg(const ::std::string& value);
-  #if LANG_CXX11
-  void set_msg(::std::string&& value);
-  #endif
-  void set_msg(const char* value);
-  void set_msg(const void* value, size_t size);
-  ::std::string* mutable_msg();
-  ::std::string* release_msg();
-  void set_allocated_msg(::std::string* msg);
-
-  // required int32 len = 1;
-  bool has_len() const;
-  void clear_len();
-  static const int kLenFieldNumber = 1;
-  ::google::protobuf::int32 len() const;
-  void set_len(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:p2p.Transcation)
- private:
-  void set_has_len();
-  void clear_has_len();
-  void set_has_msg();
-  void clear_has_msg();
-
-  // helper for ByteSizeLong()
-  size_t RequiredFieldsByteSizeFallback() const;
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::HasBits<1> _has_bits_;
-  mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr msg_;
-  ::google::protobuf::int32 len_;
-  friend struct protobuf_peer_2dto_2dpeer_2eproto::TableStruct;
-};
-// -------------------------------------------------------------------
-
-class Msg : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:p2p.Msg) */ {
- public:
-  Msg();
-  virtual ~Msg();
-
-  Msg(const Msg& from);
-
-  inline Msg& operator=(const Msg& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields();
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Msg& default_instance();
-
-  static inline const Msg* internal_default_instance() {
-    return reinterpret_cast<const Msg*>(
-               &_Msg_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    6;
-
-  void Swap(Msg* other);
-
-  // implements Message ----------------------------------------------
-
-  inline Msg* New() const PROTOBUF_FINAL { return New(NULL); }
-
-  Msg* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const Msg& from);
-  void MergeFrom(const Msg& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(Msg* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  typedef Msg_MsgType MsgType;
-  static const MsgType REQUEST =
-    Msg_MsgType_REQUEST;
-  static const MsgType RESPOND =
-    Msg_MsgType_RESPOND;
-  static const MsgType COMMAND =
-    Msg_MsgType_COMMAND;
-  static const MsgType INDICATION =
-    Msg_MsgType_INDICATION;
-  static const MsgType TRANSCATION =
-    Msg_MsgType_TRANSCATION;
-  static inline bool MsgType_IsValid(int value) {
-    return Msg_MsgType_IsValid(value);
-  }
-  static const MsgType MsgType_MIN =
-    Msg_MsgType_MsgType_MIN;
-  static const MsgType MsgType_MAX =
-    Msg_MsgType_MsgType_MAX;
-  static const int MsgType_ARRAYSIZE =
-    Msg_MsgType_MsgType_ARRAYSIZE;
-  static inline const ::google::protobuf::EnumDescriptor*
-  MsgType_descriptor() {
-    return Msg_MsgType_descriptor();
-  }
-  static inline const ::std::string& MsgType_Name(MsgType value) {
-    return Msg_MsgType_Name(value);
-  }
-  static inline bool MsgType_Parse(const ::std::string& name,
-      MsgType* value) {
-    return Msg_MsgType_Parse(name, value);
-  }
 
   // accessors -------------------------------------------------------
 
@@ -980,74 +695,58 @@ class Msg : public ::google::protobuf::Message /* @@protoc_insertion_point(class
   ::std::string* release_version();
   void set_allocated_version(::std::string* version);
 
-  // optional .p2p.Request rqs = 3;
-  bool has_rqs() const;
-  void clear_rqs();
-  static const int kRqsFieldNumber = 3;
-  const ::p2p::Request& rqs() const;
-  ::p2p::Request* mutable_rqs();
-  ::p2p::Request* release_rqs();
-  void set_allocated_rqs(::p2p::Request* rqs);
+  // required string user_id = 3;
+  bool has_user_id() const;
+  void clear_user_id();
+  static const int kUserIdFieldNumber = 3;
+  const ::std::string& user_id() const;
+  void set_user_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_user_id(::std::string&& value);
+  #endif
+  void set_user_id(const char* value);
+  void set_user_id(const char* value, size_t size);
+  ::std::string* mutable_user_id();
+  ::std::string* release_user_id();
+  void set_allocated_user_id(::std::string* user_id);
 
-  // optional .p2p.Respond rsp = 4;
-  bool has_rsp() const;
-  void clear_rsp();
-  static const int kRspFieldNumber = 4;
-  const ::p2p::Respond& rsp() const;
-  ::p2p::Respond* mutable_rsp();
-  ::p2p::Respond* release_rsp();
-  void set_allocated_rsp(::p2p::Respond* rsp);
+  // optional .p2p.Connect cnt = 4;
+  bool has_cnt() const;
+  void clear_cnt();
+  static const int kCntFieldNumber = 4;
+  const ::p2p::Connect& cnt() const;
+  ::p2p::Connect* mutable_cnt();
+  ::p2p::Connect* release_cnt();
+  void set_allocated_cnt(::p2p::Connect* cnt);
 
-  // optional .p2p.Command cmd = 5;
-  bool has_cmd() const;
-  void clear_cmd();
-  static const int kCmdFieldNumber = 5;
-  const ::p2p::Command& cmd() const;
-  ::p2p::Command* mutable_cmd();
-  ::p2p::Command* release_cmd();
-  void set_allocated_cmd(::p2p::Command* cmd);
+  // optional .p2p.Info inf = 5;
+  bool has_inf() const;
+  void clear_inf();
+  static const int kInfFieldNumber = 5;
+  const ::p2p::Info& inf() const;
+  ::p2p::Info* mutable_inf();
+  ::p2p::Info* release_inf();
+  void set_allocated_inf(::p2p::Info* inf);
 
-  // optional .p2p.Indication idt = 6;
-  bool has_idt() const;
-  void clear_idt();
-  static const int kIdtFieldNumber = 6;
-  const ::p2p::Indication& idt() const;
-  ::p2p::Indication* mutable_idt();
-  ::p2p::Indication* release_idt();
-  void set_allocated_idt(::p2p::Indication* idt);
+  // required .p2p.API_ID api_id = 2;
+  bool has_api_id() const;
+  void clear_api_id();
+  static const int kApiIdFieldNumber = 2;
+  ::p2p::API_ID api_id() const;
+  void set_api_id(::p2p::API_ID value);
 
-  // optional .p2p.Transcation trs = 7;
-  bool has_trs() const;
-  void clear_trs();
-  static const int kTrsFieldNumber = 7;
-  const ::p2p::Transcation& trs() const;
-  ::p2p::Transcation* mutable_trs();
-  ::p2p::Transcation* release_trs();
-  void set_allocated_trs(::p2p::Transcation* trs);
-
-  // required .p2p.Msg.MsgType type = 2;
-  bool has_type() const;
-  void clear_type();
-  static const int kTypeFieldNumber = 2;
-  ::p2p::Msg_MsgType type() const;
-  void set_type(::p2p::Msg_MsgType value);
-
-  // @@protoc_insertion_point(class_scope:p2p.Msg)
+  // @@protoc_insertion_point(class_scope:p2p.Packet)
  private:
   void set_has_version();
   void clear_has_version();
-  void set_has_type();
-  void clear_has_type();
-  void set_has_rqs();
-  void clear_has_rqs();
-  void set_has_rsp();
-  void clear_has_rsp();
-  void set_has_cmd();
-  void clear_has_cmd();
-  void set_has_idt();
-  void clear_has_idt();
-  void set_has_trs();
-  void clear_has_trs();
+  void set_has_api_id();
+  void clear_has_api_id();
+  void set_has_user_id();
+  void clear_has_user_id();
+  void set_has_cnt();
+  void clear_has_cnt();
+  void set_has_inf();
+  void clear_has_inf();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -1057,12 +756,10 @@ class Msg : public ::google::protobuf::Message /* @@protoc_insertion_point(class
   mutable int _cached_size_;
   static ::google::protobuf::internal::ExplicitlyConstructed< ::std::string> _default_version_;
   ::google::protobuf::internal::ArenaStringPtr version_;
-  ::p2p::Request* rqs_;
-  ::p2p::Respond* rsp_;
-  ::p2p::Command* cmd_;
-  ::p2p::Indication* idt_;
-  ::p2p::Transcation* trs_;
-  int type_;
+  ::google::protobuf::internal::ArenaStringPtr user_id_;
+  ::p2p::Connect* cnt_;
+  ::p2p::Info* inf_;
+  int api_id_;
   friend struct protobuf_peer_2dto_2dpeer_2eproto::TableStruct;
 };
 // ===================================================================
@@ -1071,1020 +768,521 @@ class Msg : public ::google::protobuf::Message /* @@protoc_insertion_point(class
 // ===================================================================
 
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
-// Address
+// Connect
 
-// required string ip = 1;
-inline bool Address::has_ip() const {
+// required string peer = 1;
+inline bool Connect::has_peer() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void Address::set_has_ip() {
+inline void Connect::set_has_peer() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void Address::clear_has_ip() {
+inline void Connect::clear_has_peer() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void Address::clear_ip() {
-  ip_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_ip();
+inline void Connect::clear_peer() {
+  peer_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_peer();
 }
-inline const ::std::string& Address::ip() const {
-  // @@protoc_insertion_point(field_get:p2p.Address.ip)
-  return ip_.GetNoArena();
+inline const ::std::string& Connect::peer() const {
+  // @@protoc_insertion_point(field_get:p2p.Connect.peer)
+  return peer_.GetNoArena();
 }
-inline void Address::set_ip(const ::std::string& value) {
-  set_has_ip();
-  ip_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:p2p.Address.ip)
+inline void Connect::set_peer(const ::std::string& value) {
+  set_has_peer();
+  peer_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:p2p.Connect.peer)
 }
 #if LANG_CXX11
-inline void Address::set_ip(::std::string&& value) {
-  set_has_ip();
-  ip_.SetNoArena(
+inline void Connect::set_peer(::std::string&& value) {
+  set_has_peer();
+  peer_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:p2p.Address.ip)
+  // @@protoc_insertion_point(field_set_rvalue:p2p.Connect.peer)
 }
 #endif
-inline void Address::set_ip(const char* value) {
+inline void Connect::set_peer(const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  set_has_ip();
-  ip_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:p2p.Address.ip)
+  set_has_peer();
+  peer_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:p2p.Connect.peer)
 }
-inline void Address::set_ip(const char* value, size_t size) {
-  set_has_ip();
-  ip_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+inline void Connect::set_peer(const char* value, size_t size) {
+  set_has_peer();
+  peer_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:p2p.Address.ip)
+  // @@protoc_insertion_point(field_set_pointer:p2p.Connect.peer)
 }
-inline ::std::string* Address::mutable_ip() {
-  set_has_ip();
-  // @@protoc_insertion_point(field_mutable:p2p.Address.ip)
-  return ip_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* Connect::mutable_peer() {
+  set_has_peer();
+  // @@protoc_insertion_point(field_mutable:p2p.Connect.peer)
+  return peer_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* Address::release_ip() {
-  // @@protoc_insertion_point(field_release:p2p.Address.ip)
-  clear_has_ip();
-  return ip_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* Connect::release_peer() {
+  // @@protoc_insertion_point(field_release:p2p.Connect.peer)
+  clear_has_peer();
+  return peer_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void Address::set_allocated_ip(::std::string* ip) {
-  if (ip != NULL) {
-    set_has_ip();
+inline void Connect::set_allocated_peer(::std::string* peer) {
+  if (peer != NULL) {
+    set_has_peer();
   } else {
-    clear_has_ip();
+    clear_has_peer();
   }
-  ip_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ip);
-  // @@protoc_insertion_point(field_set_allocated:p2p.Address.ip)
-}
-
-// required int32 port = 2;
-inline bool Address::has_port() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Address::set_has_port() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Address::clear_has_port() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void Address::clear_port() {
-  port_ = 0;
-  clear_has_port();
-}
-inline ::google::protobuf::int32 Address::port() const {
-  // @@protoc_insertion_point(field_get:p2p.Address.port)
-  return port_;
-}
-inline void Address::set_port(::google::protobuf::int32 value) {
-  set_has_port();
-  port_ = value;
-  // @@protoc_insertion_point(field_set:p2p.Address.port)
+  peer_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), peer);
+  // @@protoc_insertion_point(field_set_allocated:p2p.Connect.peer)
 }
 
 // -------------------------------------------------------------------
 
-// Request
+// Connect_r
 
-// required .p2p.ActionType action = 1;
-inline bool Request::has_action() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void Request::set_has_action() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void Request::clear_has_action() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void Request::clear_action() {
-  action_ = 1;
-  clear_has_action();
-}
-inline ::p2p::ActionType Request::action() const {
-  // @@protoc_insertion_point(field_get:p2p.Request.action)
-  return static_cast< ::p2p::ActionType >(action_);
-}
-inline void Request::set_action(::p2p::ActionType value) {
-  assert(::p2p::ActionType_IsValid(value));
-  set_has_action();
-  action_ = value;
-  // @@protoc_insertion_point(field_set:p2p.Request.action)
-}
-
-// optional .p2p.Address adr = 3;
-inline bool Request::has_adr() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Request::set_has_adr() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Request::clear_has_adr() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void Request::clear_adr() {
-  if (adr_ != NULL) adr_->::p2p::Address::Clear();
-  clear_has_adr();
-}
-inline const ::p2p::Address& Request::adr() const {
-  // @@protoc_insertion_point(field_get:p2p.Request.adr)
-  return adr_ != NULL ? *adr_
-                         : *::p2p::Address::internal_default_instance();
-}
-inline ::p2p::Address* Request::mutable_adr() {
-  set_has_adr();
-  if (adr_ == NULL) {
-    adr_ = new ::p2p::Address;
-  }
-  // @@protoc_insertion_point(field_mutable:p2p.Request.adr)
-  return adr_;
-}
-inline ::p2p::Address* Request::release_adr() {
-  // @@protoc_insertion_point(field_release:p2p.Request.adr)
-  clear_has_adr();
-  ::p2p::Address* temp = adr_;
-  adr_ = NULL;
-  return temp;
-}
-inline void Request::set_allocated_adr(::p2p::Address* adr) {
-  delete adr_;
-  adr_ = adr;
-  if (adr) {
-    set_has_adr();
-  } else {
-    clear_has_adr();
-  }
-  // @@protoc_insertion_point(field_set_allocated:p2p.Request.adr)
-}
-
-// optional string id = 2;
-inline bool Request::has_id() const {
+// required .p2p.StatusType t = 1 [default = SUCCESS];
+inline bool Connect_r::has_t() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void Request::set_has_id() {
+inline void Connect_r::set_has_t() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void Request::clear_has_id() {
+inline void Connect_r::clear_has_t() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void Request::clear_id() {
-  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_id();
+inline void Connect_r::clear_t() {
+  t_ = 1;
+  clear_has_t();
 }
-inline const ::std::string& Request::id() const {
-  // @@protoc_insertion_point(field_get:p2p.Request.id)
-  return id_.GetNoArena();
+inline ::p2p::StatusType Connect_r::t() const {
+  // @@protoc_insertion_point(field_get:p2p.Connect_r.t)
+  return static_cast< ::p2p::StatusType >(t_);
 }
-inline void Request::set_id(const ::std::string& value) {
-  set_has_id();
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:p2p.Request.id)
-}
-#if LANG_CXX11
-inline void Request::set_id(::std::string&& value) {
-  set_has_id();
-  id_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:p2p.Request.id)
-}
-#endif
-inline void Request::set_id(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_id();
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:p2p.Request.id)
-}
-inline void Request::set_id(const char* value, size_t size) {
-  set_has_id();
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:p2p.Request.id)
-}
-inline ::std::string* Request::mutable_id() {
-  set_has_id();
-  // @@protoc_insertion_point(field_mutable:p2p.Request.id)
-  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* Request::release_id() {
-  // @@protoc_insertion_point(field_release:p2p.Request.id)
-  clear_has_id();
-  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void Request::set_allocated_id(::std::string* id) {
-  if (id != NULL) {
-    set_has_id();
-  } else {
-    clear_has_id();
-  }
-  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
-  // @@protoc_insertion_point(field_set_allocated:p2p.Request.id)
+inline void Connect_r::set_t(::p2p::StatusType value) {
+  assert(::p2p::StatusType_IsValid(value));
+  set_has_t();
+  t_ = value;
+  // @@protoc_insertion_point(field_set:p2p.Connect_r.t)
 }
 
 // -------------------------------------------------------------------
 
-// Respond
+// GetUserOnline_r
 
-// required .p2p.ActionType action = 1;
-inline bool Respond::has_action() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+// repeated string user_online = 1;
+inline int GetUserOnline_r::user_online_size() const {
+  return user_online_.size();
 }
-inline void Respond::set_has_action() {
-  _has_bits_[0] |= 0x00000001u;
+inline void GetUserOnline_r::clear_user_online() {
+  user_online_.Clear();
 }
-inline void Respond::clear_has_action() {
-  _has_bits_[0] &= ~0x00000001u;
+inline const ::std::string& GetUserOnline_r::user_online(int index) const {
+  // @@protoc_insertion_point(field_get:p2p.GetUserOnline_r.user_online)
+  return user_online_.Get(index);
 }
-inline void Respond::clear_action() {
-  action_ = 1;
-  clear_has_action();
+inline ::std::string* GetUserOnline_r::mutable_user_online(int index) {
+  // @@protoc_insertion_point(field_mutable:p2p.GetUserOnline_r.user_online)
+  return user_online_.Mutable(index);
 }
-inline ::p2p::ActionType Respond::action() const {
-  // @@protoc_insertion_point(field_get:p2p.Respond.action)
-  return static_cast< ::p2p::ActionType >(action_);
-}
-inline void Respond::set_action(::p2p::ActionType value) {
-  assert(::p2p::ActionType_IsValid(value));
-  set_has_action();
-  action_ = value;
-  // @@protoc_insertion_point(field_set:p2p.Respond.action)
-}
-
-// repeated string id = 3;
-inline int Respond::id_size() const {
-  return id_.size();
-}
-inline void Respond::clear_id() {
-  id_.Clear();
-}
-inline const ::std::string& Respond::id(int index) const {
-  // @@protoc_insertion_point(field_get:p2p.Respond.id)
-  return id_.Get(index);
-}
-inline ::std::string* Respond::mutable_id(int index) {
-  // @@protoc_insertion_point(field_mutable:p2p.Respond.id)
-  return id_.Mutable(index);
-}
-inline void Respond::set_id(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:p2p.Respond.id)
-  id_.Mutable(index)->assign(value);
+inline void GetUserOnline_r::set_user_online(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:p2p.GetUserOnline_r.user_online)
+  user_online_.Mutable(index)->assign(value);
 }
 #if LANG_CXX11
-inline void Respond::set_id(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:p2p.Respond.id)
-  id_.Mutable(index)->assign(std::move(value));
+inline void GetUserOnline_r::set_user_online(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:p2p.GetUserOnline_r.user_online)
+  user_online_.Mutable(index)->assign(std::move(value));
 }
 #endif
-inline void Respond::set_id(int index, const char* value) {
+inline void GetUserOnline_r::set_user_online(int index, const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  id_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:p2p.Respond.id)
+  user_online_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:p2p.GetUserOnline_r.user_online)
 }
-inline void Respond::set_id(int index, const char* value, size_t size) {
-  id_.Mutable(index)->assign(
+inline void GetUserOnline_r::set_user_online(int index, const char* value, size_t size) {
+  user_online_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:p2p.Respond.id)
+  // @@protoc_insertion_point(field_set_pointer:p2p.GetUserOnline_r.user_online)
 }
-inline ::std::string* Respond::add_id() {
-  // @@protoc_insertion_point(field_add_mutable:p2p.Respond.id)
-  return id_.Add();
+inline ::std::string* GetUserOnline_r::add_user_online() {
+  // @@protoc_insertion_point(field_add_mutable:p2p.GetUserOnline_r.user_online)
+  return user_online_.Add();
 }
-inline void Respond::add_id(const ::std::string& value) {
-  id_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:p2p.Respond.id)
+inline void GetUserOnline_r::add_user_online(const ::std::string& value) {
+  user_online_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:p2p.GetUserOnline_r.user_online)
 }
 #if LANG_CXX11
-inline void Respond::add_id(::std::string&& value) {
-  id_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:p2p.Respond.id)
+inline void GetUserOnline_r::add_user_online(::std::string&& value) {
+  user_online_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:p2p.GetUserOnline_r.user_online)
 }
 #endif
-inline void Respond::add_id(const char* value) {
+inline void GetUserOnline_r::add_user_online(const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  id_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:p2p.Respond.id)
+  user_online_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:p2p.GetUserOnline_r.user_online)
 }
-inline void Respond::add_id(const char* value, size_t size) {
-  id_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:p2p.Respond.id)
+inline void GetUserOnline_r::add_user_online(const char* value, size_t size) {
+  user_online_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:p2p.GetUserOnline_r.user_online)
 }
 inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-Respond::id() const {
-  // @@protoc_insertion_point(field_list:p2p.Respond.id)
-  return id_;
+GetUserOnline_r::user_online() const {
+  // @@protoc_insertion_point(field_list:p2p.GetUserOnline_r.user_online)
+  return user_online_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-Respond::mutable_id() {
-  // @@protoc_insertion_point(field_mutable_list:p2p.Respond.id)
-  return &id_;
+GetUserOnline_r::mutable_user_online() {
+  // @@protoc_insertion_point(field_mutable_list:p2p.GetUserOnline_r.user_online)
+  return &user_online_;
 }
 
-// optional .p2p.StatusType result = 4 [default = SUCCESS];
-inline bool Respond::has_result() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+// -------------------------------------------------------------------
+
+// Info
+
+// repeated string peer = 1;
+inline int Info::peer_size() const {
+  return peer_.size();
 }
-inline void Respond::set_has_result() {
-  _has_bits_[0] |= 0x00000002u;
+inline void Info::clear_peer() {
+  peer_.Clear();
 }
-inline void Respond::clear_has_result() {
-  _has_bits_[0] &= ~0x00000002u;
+inline const ::std::string& Info::peer(int index) const {
+  // @@protoc_insertion_point(field_get:p2p.Info.peer)
+  return peer_.Get(index);
 }
-inline void Respond::clear_result() {
-  result_ = 1;
-  clear_has_result();
+inline ::std::string* Info::mutable_peer(int index) {
+  // @@protoc_insertion_point(field_mutable:p2p.Info.peer)
+  return peer_.Mutable(index);
 }
-inline ::p2p::StatusType Respond::result() const {
-  // @@protoc_insertion_point(field_get:p2p.Respond.result)
-  return static_cast< ::p2p::StatusType >(result_);
+inline void Info::set_peer(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:p2p.Info.peer)
+  peer_.Mutable(index)->assign(value);
 }
-inline void Respond::set_result(::p2p::StatusType value) {
+#if LANG_CXX11
+inline void Info::set_peer(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:p2p.Info.peer)
+  peer_.Mutable(index)->assign(std::move(value));
+}
+#endif
+inline void Info::set_peer(int index, const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  peer_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:p2p.Info.peer)
+}
+inline void Info::set_peer(int index, const char* value, size_t size) {
+  peer_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:p2p.Info.peer)
+}
+inline ::std::string* Info::add_peer() {
+  // @@protoc_insertion_point(field_add_mutable:p2p.Info.peer)
+  return peer_.Add();
+}
+inline void Info::add_peer(const ::std::string& value) {
+  peer_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:p2p.Info.peer)
+}
+#if LANG_CXX11
+inline void Info::add_peer(::std::string&& value) {
+  peer_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:p2p.Info.peer)
+}
+#endif
+inline void Info::add_peer(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  peer_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:p2p.Info.peer)
+}
+inline void Info::add_peer(const char* value, size_t size) {
+  peer_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:p2p.Info.peer)
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+Info::peer() const {
+  // @@protoc_insertion_point(field_list:p2p.Info.peer)
+  return peer_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+Info::mutable_peer() {
+  // @@protoc_insertion_point(field_mutable_list:p2p.Info.peer)
+  return &peer_;
+}
+
+// -------------------------------------------------------------------
+
+// Info_r
+
+// required .p2p.StatusType t = 1 [default = SUCCESS];
+inline bool Info_r::has_t() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Info_r::set_has_t() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Info_r::clear_has_t() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Info_r::clear_t() {
+  t_ = 1;
+  clear_has_t();
+}
+inline ::p2p::StatusType Info_r::t() const {
+  // @@protoc_insertion_point(field_get:p2p.Info_r.t)
+  return static_cast< ::p2p::StatusType >(t_);
+}
+inline void Info_r::set_t(::p2p::StatusType value) {
   assert(::p2p::StatusType_IsValid(value));
-  set_has_result();
-  result_ = value;
-  // @@protoc_insertion_point(field_set:p2p.Respond.result)
+  set_has_t();
+  t_ = value;
+  // @@protoc_insertion_point(field_set:p2p.Info_r.t)
 }
 
 // -------------------------------------------------------------------
 
-// Command
-
-// required .p2p.ActionType action = 1;
-inline bool Command::has_action() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Command::set_has_action() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Command::clear_has_action() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void Command::clear_action() {
-  action_ = 1;
-  clear_has_action();
-}
-inline ::p2p::ActionType Command::action() const {
-  // @@protoc_insertion_point(field_get:p2p.Command.action)
-  return static_cast< ::p2p::ActionType >(action_);
-}
-inline void Command::set_action(::p2p::ActionType value) {
-  assert(::p2p::ActionType_IsValid(value));
-  set_has_action();
-  action_ = value;
-  // @@protoc_insertion_point(field_set:p2p.Command.action)
-}
-
-// required string id = 2;
-inline bool Command::has_id() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Command::set_has_id() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Command::clear_has_id() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void Command::clear_id() {
-  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_id();
-}
-inline const ::std::string& Command::id() const {
-  // @@protoc_insertion_point(field_get:p2p.Command.id)
-  return id_.GetNoArena();
-}
-inline void Command::set_id(const ::std::string& value) {
-  set_has_id();
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:p2p.Command.id)
-}
-#if LANG_CXX11
-inline void Command::set_id(::std::string&& value) {
-  set_has_id();
-  id_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:p2p.Command.id)
-}
-#endif
-inline void Command::set_id(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_id();
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:p2p.Command.id)
-}
-inline void Command::set_id(const char* value, size_t size) {
-  set_has_id();
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:p2p.Command.id)
-}
-inline ::std::string* Command::mutable_id() {
-  set_has_id();
-  // @@protoc_insertion_point(field_mutable:p2p.Command.id)
-  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* Command::release_id() {
-  // @@protoc_insertion_point(field_release:p2p.Command.id)
-  clear_has_id();
-  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void Command::set_allocated_id(::std::string* id) {
-  if (id != NULL) {
-    set_has_id();
-  } else {
-    clear_has_id();
-  }
-  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
-  // @@protoc_insertion_point(field_set_allocated:p2p.Command.id)
-}
-
-// -------------------------------------------------------------------
-
-// Indication
-
-// required .p2p.ActionType action = 1;
-inline bool Indication::has_action() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void Indication::set_has_action() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void Indication::clear_has_action() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void Indication::clear_action() {
-  action_ = 1;
-  clear_has_action();
-}
-inline ::p2p::ActionType Indication::action() const {
-  // @@protoc_insertion_point(field_get:p2p.Indication.action)
-  return static_cast< ::p2p::ActionType >(action_);
-}
-inline void Indication::set_action(::p2p::ActionType value) {
-  assert(::p2p::ActionType_IsValid(value));
-  set_has_action();
-  action_ = value;
-  // @@protoc_insertion_point(field_set:p2p.Indication.action)
-}
-
-// required .p2p.StatusType result = 2 [default = SUCCESS];
-inline bool Indication::has_result() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void Indication::set_has_result() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void Indication::clear_has_result() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline void Indication::clear_result() {
-  result_ = 1;
-  clear_has_result();
-}
-inline ::p2p::StatusType Indication::result() const {
-  // @@protoc_insertion_point(field_get:p2p.Indication.result)
-  return static_cast< ::p2p::StatusType >(result_);
-}
-inline void Indication::set_result(::p2p::StatusType value) {
-  assert(::p2p::StatusType_IsValid(value));
-  set_has_result();
-  result_ = value;
-  // @@protoc_insertion_point(field_set:p2p.Indication.result)
-}
-
-// optional string id = 3;
-inline bool Indication::has_id() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Indication::set_has_id() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Indication::clear_has_id() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void Indication::clear_id() {
-  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_id();
-}
-inline const ::std::string& Indication::id() const {
-  // @@protoc_insertion_point(field_get:p2p.Indication.id)
-  return id_.GetNoArena();
-}
-inline void Indication::set_id(const ::std::string& value) {
-  set_has_id();
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:p2p.Indication.id)
-}
-#if LANG_CXX11
-inline void Indication::set_id(::std::string&& value) {
-  set_has_id();
-  id_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:p2p.Indication.id)
-}
-#endif
-inline void Indication::set_id(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_id();
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:p2p.Indication.id)
-}
-inline void Indication::set_id(const char* value, size_t size) {
-  set_has_id();
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:p2p.Indication.id)
-}
-inline ::std::string* Indication::mutable_id() {
-  set_has_id();
-  // @@protoc_insertion_point(field_mutable:p2p.Indication.id)
-  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* Indication::release_id() {
-  // @@protoc_insertion_point(field_release:p2p.Indication.id)
-  clear_has_id();
-  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void Indication::set_allocated_id(::std::string* id) {
-  if (id != NULL) {
-    set_has_id();
-  } else {
-    clear_has_id();
-  }
-  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
-  // @@protoc_insertion_point(field_set_allocated:p2p.Indication.id)
-}
-
-// optional .p2p.Address adr = 4;
-inline bool Indication::has_adr() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Indication::set_has_adr() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Indication::clear_has_adr() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void Indication::clear_adr() {
-  if (adr_ != NULL) adr_->::p2p::Address::Clear();
-  clear_has_adr();
-}
-inline const ::p2p::Address& Indication::adr() const {
-  // @@protoc_insertion_point(field_get:p2p.Indication.adr)
-  return adr_ != NULL ? *adr_
-                         : *::p2p::Address::internal_default_instance();
-}
-inline ::p2p::Address* Indication::mutable_adr() {
-  set_has_adr();
-  if (adr_ == NULL) {
-    adr_ = new ::p2p::Address;
-  }
-  // @@protoc_insertion_point(field_mutable:p2p.Indication.adr)
-  return adr_;
-}
-inline ::p2p::Address* Indication::release_adr() {
-  // @@protoc_insertion_point(field_release:p2p.Indication.adr)
-  clear_has_adr();
-  ::p2p::Address* temp = adr_;
-  adr_ = NULL;
-  return temp;
-}
-inline void Indication::set_allocated_adr(::p2p::Address* adr) {
-  delete adr_;
-  adr_ = adr;
-  if (adr) {
-    set_has_adr();
-  } else {
-    clear_has_adr();
-  }
-  // @@protoc_insertion_point(field_set_allocated:p2p.Indication.adr)
-}
-
-// -------------------------------------------------------------------
-
-// Transcation
-
-// required int32 len = 1;
-inline bool Transcation::has_len() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Transcation::set_has_len() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Transcation::clear_has_len() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void Transcation::clear_len() {
-  len_ = 0;
-  clear_has_len();
-}
-inline ::google::protobuf::int32 Transcation::len() const {
-  // @@protoc_insertion_point(field_get:p2p.Transcation.len)
-  return len_;
-}
-inline void Transcation::set_len(::google::protobuf::int32 value) {
-  set_has_len();
-  len_ = value;
-  // @@protoc_insertion_point(field_set:p2p.Transcation.len)
-}
-
-// required bytes msg = 2;
-inline bool Transcation::has_msg() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void Transcation::set_has_msg() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void Transcation::clear_has_msg() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void Transcation::clear_msg() {
-  msg_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_msg();
-}
-inline const ::std::string& Transcation::msg() const {
-  // @@protoc_insertion_point(field_get:p2p.Transcation.msg)
-  return msg_.GetNoArena();
-}
-inline void Transcation::set_msg(const ::std::string& value) {
-  set_has_msg();
-  msg_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:p2p.Transcation.msg)
-}
-#if LANG_CXX11
-inline void Transcation::set_msg(::std::string&& value) {
-  set_has_msg();
-  msg_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:p2p.Transcation.msg)
-}
-#endif
-inline void Transcation::set_msg(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_msg();
-  msg_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:p2p.Transcation.msg)
-}
-inline void Transcation::set_msg(const void* value, size_t size) {
-  set_has_msg();
-  msg_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:p2p.Transcation.msg)
-}
-inline ::std::string* Transcation::mutable_msg() {
-  set_has_msg();
-  // @@protoc_insertion_point(field_mutable:p2p.Transcation.msg)
-  return msg_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* Transcation::release_msg() {
-  // @@protoc_insertion_point(field_release:p2p.Transcation.msg)
-  clear_has_msg();
-  return msg_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void Transcation::set_allocated_msg(::std::string* msg) {
-  if (msg != NULL) {
-    set_has_msg();
-  } else {
-    clear_has_msg();
-  }
-  msg_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), msg);
-  // @@protoc_insertion_point(field_set_allocated:p2p.Transcation.msg)
-}
-
-// -------------------------------------------------------------------
-
-// Msg
+// Packet
 
 // required string version = 1 [default = "0.1.0"];
-inline bool Msg::has_version() const {
+inline bool Packet::has_version() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void Msg::set_has_version() {
+inline void Packet::set_has_version() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void Msg::clear_has_version() {
+inline void Packet::clear_has_version() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void Msg::clear_version() {
-  version_.ClearToDefaultNoArena(&Msg::_default_version_.get());
+inline void Packet::clear_version() {
+  version_.ClearToDefaultNoArena(&Packet::_default_version_.get());
   clear_has_version();
 }
-inline const ::std::string& Msg::version() const {
-  // @@protoc_insertion_point(field_get:p2p.Msg.version)
+inline const ::std::string& Packet::version() const {
+  // @@protoc_insertion_point(field_get:p2p.Packet.version)
   return version_.GetNoArena();
 }
-inline void Msg::set_version(const ::std::string& value) {
+inline void Packet::set_version(const ::std::string& value) {
   set_has_version();
-  version_.SetNoArena(&Msg::_default_version_.get(), value);
-  // @@protoc_insertion_point(field_set:p2p.Msg.version)
+  version_.SetNoArena(&Packet::_default_version_.get(), value);
+  // @@protoc_insertion_point(field_set:p2p.Packet.version)
 }
 #if LANG_CXX11
-inline void Msg::set_version(::std::string&& value) {
+inline void Packet::set_version(::std::string&& value) {
   set_has_version();
   version_.SetNoArena(
-    &Msg::_default_version_.get(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:p2p.Msg.version)
+    &Packet::_default_version_.get(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:p2p.Packet.version)
 }
 #endif
-inline void Msg::set_version(const char* value) {
+inline void Packet::set_version(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_version();
-  version_.SetNoArena(&Msg::_default_version_.get(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:p2p.Msg.version)
+  version_.SetNoArena(&Packet::_default_version_.get(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:p2p.Packet.version)
 }
-inline void Msg::set_version(const char* value, size_t size) {
+inline void Packet::set_version(const char* value, size_t size) {
   set_has_version();
-  version_.SetNoArena(&Msg::_default_version_.get(),
+  version_.SetNoArena(&Packet::_default_version_.get(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:p2p.Msg.version)
+  // @@protoc_insertion_point(field_set_pointer:p2p.Packet.version)
 }
-inline ::std::string* Msg::mutable_version() {
+inline ::std::string* Packet::mutable_version() {
   set_has_version();
-  // @@protoc_insertion_point(field_mutable:p2p.Msg.version)
-  return version_.MutableNoArena(&Msg::_default_version_.get());
+  // @@protoc_insertion_point(field_mutable:p2p.Packet.version)
+  return version_.MutableNoArena(&Packet::_default_version_.get());
 }
-inline ::std::string* Msg::release_version() {
-  // @@protoc_insertion_point(field_release:p2p.Msg.version)
+inline ::std::string* Packet::release_version() {
+  // @@protoc_insertion_point(field_release:p2p.Packet.version)
   clear_has_version();
-  return version_.ReleaseNoArena(&Msg::_default_version_.get());
+  return version_.ReleaseNoArena(&Packet::_default_version_.get());
 }
-inline void Msg::set_allocated_version(::std::string* version) {
+inline void Packet::set_allocated_version(::std::string* version) {
   if (version != NULL) {
     set_has_version();
   } else {
     clear_has_version();
   }
-  version_.SetAllocatedNoArena(&Msg::_default_version_.get(), version);
-  // @@protoc_insertion_point(field_set_allocated:p2p.Msg.version)
+  version_.SetAllocatedNoArena(&Packet::_default_version_.get(), version);
+  // @@protoc_insertion_point(field_set_allocated:p2p.Packet.version)
 }
 
-// required .p2p.Msg.MsgType type = 2;
-inline bool Msg::has_type() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
-}
-inline void Msg::set_has_type() {
-  _has_bits_[0] |= 0x00000040u;
-}
-inline void Msg::clear_has_type() {
-  _has_bits_[0] &= ~0x00000040u;
-}
-inline void Msg::clear_type() {
-  type_ = 1;
-  clear_has_type();
-}
-inline ::p2p::Msg_MsgType Msg::type() const {
-  // @@protoc_insertion_point(field_get:p2p.Msg.type)
-  return static_cast< ::p2p::Msg_MsgType >(type_);
-}
-inline void Msg::set_type(::p2p::Msg_MsgType value) {
-  assert(::p2p::Msg_MsgType_IsValid(value));
-  set_has_type();
-  type_ = value;
-  // @@protoc_insertion_point(field_set:p2p.Msg.type)
-}
-
-// optional .p2p.Request rqs = 3;
-inline bool Msg::has_rqs() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void Msg::set_has_rqs() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void Msg::clear_has_rqs() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void Msg::clear_rqs() {
-  if (rqs_ != NULL) rqs_->::p2p::Request::Clear();
-  clear_has_rqs();
-}
-inline const ::p2p::Request& Msg::rqs() const {
-  // @@protoc_insertion_point(field_get:p2p.Msg.rqs)
-  return rqs_ != NULL ? *rqs_
-                         : *::p2p::Request::internal_default_instance();
-}
-inline ::p2p::Request* Msg::mutable_rqs() {
-  set_has_rqs();
-  if (rqs_ == NULL) {
-    rqs_ = new ::p2p::Request;
-  }
-  // @@protoc_insertion_point(field_mutable:p2p.Msg.rqs)
-  return rqs_;
-}
-inline ::p2p::Request* Msg::release_rqs() {
-  // @@protoc_insertion_point(field_release:p2p.Msg.rqs)
-  clear_has_rqs();
-  ::p2p::Request* temp = rqs_;
-  rqs_ = NULL;
-  return temp;
-}
-inline void Msg::set_allocated_rqs(::p2p::Request* rqs) {
-  delete rqs_;
-  rqs_ = rqs;
-  if (rqs) {
-    set_has_rqs();
-  } else {
-    clear_has_rqs();
-  }
-  // @@protoc_insertion_point(field_set_allocated:p2p.Msg.rqs)
-}
-
-// optional .p2p.Respond rsp = 4;
-inline bool Msg::has_rsp() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void Msg::set_has_rsp() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void Msg::clear_has_rsp() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void Msg::clear_rsp() {
-  if (rsp_ != NULL) rsp_->::p2p::Respond::Clear();
-  clear_has_rsp();
-}
-inline const ::p2p::Respond& Msg::rsp() const {
-  // @@protoc_insertion_point(field_get:p2p.Msg.rsp)
-  return rsp_ != NULL ? *rsp_
-                         : *::p2p::Respond::internal_default_instance();
-}
-inline ::p2p::Respond* Msg::mutable_rsp() {
-  set_has_rsp();
-  if (rsp_ == NULL) {
-    rsp_ = new ::p2p::Respond;
-  }
-  // @@protoc_insertion_point(field_mutable:p2p.Msg.rsp)
-  return rsp_;
-}
-inline ::p2p::Respond* Msg::release_rsp() {
-  // @@protoc_insertion_point(field_release:p2p.Msg.rsp)
-  clear_has_rsp();
-  ::p2p::Respond* temp = rsp_;
-  rsp_ = NULL;
-  return temp;
-}
-inline void Msg::set_allocated_rsp(::p2p::Respond* rsp) {
-  delete rsp_;
-  rsp_ = rsp;
-  if (rsp) {
-    set_has_rsp();
-  } else {
-    clear_has_rsp();
-  }
-  // @@protoc_insertion_point(field_set_allocated:p2p.Msg.rsp)
-}
-
-// optional .p2p.Command cmd = 5;
-inline bool Msg::has_cmd() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void Msg::set_has_cmd() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void Msg::clear_has_cmd() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline void Msg::clear_cmd() {
-  if (cmd_ != NULL) cmd_->::p2p::Command::Clear();
-  clear_has_cmd();
-}
-inline const ::p2p::Command& Msg::cmd() const {
-  // @@protoc_insertion_point(field_get:p2p.Msg.cmd)
-  return cmd_ != NULL ? *cmd_
-                         : *::p2p::Command::internal_default_instance();
-}
-inline ::p2p::Command* Msg::mutable_cmd() {
-  set_has_cmd();
-  if (cmd_ == NULL) {
-    cmd_ = new ::p2p::Command;
-  }
-  // @@protoc_insertion_point(field_mutable:p2p.Msg.cmd)
-  return cmd_;
-}
-inline ::p2p::Command* Msg::release_cmd() {
-  // @@protoc_insertion_point(field_release:p2p.Msg.cmd)
-  clear_has_cmd();
-  ::p2p::Command* temp = cmd_;
-  cmd_ = NULL;
-  return temp;
-}
-inline void Msg::set_allocated_cmd(::p2p::Command* cmd) {
-  delete cmd_;
-  cmd_ = cmd;
-  if (cmd) {
-    set_has_cmd();
-  } else {
-    clear_has_cmd();
-  }
-  // @@protoc_insertion_point(field_set_allocated:p2p.Msg.cmd)
-}
-
-// optional .p2p.Indication idt = 6;
-inline bool Msg::has_idt() const {
+// required .p2p.API_ID api_id = 2;
+inline bool Packet::has_api_id() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void Msg::set_has_idt() {
+inline void Packet::set_has_api_id() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void Msg::clear_has_idt() {
+inline void Packet::clear_has_api_id() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void Msg::clear_idt() {
-  if (idt_ != NULL) idt_->::p2p::Indication::Clear();
-  clear_has_idt();
+inline void Packet::clear_api_id() {
+  api_id_ = 1;
+  clear_has_api_id();
 }
-inline const ::p2p::Indication& Msg::idt() const {
-  // @@protoc_insertion_point(field_get:p2p.Msg.idt)
-  return idt_ != NULL ? *idt_
-                         : *::p2p::Indication::internal_default_instance();
+inline ::p2p::API_ID Packet::api_id() const {
+  // @@protoc_insertion_point(field_get:p2p.Packet.api_id)
+  return static_cast< ::p2p::API_ID >(api_id_);
 }
-inline ::p2p::Indication* Msg::mutable_idt() {
-  set_has_idt();
-  if (idt_ == NULL) {
-    idt_ = new ::p2p::Indication;
-  }
-  // @@protoc_insertion_point(field_mutable:p2p.Msg.idt)
-  return idt_;
-}
-inline ::p2p::Indication* Msg::release_idt() {
-  // @@protoc_insertion_point(field_release:p2p.Msg.idt)
-  clear_has_idt();
-  ::p2p::Indication* temp = idt_;
-  idt_ = NULL;
-  return temp;
-}
-inline void Msg::set_allocated_idt(::p2p::Indication* idt) {
-  delete idt_;
-  idt_ = idt;
-  if (idt) {
-    set_has_idt();
-  } else {
-    clear_has_idt();
-  }
-  // @@protoc_insertion_point(field_set_allocated:p2p.Msg.idt)
+inline void Packet::set_api_id(::p2p::API_ID value) {
+  assert(::p2p::API_ID_IsValid(value));
+  set_has_api_id();
+  api_id_ = value;
+  // @@protoc_insertion_point(field_set:p2p.Packet.api_id)
 }
 
-// optional .p2p.Transcation trs = 7;
-inline bool Msg::has_trs() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+// required string user_id = 3;
+inline bool Packet::has_user_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void Msg::set_has_trs() {
-  _has_bits_[0] |= 0x00000020u;
+inline void Packet::set_has_user_id() {
+  _has_bits_[0] |= 0x00000002u;
 }
-inline void Msg::clear_has_trs() {
-  _has_bits_[0] &= ~0x00000020u;
+inline void Packet::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000002u;
 }
-inline void Msg::clear_trs() {
-  if (trs_ != NULL) trs_->::p2p::Transcation::Clear();
-  clear_has_trs();
+inline void Packet::clear_user_id() {
+  user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_user_id();
 }
-inline const ::p2p::Transcation& Msg::trs() const {
-  // @@protoc_insertion_point(field_get:p2p.Msg.trs)
-  return trs_ != NULL ? *trs_
-                         : *::p2p::Transcation::internal_default_instance();
+inline const ::std::string& Packet::user_id() const {
+  // @@protoc_insertion_point(field_get:p2p.Packet.user_id)
+  return user_id_.GetNoArena();
 }
-inline ::p2p::Transcation* Msg::mutable_trs() {
-  set_has_trs();
-  if (trs_ == NULL) {
-    trs_ = new ::p2p::Transcation;
+inline void Packet::set_user_id(const ::std::string& value) {
+  set_has_user_id();
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:p2p.Packet.user_id)
+}
+#if LANG_CXX11
+inline void Packet::set_user_id(::std::string&& value) {
+  set_has_user_id();
+  user_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:p2p.Packet.user_id)
+}
+#endif
+inline void Packet::set_user_id(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_user_id();
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:p2p.Packet.user_id)
+}
+inline void Packet::set_user_id(const char* value, size_t size) {
+  set_has_user_id();
+  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:p2p.Packet.user_id)
+}
+inline ::std::string* Packet::mutable_user_id() {
+  set_has_user_id();
+  // @@protoc_insertion_point(field_mutable:p2p.Packet.user_id)
+  return user_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Packet::release_user_id() {
+  // @@protoc_insertion_point(field_release:p2p.Packet.user_id)
+  clear_has_user_id();
+  return user_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Packet::set_allocated_user_id(::std::string* user_id) {
+  if (user_id != NULL) {
+    set_has_user_id();
+  } else {
+    clear_has_user_id();
   }
-  // @@protoc_insertion_point(field_mutable:p2p.Msg.trs)
-  return trs_;
+  user_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_id);
+  // @@protoc_insertion_point(field_set_allocated:p2p.Packet.user_id)
 }
-inline ::p2p::Transcation* Msg::release_trs() {
-  // @@protoc_insertion_point(field_release:p2p.Msg.trs)
-  clear_has_trs();
-  ::p2p::Transcation* temp = trs_;
-  trs_ = NULL;
+
+// optional .p2p.Connect cnt = 4;
+inline bool Packet::has_cnt() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Packet::set_has_cnt() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Packet::clear_has_cnt() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Packet::clear_cnt() {
+  if (cnt_ != NULL) cnt_->::p2p::Connect::Clear();
+  clear_has_cnt();
+}
+inline const ::p2p::Connect& Packet::cnt() const {
+  // @@protoc_insertion_point(field_get:p2p.Packet.cnt)
+  return cnt_ != NULL ? *cnt_
+                         : *::p2p::Connect::internal_default_instance();
+}
+inline ::p2p::Connect* Packet::mutable_cnt() {
+  set_has_cnt();
+  if (cnt_ == NULL) {
+    cnt_ = new ::p2p::Connect;
+  }
+  // @@protoc_insertion_point(field_mutable:p2p.Packet.cnt)
+  return cnt_;
+}
+inline ::p2p::Connect* Packet::release_cnt() {
+  // @@protoc_insertion_point(field_release:p2p.Packet.cnt)
+  clear_has_cnt();
+  ::p2p::Connect* temp = cnt_;
+  cnt_ = NULL;
   return temp;
 }
-inline void Msg::set_allocated_trs(::p2p::Transcation* trs) {
-  delete trs_;
-  trs_ = trs;
-  if (trs) {
-    set_has_trs();
+inline void Packet::set_allocated_cnt(::p2p::Connect* cnt) {
+  delete cnt_;
+  cnt_ = cnt;
+  if (cnt) {
+    set_has_cnt();
   } else {
-    clear_has_trs();
+    clear_has_cnt();
   }
-  // @@protoc_insertion_point(field_set_allocated:p2p.Msg.trs)
+  // @@protoc_insertion_point(field_set_allocated:p2p.Packet.cnt)
+}
+
+// optional .p2p.Info inf = 5;
+inline bool Packet::has_inf() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void Packet::set_has_inf() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void Packet::clear_has_inf() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void Packet::clear_inf() {
+  if (inf_ != NULL) inf_->::p2p::Info::Clear();
+  clear_has_inf();
+}
+inline const ::p2p::Info& Packet::inf() const {
+  // @@protoc_insertion_point(field_get:p2p.Packet.inf)
+  return inf_ != NULL ? *inf_
+                         : *::p2p::Info::internal_default_instance();
+}
+inline ::p2p::Info* Packet::mutable_inf() {
+  set_has_inf();
+  if (inf_ == NULL) {
+    inf_ = new ::p2p::Info;
+  }
+  // @@protoc_insertion_point(field_mutable:p2p.Packet.inf)
+  return inf_;
+}
+inline ::p2p::Info* Packet::release_inf() {
+  // @@protoc_insertion_point(field_release:p2p.Packet.inf)
+  clear_has_inf();
+  ::p2p::Info* temp = inf_;
+  inf_ = NULL;
+  return temp;
+}
+inline void Packet::set_allocated_inf(::p2p::Info* inf) {
+  delete inf_;
+  inf_ = inf;
+  if (inf) {
+    set_has_inf();
+  } else {
+    clear_has_inf();
+  }
+  // @@protoc_insertion_point(field_set_allocated:p2p.Packet.inf)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -2105,15 +1303,10 @@ inline void Msg::set_allocated_trs(::p2p::Transcation* trs) {
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::p2p::Msg_MsgType> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::p2p::API_ID> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::p2p::Msg_MsgType>() {
-  return ::p2p::Msg_MsgType_descriptor();
-}
-template <> struct is_proto_enum< ::p2p::ActionType> : ::google::protobuf::internal::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::p2p::ActionType>() {
-  return ::p2p::ActionType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::p2p::API_ID>() {
+  return ::p2p::API_ID_descriptor();
 }
 template <> struct is_proto_enum< ::p2p::StatusType> : ::google::protobuf::internal::true_type {};
 template <>
