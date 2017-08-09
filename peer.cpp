@@ -1,7 +1,6 @@
 #include "channel.h"
 #include <string>
-
-
+#include <errno.h>
 using namespace p2p;
 
 static sockaddr_in hole, server;
@@ -71,8 +70,8 @@ int connect(const char* peer)
 	c->set_peer(::std::string(peer));
 
 	CP2p = new CTcp();	
-//	CP2p->bindaddr(NULL, port_tcp_bind);
-//	CP2p->recv_server();
+	CP2p->bindaddr(NULL, port_tcp_bind);
+	CP2p->recv_server();
 
 	SEND_PACKET;
 	
@@ -103,7 +102,7 @@ static int rpanalyse(RPacket rp)
 		case p2p::CONNECT:
 			if(!rp.has_cnt()){
 				printf("the cnt rp is not exist !\n");
-//				delete CP2p;
+				delete CP2p;
 				return -1;
 			}
 			else{
@@ -113,7 +112,7 @@ static int rpanalyse(RPacket rp)
 				if(cnr.t() != p2p::SUCCESS)
 				{
 					printf(" the loser!!!!");
-//					delete CP2p;	
+					delete CP2p;	
 				}
 			}
 			break;
@@ -139,27 +138,37 @@ static int initanalyse(Initiative in)
 {
 	if(!in.has_adr())
 		return -1;
+	
+	if(CP2p != NULL)
+		delete CP2p;
 
 	CP2p = new CTcp();
 
 	Address addr = in.adr();
-	if(CP2p->bindaddr(NULL, port_tcp_bind)){
+	if(CP2p->bindaddr(NULL, port_tcp_bind))
+	{
 
-		printf(" bind the port %d error !!!\n", port_tcp_bind);
+		printf(" bind the port %d error %s \n", port_tcp_bind, strerror(errno));
+		delete CP2p; CP2p = NULL;
+		return -1;
 	}
-
-	printf("connect to the %s %d\n", addr.addr().c_str(), addr.port());
-	if(!CP2p->connect(addr.addr().c_str(), addr.port(), 5)){
-		printf("connect SUCCESS, you can transcation !!!\n");
-		CP2p->recv_client();
-		return 0;
-	}			
+	else
+	{
+		printf("connect to the %s %d\n", addr.addr().c_str(), addr.port());
+		if(!CP2p->connect(addr.addr().c_str(), addr.port(), 5))
+		{
+			printf("connect SUCCESS, you can transcation !!!\n");
+			CP2p->recv_client();
+			return 0;
+		}
+	}		
 
 	delete CP2p;
 	CP2p = new CTcp();
 	if(CP2p->bindaddr(NULL, port_tcp_bind)){
 
-		printf(" bind the port %d error !!!\n", port_tcp_bind);
+		printf(" bind the port %d error %s\n", port_tcp_bind, strerror(errno));
+		return -1;
 	}
 
 		

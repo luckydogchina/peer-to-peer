@@ -5,10 +5,10 @@
 #include <iostream>
 int main(int argc, char* argv[])
 {
-	if(argc != 3)
+	if(argc != 4)
 		return -1;
 
-	Init(argv[2], "192.168.1.104", UDP_PORT, TCP_PORT, 8090, atoi(argv[1]));
+	Init(argv[2], argv[3], UDP_PORT, TCP_PORT, 8090, atoi(argv[1]));
 	peer_start();
 	//std::cin.get();
 	sleep(3);
