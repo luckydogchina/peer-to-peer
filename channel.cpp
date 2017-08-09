@@ -1,295 +1,118 @@
-#include "socket_p.h"
-#include "protobuf/peer-to-peer.pb.h"
+#include "channel.h"
 #include <map>
 #include <string>
-
+#include <errno.h>
 using namespace p2p;
 using namespace std;
 
 static CUdp* CServer;
 static CTcp* CHoleS;
 
-typedef struct {
-	string id;
-	int status;
-	int tcp_socket;
-	sockaddr_in udp;
-	sockaddr_in tcp;
+typedef struct _User{
+	int status; //当前状态 暂时用不到
+	int exp;
+	int s; //tcp socket链接
+	sockaddr_in ip_u; //udp通讯地址
+	sockaddr_in ip_t; //tcp通讯地址
+	enum UserStatus{
+		_NONE = 0,
+		_UDP_EXIST,
+		_TCP_EXIST,
+		_ALL_EXIST,
+		_UDP_EXCEPTAION,
+		_TCP_EXCEPTAION
+	};
+public:
+	_User()
+	{
+		this->status = _NONE;
+		this->exp = _NONE;
+	       	this->s = -1;
+		memset(&this->ip_u, 0, sizeof(this->ip_u));
+		memset(&this->ip_t, 0, sizeof(this->ip_t));
+	};
+
+	~_User(){};
 }SUser, *PSUser;
 
-static std::map<string, SUser> list_usr, list_hole;
+//现在使用stl map,以后替换为hash map
+static std::map<string, PSUser> list_usr, list_hole;
 
-void list_remove(std::map<string, SUser> l, string k)
+void list_remove(std::map<string, PSUser> l, string k)
 {
-	std::map<string, SUser>::iterator iter = l.find(k);
+	std::map<string, PSUser>::iterator iter = l.find(k);
 	if(iter != l.end())
 		l.erase(iter);
 
 	return;
 }
 
-template<typename T>
-unsigned int serializeToArray_(char* c, T t)
-{
-	unsigned int u = t.ByteSize();
-	c = new char[u + 1];
-	memset(c, 0, u + 1);
-	t.serializeToArray(c, u);
+typedef int(*SERVANT_API)(Packet& pkt);
 
-	return u;
+#define FIND_USER(X, Y) {\
+	reslt = 0;\
+	std::map<string, PSUser>::iterator iter = list_usr.find(X);\
+	if(iter == list_usr.end()){\
+		printf("user is not exist!\n");\
+		reslt = -2;\
+	}\
+	Y = iter->second;\
 }
 
-static void* recv_cb_cs(void* p, const char* message, unsigned int len, int& s, sockaddr_in addr)
-{
-	Msg m;
-	char *buffer;
-	int buffer_len;
-	if(!m.ParseFromArray(message, len))
-		return NULL;
-
-	switch(m.type())
-	{
-		case Msg_MsgType_REQUEST:
-			{
-				Request rq;
-				
-				if(!m.has_rqs())
-					break;
-
-				rq = m.rqs();
-
-				if(!rq.has_action())
-					break;
-
-				switch(rq.action())
-				{
-				case p2p::PEERONLINE:
-					//TODO:return the online users;
-					{
-						int send_len;
-						Msg m_rp;	
-						Respond rsp;
-					
-						for(std::map<string, SUser>::iterator iter =list_usr.begin(); 
-								iter != list_usr.end(); iter++)
-						{
-							rsp.add_id(iter->first);
-						}
-
-						m_rp.set_allocated_rsp(&rsp);
-						m_rp.set_type(Msg_MsgType_RESPOND);
-					
-						buffer_len = rsp.ByteSize();	
-						buffer = new char[buffer_len + 1];
-						memset(buffer, 0, buffer_len + 1);
-						
-						if(rsp.SerializeToArray(buffer, buffer_len))
-						{
-							send_len = CServer->sendmessage(addr, buffer, buffer_len);
-							//the error maybe caused in the cases that the send buffer
-							// of the udp socket is not enough or the send address can 
-							// not reach.
-							if(send_len < buffer_len)
-							{
-								//TODO: message buffer and 
-								int error = errno;
-								printf("the error is %s\n", strerror(error));
-								break;	
-							}
-						}
-						
-
-					}
-					break;
-				default:
-					break;
-				}
-			}
-		       break;
-		case Msg_MsgType_COMMAND:
-			{
-				Command c;
-				if(!m.has_cmd())
-					break;
-
-				c = m.cmd();
-
-				if(!c.has_action())
-					break;
-
-				switch(c.action()) 
-				{
-				case p2p::HELLO:
-					//TODO: return the hello ack
-					{
-						if(!c.has_id())
-							break;
-						SUser usr;
-						usr.udp = addr;
-						usr.id = c.id();
-						list_usr.insert(map<string, SUser>::value_type(usr.id,usr));
-
-					}
-					break;
-				case p2p::HEART:
-					//TODO: check the heart packet;
-					break;
-				default:
-					break;
-				}
-			}
-			break;
-		case Msg_MsgType_INDICATION:
-			{
-				Indication i;
-				if(!i.has_action() || !i.has_result())
-					break;
-				
-				switch(i.action())
-				{
-				case p2p::CONNECTB:
-					//TODO: info the a that b status;
-					if(!i.has_result())
-						break;
-					switch(i.result())
-					{
-					case p2p::READY:
-						//TODO: info a that b has been ready,
-						//this case is caused by b cannot connect to a;
-						break;
-					case p2p::SUCCESS:
-						//TODO: trans the msg to a;
-						break;
-					default:
-						break;
-					}
-					break;
-				case p2p::CONNECTA:
-					switch(i.result())
-					{
-					case p2p::SUCCESS:
-						//TODO: trans the msg to b;
-						break;
-					case p2p::FAILURE:
-						//TODO: tran the msg to b;
-						break;
-					default:
-						break;
-					}
-					break;
-				default:
-					break;	
-				}
-
-
-			}
-			break;
-		default:
-			break;
-	}
-
-	return NULL;
+#define SEND_RESULT(X, Y, Z) {\
+	char* cbyte = NULL; unsigned int cbytes = 0; reslt = 0;\
+	cbytes = serializeToArray_(cbyte, (Y));\
+	if(!cbytes){\
+       		reslt = -1;\
+	}\
+	else{\
+		switch((X)->status) \
+		{\
+			case _User::_ALL_EXIST:\
+			case _User::_TCP_EXIST:\
+				if(::send((X)->s, cbyte, cbytes, 0)<=0){\
+					printf("the tcp is error: %s, user: %s\n",strerror(errno), (Z).c_str());\
+					if((X)->status == _User::_TCP_EXIST) {\
+						reslt = -3;\
+						(X)->exp = _User::_TCP_EXCEPTAION; break;\
+					}\
+				}else{ \
+					break;\
+				}\
+			case _User::_UDP_EXIST:\
+				if(CServer->sendmessage((X)->ip_u, cbyte, cbytes) <= 0){\
+					printf("the udp is error: %s, user: %s\n",strerror(errno), (Z).c_str());\
+					reslt = -3;\
+					(X)->exp = _User::_UDP_EXCEPTAION;\
+				} break;\
+			default:\
+				list_remove(list_usr, (Z));\
+				reslt = -2;\
+		}\
+	}\
+	delete[] cbyte;\
 }
 
-static void* recv_cb_ch(void* p, const char* message , unsigned int len, int& s)
-{
-	Msg m;
-	m.ParseFromArray(message, len);
-	//TODO: record the a addr;
-	SUser uA;
-	
-	unsigned int cbytes;
-	char* cbyte;
-
-	switch(m.type())
-	{
-	case Msg_MsgType_REQUEST: 
-		{
-			Request rq;
-			if(!m.has_rqs())
-				break;
-
-			rq = m.rqs();
-			switch(rq.action())
-			{
-			case p2p::CONNECTA:
-				//TODO: indication the a request to b;
-				{
-					int send_len;
-						
-					if(!rq.has_id())
-						break;
-
-					map<string, SUser>::iterator iter = list_usr.find(rq.id());
-					Msg msg_rps, msg_ind;
-					msg_rps.set_type(Msg_MsgType_RESPOND);
-					
-					if(iter == list_usr.end())
-					{
-						//TODO: info A the b is not exit or online;
-					}
-					else
-					{
-						//TODO: info B that A will connect to it;
-						msg_ind.set_type(Msg_MsgType_INDICATION);
-						Indication ind;
-						ind.set_action(p2p::CONNECTA);
-						ind.set_id(uA.id);
-
-						Address adr;
-						adr.set_port(ntohs(uA.tcp.sin_port));
-						adr.set_ip(inet_ntoa(uA.tcp.sin_addr.s_addr));
-						ind.set_allocated_adr(&adr);
-		
-						cbytes = serializeToArray_(cbyte, ind);				
-						if(CServer->sendmessage(iter->second.udp, cbyte, cbytes) < 0)
-						{
-							delete[] cbyte;
-							cbyte = NULL;
-							break;
-						}
-
-						delete[] cbyte;
-						cbyte = NULL;	
-
-						Respond rps;
-						rps.set_result(p2p::SUCCESS);
-						rps.set_action(p2p::CONNECTA);
-						rps.add_id(iter->first);			
-					
-						serializeToArray_(cbyte, rps);	
-						::send(uA.tcp_socket, cbyte, cbytes, 0);
-					}
-				}
-				break;
-				
-			default:
-				break;	
-			}
-		}
-		break;
-	case Msg_MsgType_RESPOND:
-		break;
-	case Msg_MsgType_COMMAND:
-		break;
-	case Msg_MsgType_INDICATION:
-		break;
-	case Msg_MsgType_TRANSCATION:
-	}
-	return NULL;
+#define CHECK_USERID()	{\
+	if(!pkt.has_user_id()){\
+		printf("the user id is not exist!\n");\
+		return -1;\
+	}\
 }
 
-typedef int(*SERVANT_API)(Packet& p);
 
-int servant_connect(Packet& p)
+int servant_connect(Packet& pkt)
 {
-	if (!p.has_cnt())
+	int reslt = 0;
+	CHECK_USERID();
+
+	if (!pkt.has_cnt())
 	{
 		printf("the connect struct is not exist!\n");
 		return -1;
 	}
 
-	Connect cnt = p.cnt();
+	Connect cnt = pkt.cnt();
 	if (!cnt.has_peer())
 	{
 		printf("the peer is not exist!\n");
@@ -297,71 +120,277 @@ int servant_connect(Packet& p)
 	}
 
 	//TODO: Info the B 
+	PSUser user, user1;	
+	RPacket rp;
+	Connect_r *cr = rp.mutable_cnt();
 
-	//TODO: get the A socket, end return the reuslt 
+	FIND_USER(pkt.user_id(), user);
+	if(reslt < 0)
+		return reslt;
+
+	if(user->status != _User::_TCP_EXIST)
+		return -4;
+
+	FIND_USER(cnt.peer(), user1);
+	if(reslt < 0)
+	{
+		cr->set_t(p2p::NOEXIST);
+	}
+	else
+	{	
+		Initiative init;
+		init.set_t(p2p::ADDRESS);
+		Address *sponsor = init.mutable_adr();
+		sponsor->set_id(pkt.user_id());
+		sponsor->set_addr(inet_ntoa(user->ip_t.sin_addr));	
+		sponsor->set_port(ntohs(user->ip_t.sin_port));
+		
+		SEND_RESULT(user1, init, cnt.peer());
+		//TODO: get the A socket, end return the reuslt
+		
+		if(reslt < 0){
+			cr->set_t(p2p::FAILURE);
+		}else{
+			cr->set_t(p2p::SUCCESS);
+		}
+	}
+
+	rp.set_api_id(p2p::CONNECT);
+	SEND_RESULT(user, rp,pkt.user_id());
+	return reslt;
 }
 
-int servant_getuseronline(Packet& p)
+int servant_getuseronline(Packet& pkt)
 {
-	GetUserOnline_r lr;
-	for (std::map<string, SUser>::iterator iter = list_usr.begin();
+	int reslt = 0; 
+	PSUser user;
+	CHECK_USERID();
+	FIND_USER(pkt.user_id(), user);
+	
+	if(reslt < 0)
+		return reslt;
+
+	GetUserOnline_r *lr;
+	RPacket rp;
+	lr = rp.mutable_guonline();
+	for (std::map<string, PSUser>::iterator iter = list_usr.begin();
 		iter != list_usr.end(); iter++)
 	{
-		lr.add_user_online(iter->first);
+		lr->add_user_online(iter->first);
 	}
 
 	//TODO: sent to requester;
+	rp.set_api_id(p2p::GETUSERONLINE);
+	//rp.set_allocated_guonline(&lr);
+	SEND_RESULT(user, rp, pkt.user_id());
+
+	printf("ok ......... \n");
+	return reslt;	
 }
 
-int servant_info(Packet& p)
+int servant_info(Packet& pkt)
 {
+	int reslt = 0;
+	CHECK_USERID();
+	if(!pkt.has_inf())	
+		return -1;
 	
+	Info i = pkt.inf();
+	PSUser user, user1;
+	FIND_USER(pkt.user_id(), user1);
+	if(reslt < 0)
+		return -2;
+
+	FIND_USER(i.peer(), user);
+	
+	RPacket rp;
+	Info_r *ir = rp.mutable_in();
+	if(reslt < 0)
+	{
+		ir->set_t(p2p::NOEXIST);
+	}
+	else
+	{
+		Initiative init;
+		init.set_t(p2p::ADDRESS);
+		Address *respondent;
+		respondent = init.mutable_adr();
+		respondent->set_id(pkt.user_id());
+		respondent->set_addr(inet_ntoa(user1->ip_t.sin_addr));
+		respondent->set_port(ntohs(user1->ip_t.sin_port));
+
+		SEND_RESULT(user, init, i.peer());
+		
+		if(reslt < 0){
+			ir->set_t(p2p::FAILURE);	
+		}else{
+			ir->set_t(p2p::SUCCESS);
+		}
+	}
+	
+	rp.set_api_id(p2p::INFO);
+	
+	SEND_RESULT(user1, rp, pkt.user_id());
+
+	return reslt;	
 }
 
 std::map<p2p::API_ID, SERVANT_API> list_api;
 
+void registry_servant_api(p2p::API_ID apiid, SERVANT_API api)
+{
+	list_api.insert(std::map<p2p::API_ID, SERVANT_API>::value_type(apiid, api));
+}
+
+#define FIND_API(X)	{\
+	std::map<p2p::API_ID, SERVANT_API>::iterator iter;\
+	iter = list_api.find(X.api_id());\
+	if (iter == list_api.end()){\
+		printf("the api is not exist\n");\
+		return NULL;\
+	}else if (!iter->second(X)){\
+		printf("the reslt is error \n");\
+	}\
+	return NULL;\
+}
+
 static void* recv_cb_ch(void* p, const char* message, unsigned int len, int& s)
 {
-	Packet p;
-	
-	if (!p.has_api_id())
+	Packet pkt;
+	if(!pkt.ParseFromArray(message, len))
+	{
+		printf("cannot analyse the msg\n");
+		return NULL;
+	}
+
+	printf("the packet version is %s \n", pkt.version().c_str());
+	if (!pkt.has_api_id())
 	{
 		printf("don't have api id\n");
 		return NULL;
 	}
-	
-	std::map<p2p::API_ID, SERVANT_API>::iterator iter;
-	iter = list_api.find(p.api_id());
 
-	if (iter == list_api.end())
+	if(pkt.api_id() == p2p::HEART)
 	{
-		printf("the api is not exist\n");
+		//TODO: make heart count;
+		return NULL;
+	}
+	
+	if(pkt.api_id() == p2p::HELLO)
+	{
+		sockaddr_in addr;
+		socklen_t addr_len = sizeof(struct sockaddr_in);
+		getpeername(s, (sockaddr*)&addr, &addr_len);
+
+		PSUser user;
+		int reslt = 0;
+		FIND_USER(pkt.user_id(), user);
+		if(reslt < 0){
+			user = new SUser;
+		}
+
+		user->ip_t = addr;
+		user->status |= _User::_TCP_EXIST;
+		user->s = s;
+		
+		if(reslt < 0){
+			list_usr.insert(std::map<string, PSUser>::value_type(pkt.user_id(), user));
+			printf("addr the new user %s %s %d\n", pkt.user_id().c_str(), inet_ntoa(user->ip_t.sin_addr), ntohs(user->ip_t.sin_port));
+		}
 		return NULL;
 	}
 
-	if (!*iter->second(p))
+	FIND_API(pkt);
+}
+
+
+static void* close_cb(void* p, int& s)
+{
+	std::map<string, PSUser>::iterator iter;
+	for(iter = list_usr.begin(); iter != list_usr.end();)
 	{
-		printf("the reslt is error \n");
-	}
+		if(iter->second->s == s ){
+			list_usr.erase(iter);
+			delete(iter->second);
+			break;
+		}
+			
+		iter++;
+	}	
 
 	return NULL;
+}
+
+static void* recv_cb_cs(void* p, const char* message, unsigned int len, int& s, sockaddr_in addr)
+{
+	Packet pkt;
+	if(pkt.ParseFromArray(message, len))
+	{
+		printf("cannot analyse the msg\n");
+		return NULL;
+	}
+
+	if (!pkt.has_api_id())
+	{
+		printf("don't have api id\n");
+		return NULL;
+	}
+
+	if(pkt.api_id() == p2p::HEART)
+	{
+		//TODO: make heart count;
+		return NULL;
+	}
+	
+	if(pkt.api_id() == p2p::HELLO)
+	{
+		PSUser user;
+		int reslt = 0;
+		FIND_USER(pkt.user_id(), user);
+		if(reslt < 0)
+			user = new SUser;
+
+		user->ip_t = addr;
+		user->status |= _User::_TCP_EXIST;
+		user->s = s;
+		
+		if(reslt < 0)
+			list_usr.insert(std::map<string, PSUser>::value_type(pkt.user_id(), user));
+
+		return NULL;
+	}
+
+	FIND_API(pkt);
 }
 
 
 
 int start()
 {
-	CServer = new CUdp();
+	//CServer = new CUdp();
 	CHoleS = new CTcp();
+	
+	registry_servant_api(p2p::CONNECT, servant_connect);
+	registry_servant_api(p2p::INFO, servant_info);
+	registry_servant_api(p2p::GETUSERONLINE, servant_getuseronline);
 
 	CHoleS->bindaddr(NULL, TCP_PORT);
 	
-	CServer->registercb((void*)recv_cb_cs, NULL, READ);
-	CHoleS->registercb((void*)recv_cb_ch, NULL, READ);
+	//CServer->registercb((void*)recv_cb_cs, NULL, READ);
+	CHoleS->registercb((void*)recv_cb_ch, NULL, CBase::READ);
+	CHoleS->registercb((void*)close_cb, NULL, CBase::EXCEPTION);
+	CHoleS->registercb((void*)close_cb, NULL, CBase::CLOSE);
 
-	CServer->recv();
+	//CServer->recv();
 	CHoleS->recv_server();
 	
-
 	return 0;	
 }
+
+void stop()
+{
+//	delete CServer;
+	delete CHoleS;
+}
+
+

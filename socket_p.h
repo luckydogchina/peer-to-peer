@@ -15,15 +15,7 @@ typedef void* (*WRITE_CALLBACK)(void* p, int &s);
 typedef WRITE_CALLBACK EXCEPTION_CALLBACK;
 typedef WRITE_CALLBACK EXIT_CALLBACK;
 typedef WRITE_CALLBACK TIMEOUT_CALLBACK;
-
-
-enum cbtype{
-	READ = 0,
-	WRITE,
-	EXCEPTION,
-	TIMEOUT,
-	EXIT
-};
+typedef WRITE_CALLBACK CLOSE_CALLBACK;
 
 class CBase
 {
@@ -31,6 +23,16 @@ public:
 	CBase();
 	~CBase();
 	
+enum cbtype{
+	READ = 0,
+	WRITE,
+	EXCEPTION,
+	TIMEOUT,
+	CLOSE,
+	EXIT
+};
+
+
 	/**
 	 * @func:
 	 * 	bind the socket on the local port
@@ -51,9 +53,9 @@ protected:
 	
 	pthread_mutexattr_t recv_cb_lock_mt;	
 
-	void* recv_cb[5];
+	void* recv_cb[6];
 
-	void* pcb[5];
+	void* pcb[6];
 };
 
 class CUdp:public CBase

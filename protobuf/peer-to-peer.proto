@@ -9,6 +9,7 @@ enum API_ID
 	INFO = 3; //通知指定用户
 	OFFLINE = 4; //下线
 	HEART = 5; //心跳
+	HELLO = 6;
 }
 
 enum StatusType {
@@ -17,6 +18,8 @@ enum StatusType {
 	READY = 3;
 	CLOSE = 4;
 	RUNNING = 5;
+	NOEXIST = 6;
+	EXIST = 7;
 }
 
 
@@ -37,7 +40,7 @@ message GetUserOnline_r
 
 message Info
 {
-	repeated string peer = 1;
+	required string peer = 1;
 }
 
 message Info_r
@@ -45,11 +48,45 @@ message Info_r
 	required StatusType t = 1 [default = SUCCESS];
 }
 
+message Hello_r
+{
+	required StatusType t = 1 [ default = SUCCESS ];
+}
+
 message Packet
 {
-	required string version = 1 [default = "0.1.0"];
-	required API_ID api_id = 2;
-	required string user_id = 3;
-	optional  Connect cnt = 4;
-	optional  Info inf = 5;
+	required API_ID api_id = 1;
+	required string user_id = 2;
+	optional Connect cnt = 3;
+	optional Info inf = 4;
+	optional string version = 5 [default = "0.1.0"];
+}
+
+message RPacket
+{
+	required API_ID api_id = 1;
+	optional Connect_r cnt = 2;
+	optional GetUserOnline_r guonline = 3;
+	optional Info_r in = 4;
+	optional Hello_r hello = 5;
+	optional string version = 6 [default = "0.1.0"];
+}
+
+enum InitiativeType
+{
+	ADDRESS = 1;
+}
+
+message Address
+{
+	required string id = 4;
+	required string addr = 2;
+	required int32 port = 3;	
+}
+
+message Initiative
+{
+	required InitiativeType t = 1 [ default = ADDRESS ];
+	optional Address adr = 2;
+	optional string version = 3 [default = "0.1.0" ];
 }

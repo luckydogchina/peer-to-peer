@@ -68,7 +68,7 @@ void* CBase::getcb(cbtype t)
 
 CUdp::CUdp()
 {
-	unsigned int ok = 1;	
+	//unsigned int ok = 1;	
 	this->socket_m = socket(AF_INET, SOCK_DGRAM, 0);
 //	setsockopt( this->socket_m, SOL_SOCKET, SO_REUSEADDR, ( const char* )&ok, sizeof(ok));
 	memset(&this->recv_proc_id, 0, sizeof(pthread_t));
@@ -132,7 +132,7 @@ void* CUdp::recv_proc(void* p)
 		switch(reslt)
 		{
 		case 0:
-			if(NULL != (cb = U->getcb(TIMEOUT)))
+			if(NULL != (cb = U->getcb(CBase::TIMEOUT)))
 				((TIMEOUT_CALLBACK)cb)(U->pcb[ TIMEOUT], U->socket_m);
 			continue;
 		case -1:
@@ -141,9 +141,9 @@ void* CUdp::recv_proc(void* p)
 			//the expection is throw;
 			if(FD_ISSET(U->socket_m, &e_set))
 			{
-				if(NULL != (cb = U->getcb( EXCEPTION)))
+				if(NULL != (cb = U->getcb(CBase::EXCEPTION)))
 				{
-					((EXCEPTION_CALLBACK)cb)(U->pcb, U->socket_m);
+					((EXCEPTION_CALLBACK)cb)(U->pcb[CBase::EXCEPTION], U->socket_m);
 				}
 
 				goto end;
@@ -162,10 +162,10 @@ void* CUdp::recv_proc(void* p)
 
 				if(reslt > 0)
 				{
-					if(NULL !=(cb = U->getcb( READ)))
+					if(NULL !=(cb = U->getcb( CBase::READ)))
 					{
 				
-						((RECV_CALLBACK_UDP)cb)(U->pcb[READ], buffer, reslt, U->socket_m, address);
+						((RECV_CALLBACK_UDP)cb)(U->pcb[CBase::READ], buffer, reslt, U->socket_m, address);
 					}
 				}
 			
@@ -183,7 +183,7 @@ void* CUdp::recv_proc(void* p)
 end:
 	if(NULL !=(cb = U->getcb( EXIT)))
 	{
-		((EXIT_CALLBACK)cb)(U->pcb[ EXIT], U->socket_m);
+		((EXIT_CALLBACK)cb)(U->pcb[CBase::EXIT], U->socket_m);
 	}
 	
 	return NULL;
@@ -251,7 +251,6 @@ CTcp::CTcp()
 	this->isrun = true;
 	this->socket_m = socket(AF_INET, SOCK_STREAM, 0);
 	setsockopt( this->socket_m, SOL_SOCKET, SO_REUSEADDR, (const void*)&ok, sizeof(ok));
-	printf(" %d %s\n",  errno, strerror(errno));
 }
 
 CTcp::~CTcp()
@@ -384,8 +383,8 @@ void* CTcp::recv_proc_client(void* p)
 		switch(reslt)
 		{
 		case 0:
-			if ( NULL != (cb = T->getcb(TIMEOUT)))
-				((TIMEOUT_CALLBACK)(cb))(T->pcb[TIMEOUT], T->socket_m);
+			if ( NULL != (cb = T->getcb(CBase::TIMEOUT)))
+				((TIMEOUT_CALLBACK)(cb))(T->pcb[CBase::TIMEOUT], T->socket_m);
 			continue;
 		case -1:
 			goto end;
@@ -393,8 +392,8 @@ void* CTcp::recv_proc_client(void* p)
 			//the expection is throw;
 			if(FD_ISSET(T->socket_m, &e_set))
 			{
-				if (NULL != (cb = T->getcb(EXCEPTION)))
-					((EXCEPTION_CALLBACK)cb)(T->pcb[EXCEPTION], T->socket_m);
+				if (NULL != (cb = T->getcb(CBase::EXCEPTION)))
+					((EXCEPTION_CALLBACK)cb)(T->pcb[CBase::EXCEPTION], T->socket_m);
 				goto end;
 			}
 			
@@ -409,9 +408,9 @@ void* CTcp::recv_proc_client(void* p)
 
 				if(reslt > 0)
 				{
-					if(NULL !=(cb = T->getcb(READ)))
+					if(NULL !=(cb = T->getcb(CBase::READ)))
 					{
-						((RECV_CALLBACK_TCP)cb)(T->pcb[READ], buffer, reslt, T->socket_m);
+						((RECV_CALLBACK_TCP)cb)(T->pcb[CBase::READ], buffer, reslt, T->socket_m);
 					}
 				
 				}
@@ -430,7 +429,7 @@ void* CTcp::recv_proc_client(void* p)
 	}								
 end:
 	
-	if (NULL != (cb = T->getcb(EXIT)))
+	if (NULL != (cb = T->getcb(CBase::EXIT)))
 		((EXIT_CALLBACK)cb)(T->pcb[EXIT], T->socket_m);
 	return NULL;
 }
@@ -486,8 +485,8 @@ void* CTcp::recv_proc_server(void* p)
 		{
 		case 0:
 			printf("the server time is out\n");
-			if(NULL != (cb = T->getcb(TIMEOUT)))
-				((TIMEOUT_CALLBACK)cb)(T->pcb[TIMEOUT], T->socket_m);
+			if(NULL != (cb = T->getcb(CBase::TIMEOUT)))
+				((TIMEOUT_CALLBACK)cb)(T->pcb[CBase::TIMEOUT], T->socket_m);
 			continue;
 		case -1:
 			printf("the server select is wrong %s \n", strerror(errno));
@@ -504,30 +503,35 @@ void* CTcp::recv_proc_server(void* p)
 					printf("recv the message %d %s \n", recv_len, buffer);
 					if(recv_len <= 0)
 					{
-						printf("close the socket %d\n", *iter);	
+						printf("close the socket %d\n", *iter);
+	
+						if(NULL !=  (cb = T->getcb(CBase::CLOSE)))
+							((CLOSE_CALLBACK)cb)(T->pcb[CBase::CLOSE], *iter);	
+
 						close(*iter);	
 						FD_CLR(*iter,&o_set);	
 						change = (Max_Fd == *iter);
 						iter = s_list.erase(iter);
-						
+					
 						continue;
 					}
-					else if(NULL != (cb = T->getcb(READ)))
+					else if(NULL != (cb = T->getcb(CBase::READ)))
 					{
-						((RECV_CALLBACK_TCP)cb)(T->pcb[READ], buffer, recv_len, *iter);
+						((RECV_CALLBACK_TCP)cb)(T->pcb[CBase::READ], buffer, recv_len, *iter);
 					}
 				}
 				else if(FD_ISSET(*iter, &e_set))
 				{
 
-					printf("close the socket %d\n", *iter);	
+					printf("close the socket %d\n", *iter);
+									
+					if(NULL != (cb = T->getcb(CBase::EXCEPTION)))	
+							((EXCEPTION_CALLBACK)cb)(T->pcb[CBase::EXCEPTION],*iter);
+		
 					close(*iter);	
 					FD_CLR(*iter,&o_set);
 					change = (Max_Fd == *iter);
 					iter = s_list.erase(iter);
-					
-					if(NULL != (cb = T->getcb(EXCEPTION)))	
-							((EXCEPTION_CALLBACK)cb)(T->pcb[EXCEPTION],*iter);
 					continue;
 				}
 
@@ -550,8 +554,8 @@ void* CTcp::recv_proc_server(void* p)
 			printf("<<<<<<<<<<<<<<<<<<<\n");
 			if(FD_ISSET(T->socket_m, &e_set))
 			{
-				if (NULL != (cb = T->getcb(EXCEPTION)))
-					((EXCEPTION_CALLBACK)cb)(T->pcb[EXCEPTION], T->socket_m);
+				if (NULL != (cb = T->getcb(CBase::EXCEPTION)))
+					((EXCEPTION_CALLBACK)cb)(T->pcb[CBase::EXCEPTION], T->socket_m);
 				goto s_end;
 			}
 		}	
@@ -562,8 +566,8 @@ s_end:
 		close(*iter);
 
 	
-	if (NULL != (cb = T->getcb(EXIT)))
-		((EXIT_CALLBACK)cb)(T->pcb[ EXIT], T->socket_m);
+	if (NULL != (cb = T->getcb(CBase::EXIT)))
+		((EXIT_CALLBACK)cb)(T->pcb[CBase::EXIT], T->socket_m);
 
 	printf("exit the thread \n");
 	return NULL;
