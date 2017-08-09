@@ -1,6 +1,8 @@
 #include "channel.h"
 #include <string>
 #include <errno.h>
+#include <unistd.h>
+
 using namespace p2p;
 
 static sockaddr_in hole, server;
@@ -72,7 +74,8 @@ int connect(const char* peer)
 	CP2p = new CTcp();	
 	CP2p->bindaddr(NULL, port_tcp_bind);
 	CP2p->recv_server();
-
+	
+	sleep(3);
 	SEND_PACKET;
 	
 	return 0;
@@ -136,6 +139,7 @@ static int rpanalyse(RPacket rp)
 
 static int initanalyse(Initiative in)
 {
+	Packet pkt;
 	if(!in.has_adr())
 		return -1;
 	
@@ -173,7 +177,8 @@ static int initanalyse(Initiative in)
 
 		
 	CP2p->recv_server();
-	Packet pkt;
+	sleep(3);
+	
 	pkt.set_api_id(p2p::INFO);
 	pkt.set_user_id(user_id);
 
