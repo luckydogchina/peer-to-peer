@@ -246,11 +246,17 @@ bool noblock(int& s, bool is_no)
 CTcp::CTcp()
 {
 	unsigned int ok = 1;
+	linger ln;
+	
+	memset(&ln, 0, sizeof(ln));
+	ln.l_onoff = 0;
+
 	this->recv_servcer_id = 0;
 	this->recv_client_id = 0;
 	this->isrun = true;
 	this->socket_m = socket(AF_INET, SOCK_STREAM, 0);
 	setsockopt( this->socket_m, SOL_SOCKET, SO_REUSEADDR, (const void*)&ok, sizeof(ok));
+	setsockopt(this->socket_m, SOL_SOCKET, SO_LINGER, (const void*)&ln, sizeof(ln));
 }
 
 CTcp::~CTcp()
