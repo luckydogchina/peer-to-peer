@@ -249,7 +249,10 @@ CTcp::CTcp()
 	linger ln;
 	
 	memset(&ln, 0, sizeof(ln));
+	//l_onoff = 1 l_linger=0时强制关闭，缓存区的消息直接清除，socket关闭时不会进入TIME_WAIT状态;
+	//现在的状态是直接关闭，缓存区的消息尽量发送到接收方
 	ln.l_onoff = 0;
+	//ln.l_linger = 0;
 
 	this->recv_servcer_id = 0;
 	this->recv_client_id = 0;

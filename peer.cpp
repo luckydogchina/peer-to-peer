@@ -5,6 +5,8 @@
 
 using namespace p2p;
 
+#define HOLE_PORT 9798
+
 static sockaddr_in hole, server;
 static short port_udp_bind, port_tcp_bind;
 static short port_udp_server, port_tcp_server;
@@ -63,6 +65,7 @@ int listonline()
 	return 0;
 }
 
+
 int connect(const char* peer)
 {
 	Packet pkt;
@@ -70,12 +73,6 @@ int connect(const char* peer)
 	pkt.set_user_id(user_id);
 	Connect *c =  pkt.mutable_cnt();
 	c->set_peer(::std::string(peer));
-
-	CP2p = new CTcp();	
-	CP2p->bindaddr(NULL, port_tcp_bind);
-	CP2p->recv_server();
-	
-	sleep(3);
 	SEND_PACKET;
 	
 	return 0;
@@ -149,7 +146,7 @@ static int initanalyse(Initiative in)
 	CP2p = new CTcp();
 
 	Address addr = in.adr();
-	if(CP2p->bindaddr(NULL, port_tcp_bind))
+	if(CP2p->bindaddr(NULL, HOLE_PORT))
 	{
 
 		printf(" bind the port %d error %s \n", port_tcp_bind, strerror(errno));
@@ -158,8 +155,8 @@ static int initanalyse(Initiative in)
 	}
 	else
 	{
-		printf("connect to the %s %d\n", addr.addr().c_str(), addr.port());
-		if(!CP2p->connect(addr.addr().c_str(), addr.port(), 5))
+		printf("connect to the %s %d\n", addr.addr().c_str(), HOLE_PORT);
+		if(!CP2p->connect(addr.addr().c_str(), HOLE_PORT, 5))
 		{
 			printf("connect SUCCESS, you can transcation !!!\n");
 			CP2p->recv_client();
@@ -169,7 +166,7 @@ static int initanalyse(Initiative in)
 
 	delete CP2p;
 	CP2p = new CTcp();
-	if(CP2p->bindaddr(NULL, port_tcp_bind)){
+	if(CP2p->bindaddr(NULL, HOLE_PORT)){
 
 		printf(" bind the port %d error %s\n", port_tcp_bind, strerror(errno));
 		return -1;
@@ -177,7 +174,7 @@ static int initanalyse(Initiative in)
 
 		
 	CP2p->recv_server();
-	sleep(3);
+	sleep(1);
 	
 	pkt.set_api_id(p2p::INFO);
 	pkt.set_user_id(user_id);
