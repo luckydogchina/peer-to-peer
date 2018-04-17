@@ -9,21 +9,21 @@
 
 CBase::CBase()
 {
-	memset(this->recv_cb, 0, sizeof(this->recv_cb));
-	memset(this->pcb, 0, sizeof(this->pcb));
-	pthread_mutexattr_init(&this->recv_cb_lock_mt);
-	pthread_mutexattr_settype(&this->recv_cb_lock_mt, PTHREAD_MUTEX_RECURSIVE_NP);
-	pthread_mutex_init(&this->recv_cb_lock, &this->recv_cb_lock_mt);	
+	memset(this->mReceiveCallBackList, 0, sizeof(this->mReceiveCallBackList));
+	memset(this->mParamentsList, 0, sizeof(this->mParamentsList));
+	pthread_mutexattr_init(&this->mReceiveCallBackLockMutex);
+	pthread_mutexattr_settype(&this->mReceiveCallBackLockMutex, PTHREAD_MUTEX_RECURSIVE_NP);
+	pthread_mutex_init(&this->mReceiveCallBackLock, &this->mReceiveCallBackLockMutex);	
 }
 
 CBase::~CBase()
 {
-	pthread_mutex_destroy(&this->recv_cb_lock);
-	pthread_mutexattr_destroy(&this->recv_cb_lock_mt);
+	pthread_mutex_destroy(&this->mReceiveCallBackLock);
+	pthread_mutexattr_destroy(&this->mReceiveCallBackLockMutex);
 }
 
 
-int CBase::bindaddr(const char *ip, short port)
+int CBase::bindAddress(const char *ip, short port)
 {
 	struct sockaddr_in address;
 	address.sin_family=AF_INET;
@@ -37,22 +37,22 @@ int CBase::bindaddr(const char *ip, short port)
 	}
 	address.sin_port=htons(port);
 
-	return bind(this->socket_m, (sockaddr*)&address, sizeof(sockaddr));
+	return bind(this->mSocket, (sockaddr*)&address, sizeof(sockaddr));
 }
 
-void CBase::registercb(void* cb, void* p, cbtype t)
+void CBase::registryCallBackMethod(void* callback, void* param, CALLBACKTYPE type)
 {
-	if ((int)t < (int)sizeof(this->recv_cb))
+	if ((int)type < (int)sizeof(this->mReceiveCallBackList))
 	{
-		pthread_mutex_lock(&this->recv_cb_lock);	
-		this->recv_cb[t] = cb;
-		this->pcb[t] = p;
-		pthread_mutex_unlock(&this->recv_cb_lock);
+		pthread_mutex_lock(&this->mReceiveCallBackLock);	
+		this->mReceiveCallBackList[type] = callback;
+		this->mParamentsList[type] = param;
+		pthread_mutex_unlock(&this->mReceiveCallBackLock);
 	}
 	return;
 }
 
-void* CBase::getcb(cbtype t)
+void* CBase::getCallBackMethod(CALLBACKTYPE type)
 {
 	void* cb = NULL;
 	
@@ -69,9 +69,9 @@ void* CBase::getcb(cbtype t)
 CUdp::CUdp()
 {
 	//unsigned int ok = 1;	
-	this->socket_m = socket(AF_INET, SOCK_DGRAM, 0);
+	this->mSocket = socket(AF_INET, SOCK_DGRAM, 0);
 //	setsockopt( this->socket_m, SOL_SOCKET, SO_REUSEADDR, ( const char* )&ok, sizeof(ok));
-	memset(&this->recv_proc_id, 0, sizeof(pthread_t));
+	memset(&this->mReceiveProcessId, 0, sizeof(pthread_t));
 	this->isrun = true;
 }
 
@@ -81,7 +81,7 @@ CUdp::~CUdp()
 	close(this->socket_m);
 	printf("exit\n");
 	if(this->recv_proc_id !=  0)
-		pthread_join(this->recv_proc_id, NULL);
+		pthread_join(this->mReceiveProcessId, NULL);
 }
 
 int CUdp::recv()
@@ -89,7 +89,7 @@ int CUdp::recv()
 	int reslt  = 0;
 	
 	//set no_block on the socket.
-	if(!noblock(this->socket_m,true))
+	if(!noblock(this->mSocket,true))
 		return -1;
 
 	//bind the socket on `7395` port in local ip.
@@ -98,7 +98,7 @@ int CUdp::recv()
 		return reslt;
 
 	//start the recv thread.
-	reslt =  pthread_create(&this->recv_proc_id, NULL, this->recv_proc, (void*) this);
+	reslt =  pthread_create(&this->mReceiveProcessId, NULL, this->mReceiveProcess, (void*) this);
 	return reslt;
 }
 
