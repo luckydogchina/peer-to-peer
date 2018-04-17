@@ -18,25 +18,55 @@
 // @@protoc_insertion_point(includes)
 
 namespace p2p {
-class ConnectDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Connect> {
-} _Connect_default_instance_;
-class Connect_rDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Connect_r> {
-} _Connect_r_default_instance_;
-class GetUserOnline_rDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<GetUserOnline_r> {
-} _GetUserOnline_r_default_instance_;
-class InfoDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Info> {
-} _Info_default_instance_;
-class Info_rDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Info_r> {
-} _Info_r_default_instance_;
-class Hello_rDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Hello_r> {
-} _Hello_r_default_instance_;
-class PacketDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Packet> {
-} _Packet_default_instance_;
-class RPacketDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<RPacket> {
-} _RPacket_default_instance_;
-class AddressDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Address> {
+class ConnectRequestDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<ConnectRequest>
+     _instance;
+} _ConnectRequest_default_instance_;
+class ConnectRespondDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<ConnectRespond>
+     _instance;
+} _ConnectRespond_default_instance_;
+class GetUsersOnlineRespondDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<GetUsersOnlineRespond>
+     _instance;
+} _GetUsersOnlineRespond_default_instance_;
+class NotifyRequestDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<NotifyRequest>
+     _instance;
+} _NotifyRequest_default_instance_;
+class NotifyRespondDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<NotifyRespond>
+     _instance;
+} _NotifyRespond_default_instance_;
+class HelloRespondDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<HelloRespond>
+     _instance;
+} _HelloRespond_default_instance_;
+class PacketRequstDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<PacketRequst>
+     _instance;
+} _PacketRequst_default_instance_;
+class PacketRespondDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<PacketRespond>
+     _instance;
+} _PacketRespond_default_instance_;
+class AddressDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<Address>
+     _instance;
 } _Address_default_instance_;
-class InitiativeDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Initiative> {
+class InitiativeDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<Initiative>
+     _instance;
 } _Initiative_default_instance_;
 
 namespace protobuf_peer_2dto_2dpeer_2eproto {
@@ -50,97 +80,97 @@ const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[3];
 }  // namespace
 
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTableField
-    const TableStruct::entries[] = {
+    const TableStruct::entries[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   {0, 0, 0, ::google::protobuf::internal::kInvalidMask, 0, 0},
 };
 
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::AuxillaryParseTableField
-    const TableStruct::aux[] = {
+    const TableStruct::aux[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ::google::protobuf::internal::AuxillaryParseTableField(),
 };
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const
-    TableStruct::schema[] = {
-  { NULL, NULL, 0, -1, -1, false },
-  { NULL, NULL, 0, -1, -1, false },
-  { NULL, NULL, 0, -1, -1, false },
-  { NULL, NULL, 0, -1, -1, false },
-  { NULL, NULL, 0, -1, -1, false },
-  { NULL, NULL, 0, -1, -1, false },
-  { NULL, NULL, 0, -1, -1, false },
-  { NULL, NULL, 0, -1, -1, false },
-  { NULL, NULL, 0, -1, -1, false },
-  { NULL, NULL, 0, -1, -1, false },
+    TableStruct::schema[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
 };
 
-const ::google::protobuf::uint32 TableStruct::offsets[] = {
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Connect, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Connect, _internal_metadata_),
+const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ConnectRequest, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ConnectRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Connect, peer_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ConnectRequest, peeridentity_),
   0,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Connect_r, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Connect_r, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ConnectRespond, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ConnectRespond, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Connect_r, t_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ConnectRespond, statustype_),
   0,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetUserOnline_r, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetUserOnline_r, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetUsersOnlineRespond, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetUsersOnlineRespond, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetUserOnline_r, user_online_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetUsersOnlineRespond, usersonline_),
   ~0u,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Info, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Info, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyRequest, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Info, peer_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyRequest, peeridentity_),
   0,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Info_r, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Info_r, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyRespond, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyRespond, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Info_r, t_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyRespond, statustype_),
   0,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Hello_r, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Hello_r, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HelloRespond, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HelloRespond, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Hello_r, t_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HelloRespond, statustype_),
   0,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Packet, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Packet, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketRequst, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketRequst, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Packet, api_id_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Packet, user_id_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Packet, cnt_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Packet, inf_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Packet, version_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketRequst, rpcapi_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketRequst, peeridentity_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketRequst, connectrequest_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketRequst, notifyrequest_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketRequst, version_),
   4,
   0,
   2,
   3,
   1,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RPacket, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RPacket, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketRespond, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketRespond, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RPacket, api_id_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RPacket, cnt_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RPacket, guonline_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RPacket, in_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RPacket, hello_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RPacket, version_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketRespond, rpcapi_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketRespond, connectrespond_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketRespond, getusersonlinerespond_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketRespond, notifyrespond_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketRespond, hellorespond_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketRespond, version_),
   5,
   1,
   2,
@@ -153,7 +183,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Address, id_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Address, addr_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Address, address_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Address, port_),
   1,
   0,
@@ -164,35 +194,34 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Initiative, t_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Initiative, adr_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Initiative, address_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Initiative, version_),
   2,
   1,
   0,
 };
-
-static const ::google::protobuf::internal::MigrationSchema schemas[] = {
-  { 0, 6, sizeof(Connect)},
-  { 7, 13, sizeof(Connect_r)},
-  { 14, 20, sizeof(GetUserOnline_r)},
-  { 21, 27, sizeof(Info)},
-  { 28, 34, sizeof(Info_r)},
-  { 35, 41, sizeof(Hello_r)},
-  { 42, 52, sizeof(Packet)},
-  { 57, 68, sizeof(RPacket)},
+static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+  { 0, 6, sizeof(ConnectRequest)},
+  { 7, 13, sizeof(ConnectRespond)},
+  { 14, 20, sizeof(GetUsersOnlineRespond)},
+  { 21, 27, sizeof(NotifyRequest)},
+  { 28, 34, sizeof(NotifyRespond)},
+  { 35, 41, sizeof(HelloRespond)},
+  { 42, 52, sizeof(PacketRequst)},
+  { 57, 68, sizeof(PacketRespond)},
   { 74, 82, sizeof(Address)},
   { 85, 93, sizeof(Initiative)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&_Connect_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&_Connect_r_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&_GetUserOnline_r_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&_Info_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&_Info_r_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&_Hello_r_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&_Packet_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&_RPacket_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_ConnectRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_ConnectRespond_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_GetUsersOnlineRespond_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_NotifyRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_NotifyRespond_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_HelloRespond_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_PacketRequst_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_PacketRespond_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_Address_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_Initiative_default_instance_),
 };
@@ -219,66 +248,55 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }
 
 }  // namespace
-
-void TableStruct::Shutdown() {
-  _Connect_default_instance_.Shutdown();
-  delete file_level_metadata[0].reflection;
-  _Connect_r_default_instance_.Shutdown();
-  delete file_level_metadata[1].reflection;
-  _GetUserOnline_r_default_instance_.Shutdown();
-  delete file_level_metadata[2].reflection;
-  _Info_default_instance_.Shutdown();
-  delete file_level_metadata[3].reflection;
-  _Info_r_default_instance_.Shutdown();
-  delete file_level_metadata[4].reflection;
-  _Hello_r_default_instance_.Shutdown();
-  delete file_level_metadata[5].reflection;
-  _Packet_default_instance_.Shutdown();
-  delete file_level_metadata[6].reflection;
-  Packet::_default_version_.Shutdown();
-  _RPacket_default_instance_.Shutdown();
-  delete file_level_metadata[7].reflection;
-  RPacket::_default_version_.Shutdown();
-  _Address_default_instance_.Shutdown();
-  delete file_level_metadata[8].reflection;
-  _Initiative_default_instance_.Shutdown();
-  delete file_level_metadata[9].reflection;
-  Initiative::_default_version_.Shutdown();
-}
-
 void TableStruct::InitDefaultsImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::internal::InitProtobufDefaults();
-  _Connect_default_instance_.DefaultConstruct();
-  _Connect_r_default_instance_.DefaultConstruct();
-  _GetUserOnline_r_default_instance_.DefaultConstruct();
-  _Info_default_instance_.DefaultConstruct();
-  _Info_r_default_instance_.DefaultConstruct();
-  _Hello_r_default_instance_.DefaultConstruct();
-  Packet::_default_version_.DefaultConstruct();
-  *Packet::_default_version_.get_mutable() = ::std::string("0.1.0", 5);
-  _Packet_default_instance_.DefaultConstruct();
-  RPacket::_default_version_.DefaultConstruct();
-  *RPacket::_default_version_.get_mutable() = ::std::string("0.1.0", 5);
-  _RPacket_default_instance_.DefaultConstruct();
-  _Address_default_instance_.DefaultConstruct();
-  Initiative::_default_version_.DefaultConstruct();
+  _ConnectRequest_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_ConnectRequest_default_instance_);_ConnectRespond_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_ConnectRespond_default_instance_);_GetUsersOnlineRespond_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_GetUsersOnlineRespond_default_instance_);_NotifyRequest_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_NotifyRequest_default_instance_);_NotifyRespond_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_NotifyRespond_default_instance_);_HelloRespond_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_HelloRespond_default_instance_);PacketRequst::_default_version_.DefaultConstruct();
+  *PacketRequst::_default_version_.get_mutable() = ::std::string("0.1.0", 5);
+  ::google::protobuf::internal::OnShutdownDestroyString(
+      PacketRequst::_default_version_.get_mutable());
+  _PacketRequst_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_PacketRequst_default_instance_);PacketRespond::_default_version_.DefaultConstruct();
+  *PacketRespond::_default_version_.get_mutable() = ::std::string("0.1.0", 5);
+  ::google::protobuf::internal::OnShutdownDestroyString(
+      PacketRespond::_default_version_.get_mutable());
+  _PacketRespond_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_PacketRespond_default_instance_);_Address_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_Address_default_instance_);Initiative::_default_version_.DefaultConstruct();
   *Initiative::_default_version_.get_mutable() = ::std::string("0.1.0", 5);
-  _Initiative_default_instance_.DefaultConstruct();
-  _Packet_default_instance_.get_mutable()->cnt_ = const_cast< ::p2p::Connect*>(
-      ::p2p::Connect::internal_default_instance());
-  _Packet_default_instance_.get_mutable()->inf_ = const_cast< ::p2p::Info*>(
-      ::p2p::Info::internal_default_instance());
-  _RPacket_default_instance_.get_mutable()->cnt_ = const_cast< ::p2p::Connect_r*>(
-      ::p2p::Connect_r::internal_default_instance());
-  _RPacket_default_instance_.get_mutable()->guonline_ = const_cast< ::p2p::GetUserOnline_r*>(
-      ::p2p::GetUserOnline_r::internal_default_instance());
-  _RPacket_default_instance_.get_mutable()->in_ = const_cast< ::p2p::Info_r*>(
-      ::p2p::Info_r::internal_default_instance());
-  _RPacket_default_instance_.get_mutable()->hello_ = const_cast< ::p2p::Hello_r*>(
-      ::p2p::Hello_r::internal_default_instance());
-  _Initiative_default_instance_.get_mutable()->adr_ = const_cast< ::p2p::Address*>(
+  ::google::protobuf::internal::OnShutdownDestroyString(
+      Initiative::_default_version_.get_mutable());
+  _Initiative_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_Initiative_default_instance_);_PacketRequst_default_instance_._instance.get_mutable()->connectrequest_ = const_cast< ::p2p::ConnectRequest*>(
+      ::p2p::ConnectRequest::internal_default_instance());
+  _PacketRequst_default_instance_._instance.get_mutable()->notifyrequest_ = const_cast< ::p2p::NotifyRequest*>(
+      ::p2p::NotifyRequest::internal_default_instance());
+  _PacketRespond_default_instance_._instance.get_mutable()->connectrespond_ = const_cast< ::p2p::ConnectRespond*>(
+      ::p2p::ConnectRespond::internal_default_instance());
+  _PacketRespond_default_instance_._instance.get_mutable()->getusersonlinerespond_ = const_cast< ::p2p::GetUsersOnlineRespond*>(
+      ::p2p::GetUsersOnlineRespond::internal_default_instance());
+  _PacketRespond_default_instance_._instance.get_mutable()->notifyrespond_ = const_cast< ::p2p::NotifyRespond*>(
+      ::p2p::NotifyRespond::internal_default_instance());
+  _PacketRespond_default_instance_._instance.get_mutable()->hellorespond_ = const_cast< ::p2p::HelloRespond*>(
+      ::p2p::HelloRespond::internal_default_instance());
+  _Initiative_default_instance_._instance.get_mutable()->address_ = const_cast< ::p2p::Address*>(
       ::p2p::Address::internal_default_instance());
 }
 
@@ -286,46 +304,52 @@ void InitDefaults() {
   static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
   ::google::protobuf::GoogleOnceInit(&once, &TableStruct::InitDefaultsImpl);
 }
+namespace {
 void AddDescriptorsImpl() {
   InitDefaults();
-  static const char descriptor[] = {
-      "\n\022peer-to-peer.proto\022\003p2p\"\027\n\007Connect\022\014\n\004"
-      "peer\030\001 \002(\t\"0\n\tConnect_r\022#\n\001t\030\001 \002(\0162\017.p2p"
-      ".StatusType:\007SUCCESS\"&\n\017GetUserOnline_r\022"
-      "\023\n\013user_online\030\001 \003(\t\"\024\n\004Info\022\014\n\004peer\030\001 \002"
-      "(\t\"-\n\006Info_r\022#\n\001t\030\001 \002(\0162\017.p2p.StatusType"
-      ":\007SUCCESS\".\n\007Hello_r\022#\n\001t\030\001 \002(\0162\017.p2p.St"
-      "atusType:\007SUCCESS\"\201\001\n\006Packet\022\033\n\006api_id\030\001"
-      " \002(\0162\013.p2p.API_ID\022\017\n\007user_id\030\002 \002(\t\022\031\n\003cn"
-      "t\030\003 \001(\0132\014.p2p.Connect\022\026\n\003inf\030\004 \001(\0132\t.p2p"
-      ".Info\022\026\n\007version\030\005 \001(\t:\0050.1.0\"\271\001\n\007RPacke"
-      "t\022\033\n\006api_id\030\001 \002(\0162\013.p2p.API_ID\022\033\n\003cnt\030\002 "
-      "\001(\0132\016.p2p.Connect_r\022&\n\010guonline\030\003 \001(\0132\024."
-      "p2p.GetUserOnline_r\022\027\n\002in\030\004 \001(\0132\013.p2p.In"
-      "fo_r\022\033\n\005hello\030\005 \001(\0132\014.p2p.Hello_r\022\026\n\007ver"
-      "sion\030\006 \001(\t:\0050.1.0\"1\n\007Address\022\n\n\002id\030\004 \002(\t"
-      "\022\014\n\004addr\030\002 \002(\t\022\014\n\004port\030\003 \002(\005\"h\n\nInitiati"
-      "ve\022\'\n\001t\030\001 \002(\0162\023.p2p.InitiativeType:\007ADDR"
-      "ESS\022\031\n\003adr\030\002 \001(\0132\014.p2p.Address\022\026\n\007versio"
-      "n\030\003 \001(\t:\0050.1.0*U\n\006API_ID\022\021\n\rGETUSERONLIN"
-      "E\020\001\022\013\n\007CONNECT\020\002\022\010\n\004INFO\020\003\022\013\n\007OFFLINE\020\004\022"
-      "\t\n\005HEART\020\005\022\t\n\005HELLO\020\006*a\n\nStatusType\022\013\n\007S"
-      "UCCESS\020\001\022\013\n\007FAILURE\020\002\022\t\n\005READY\020\003\022\t\n\005CLOS"
-      "E\020\004\022\013\n\007RUNNING\020\005\022\013\n\007NOEXIST\020\006\022\t\n\005EXIST\020\007"
-      "*\035\n\016InitiativeType\022\013\n\007ADDRESS\020\001"
+  static const char descriptor[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+      "\n\022peer-to-peer.proto\022\003p2p\"&\n\016ConnectRequ"
+      "est\022\024\n\014peerIdentity\030\001 \002(\t\">\n\016ConnectResp"
+      "ond\022,\n\nstatusType\030\001 \002(\0162\017.p2p.StatusType"
+      ":\007SUCCESS\",\n\025GetUsersOnlineRespond\022\023\n\013us"
+      "ersOnline\030\001 \003(\t\"%\n\rNotifyRequest\022\024\n\014peer"
+      "Identity\030\001 \002(\t\"=\n\rNotifyRespond\022,\n\nstatu"
+      "sType\030\001 \002(\0162\017.p2p.StatusType:\007SUCCESS\"<\n"
+      "\014HelloRespond\022,\n\nstatusType\030\001 \002(\0162\017.p2p."
+      "StatusType:\007SUCCESS\"\261\001\n\014PacketRequst\022\033\n\006"
+      "rpcApi\030\001 \002(\0162\013.p2p.RPCAPI\022\024\n\014peerIdentit"
+      "y\030\002 \002(\t\022+\n\016connectRequest\030\003 \001(\0132\023.p2p.Co"
+      "nnectRequest\022)\n\rnotifyRequest\030\004 \001(\0132\022.p2"
+      "p.NotifyRequest\022\026\n\007version\030\005 \001(\t:\0050.1.0\""
+      "\200\002\n\rPacketRespond\022\033\n\006rpcApi\030\001 \002(\0162\013.p2p."
+      "RPCAPI\022+\n\016connectRespond\030\002 \001(\0132\023.p2p.Con"
+      "nectRespond\0229\n\025getUsersOnlineRespond\030\003 \001"
+      "(\0132\032.p2p.GetUsersOnlineRespond\022)\n\rnotify"
+      "Respond\030\004 \001(\0132\022.p2p.NotifyRespond\022\'\n\014hel"
+      "loRespond\030\005 \001(\0132\021.p2p.HelloRespond\022\026\n\007ve"
+      "rsion\030\006 \001(\t:\0050.1.0\"4\n\007Address\022\n\n\002id\030\004 \002("
+      "\t\022\017\n\007address\030\002 \002(\t\022\014\n\004port\030\003 \002(\005\"l\n\nInit"
+      "iative\022\'\n\001t\030\001 \002(\0162\023.p2p.InitiativeType:\007"
+      "ADDRESS\022\035\n\007address\030\002 \001(\0132\014.p2p.Address\022\026"
+      "\n\007version\030\003 \001(\t:\0050.1.0*V\n\006RPCAPI\022\022\n\016GETU"
+      "SERSONLINE\020\001\022\013\n\007CONNECT\020\002\022\010\n\004INFO\020\003\022\013\n\007O"
+      "FFLINE\020\004\022\t\n\005HEART\020\005\022\t\n\005HELLO\020\006*a\n\nStatus"
+      "Type\022\013\n\007SUCCESS\020\001\022\013\n\007FAILURE\020\002\022\t\n\005READY\020"
+      "\003\022\t\n\005CLOSE\020\004\022\013\n\007RUNNING\020\005\022\013\n\007NOEXIST\020\006\022\t"
+      "\n\005EXIST\020\007*\035\n\016InitiativeType\022\013\n\007ADDRESS\020\001"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 951);
+      descriptor, 1160);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "peer-to-peer.proto", &protobuf_RegisterTypes);
-  ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
 }
+} // anonymous namespace
 
 void AddDescriptors() {
   static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
   ::google::protobuf::GoogleOnceInit(&once, &AddDescriptorsImpl);
 }
-// Force AddDescriptors() to be called at static initialization time.
+// Force AddDescriptors() to be called at dynamic initialization time.
 struct StaticDescriptorInitializer {
   StaticDescriptorInitializer() {
     AddDescriptors();
@@ -334,11 +358,11 @@ struct StaticDescriptorInitializer {
 
 }  // namespace protobuf_peer_2dto_2dpeer_2eproto
 
-const ::google::protobuf::EnumDescriptor* API_ID_descriptor() {
+const ::google::protobuf::EnumDescriptor* RPCAPI_descriptor() {
   protobuf_peer_2dto_2dpeer_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_peer_2dto_2dpeer_2eproto::file_level_enum_descriptors[0];
 }
-bool API_ID_IsValid(int value) {
+bool RPCAPI_IsValid(int value) {
   switch (value) {
     case 1:
     case 2:
@@ -388,97 +412,101 @@ bool InitiativeType_IsValid(int value) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int Connect::kPeerFieldNumber;
+const int ConnectRequest::kPeerIdentityFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-Connect::Connect()
+ConnectRequest::ConnectRequest()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
     protobuf_peer_2dto_2dpeer_2eproto::InitDefaults();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:p2p.Connect)
+  // @@protoc_insertion_point(constructor:p2p.ConnectRequest)
 }
-Connect::Connect(const Connect& from)
+ConnectRequest::ConnectRequest(const ConnectRequest& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  peer_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_peer()) {
-    peer_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.peer_);
+  peeridentity_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_peeridentity()) {
+    peeridentity_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.peeridentity_);
   }
-  // @@protoc_insertion_point(copy_constructor:p2p.Connect)
+  // @@protoc_insertion_point(copy_constructor:p2p.ConnectRequest)
 }
 
-void Connect::SharedCtor() {
+void ConnectRequest::SharedCtor() {
   _cached_size_ = 0;
-  peer_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  peeridentity_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-Connect::~Connect() {
-  // @@protoc_insertion_point(destructor:p2p.Connect)
+ConnectRequest::~ConnectRequest() {
+  // @@protoc_insertion_point(destructor:p2p.ConnectRequest)
   SharedDtor();
 }
 
-void Connect::SharedDtor() {
-  peer_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+void ConnectRequest::SharedDtor() {
+  peeridentity_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-void Connect::SetCachedSize(int size) const {
+void ConnectRequest::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Connect::descriptor() {
+const ::google::protobuf::Descriptor* ConnectRequest::descriptor() {
   protobuf_peer_2dto_2dpeer_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_peer_2dto_2dpeer_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const Connect& Connect::default_instance() {
+const ConnectRequest& ConnectRequest::default_instance() {
   protobuf_peer_2dto_2dpeer_2eproto::InitDefaults();
   return *internal_default_instance();
 }
 
-Connect* Connect::New(::google::protobuf::Arena* arena) const {
-  Connect* n = new Connect;
+ConnectRequest* ConnectRequest::New(::google::protobuf::Arena* arena) const {
+  ConnectRequest* n = new ConnectRequest;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void Connect::Clear() {
-// @@protoc_insertion_point(message_clear_start:p2p.Connect)
-  if (has_peer()) {
-    GOOGLE_DCHECK(!peer_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-    (*peer_.UnsafeRawStringPointer())->clear();
+void ConnectRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:p2p.ConnectRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (has_peeridentity()) {
+    GOOGLE_DCHECK(!peeridentity_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+    (*peeridentity_.UnsafeRawStringPointer())->clear();
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
 
-bool Connect::MergePartialFromCodedStream(
+bool ConnectRequest::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:p2p.Connect)
+  // @@protoc_insertion_point(parse_start:p2p.ConnectRequest)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required string peer = 1;
+      // required string peerIdentity = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u)) {
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_peer()));
+                input, this->mutable_peeridentity()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->peer().data(), this->peer().length(),
+            this->peeridentity().data(), static_cast<int>(this->peeridentity().length()),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "p2p.Connect.peer");
+            "p2p.ConnectRequest.peerIdentity");
         } else {
           goto handle_unusual;
         }
@@ -487,90 +515,89 @@ bool Connect::MergePartialFromCodedStream(
 
       default: {
       handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+        if (tag == 0) {
           goto success;
         }
         DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
         break;
       }
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:p2p.Connect)
+  // @@protoc_insertion_point(parse_success:p2p.ConnectRequest)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:p2p.Connect)
+  // @@protoc_insertion_point(parse_failure:p2p.ConnectRequest)
   return false;
 #undef DO_
 }
 
-void Connect::SerializeWithCachedSizes(
+void ConnectRequest::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:p2p.Connect)
+  // @@protoc_insertion_point(serialize_start:p2p.ConnectRequest)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required string peer = 1;
+  // required string peerIdentity = 1;
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->peer().data(), this->peer().length(),
+      this->peeridentity().data(), static_cast<int>(this->peeridentity().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "p2p.Connect.peer");
+      "p2p.ConnectRequest.peerIdentity");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->peer(), output);
+      1, this->peeridentity(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
+        _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:p2p.Connect)
+  // @@protoc_insertion_point(serialize_end:p2p.ConnectRequest)
 }
 
-::google::protobuf::uint8* Connect::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* ConnectRequest::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:p2p.Connect)
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:p2p.ConnectRequest)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required string peer = 1;
+  // required string peerIdentity = 1;
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->peer().data(), this->peer().length(),
+      this->peeridentity().data(), static_cast<int>(this->peeridentity().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "p2p.Connect.peer");
+      "p2p.ConnectRequest.peerIdentity");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->peer(), target);
+        1, this->peeridentity(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
+        _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:p2p.Connect)
+  // @@protoc_insertion_point(serialize_to_array_end:p2p.ConnectRequest)
   return target;
 }
 
-size_t Connect::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:p2p.Connect)
+size_t ConnectRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:p2p.ConnectRequest)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
+        _internal_metadata_.unknown_fields());
   }
-  // required string peer = 1;
-  if (has_peer()) {
+  // required string peerIdentity = 1;
+  if (has_peeridentity()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->peer());
+        this->peeridentity());
   }
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -579,133 +606,134 @@ size_t Connect::ByteSizeLong() const {
   return total_size;
 }
 
-void Connect::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:p2p.Connect)
+void ConnectRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:p2p.ConnectRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  const Connect* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const Connect>(
+  const ConnectRequest* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const ConnectRequest>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:p2p.Connect)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:p2p.ConnectRequest)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:p2p.Connect)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:p2p.ConnectRequest)
     MergeFrom(*source);
   }
 }
 
-void Connect::MergeFrom(const Connect& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:p2p.Connect)
+void ConnectRequest::MergeFrom(const ConnectRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:p2p.ConnectRequest)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_peer()) {
-    set_has_peer();
-    peer_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.peer_);
+  if (from.has_peeridentity()) {
+    set_has_peeridentity();
+    peeridentity_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.peeridentity_);
   }
 }
 
-void Connect::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:p2p.Connect)
+void ConnectRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:p2p.ConnectRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Connect::CopyFrom(const Connect& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:p2p.Connect)
+void ConnectRequest::CopyFrom(const ConnectRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:p2p.ConnectRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Connect::IsInitialized() const {
+bool ConnectRequest::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
   return true;
 }
 
-void Connect::Swap(Connect* other) {
+void ConnectRequest::Swap(ConnectRequest* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void Connect::InternalSwap(Connect* other) {
-  peer_.Swap(&other->peer_);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
+void ConnectRequest::InternalSwap(ConnectRequest* other) {
+  using std::swap;
+  peeridentity_.Swap(&other->peeridentity_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  std::swap(_cached_size_, other->_cached_size_);
+  swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata Connect::GetMetadata() const {
+::google::protobuf::Metadata ConnectRequest::GetMetadata() const {
   protobuf_peer_2dto_2dpeer_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_peer_2dto_2dpeer_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// Connect
+// ConnectRequest
 
-// required string peer = 1;
-bool Connect::has_peer() const {
+// required string peerIdentity = 1;
+bool ConnectRequest::has_peeridentity() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-void Connect::set_has_peer() {
+void ConnectRequest::set_has_peeridentity() {
   _has_bits_[0] |= 0x00000001u;
 }
-void Connect::clear_has_peer() {
+void ConnectRequest::clear_has_peeridentity() {
   _has_bits_[0] &= ~0x00000001u;
 }
-void Connect::clear_peer() {
-  peer_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_peer();
+void ConnectRequest::clear_peeridentity() {
+  peeridentity_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_peeridentity();
 }
-const ::std::string& Connect::peer() const {
-  // @@protoc_insertion_point(field_get:p2p.Connect.peer)
-  return peer_.GetNoArena();
+const ::std::string& ConnectRequest::peeridentity() const {
+  // @@protoc_insertion_point(field_get:p2p.ConnectRequest.peerIdentity)
+  return peeridentity_.GetNoArena();
 }
-void Connect::set_peer(const ::std::string& value) {
-  set_has_peer();
-  peer_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:p2p.Connect.peer)
+void ConnectRequest::set_peeridentity(const ::std::string& value) {
+  set_has_peeridentity();
+  peeridentity_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:p2p.ConnectRequest.peerIdentity)
 }
 #if LANG_CXX11
-void Connect::set_peer(::std::string&& value) {
-  set_has_peer();
-  peer_.SetNoArena(
+void ConnectRequest::set_peeridentity(::std::string&& value) {
+  set_has_peeridentity();
+  peeridentity_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:p2p.Connect.peer)
+  // @@protoc_insertion_point(field_set_rvalue:p2p.ConnectRequest.peerIdentity)
 }
 #endif
-void Connect::set_peer(const char* value) {
+void ConnectRequest::set_peeridentity(const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  set_has_peer();
-  peer_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:p2p.Connect.peer)
+  set_has_peeridentity();
+  peeridentity_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:p2p.ConnectRequest.peerIdentity)
 }
-void Connect::set_peer(const char* value, size_t size) {
-  set_has_peer();
-  peer_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+void ConnectRequest::set_peeridentity(const char* value, size_t size) {
+  set_has_peeridentity();
+  peeridentity_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:p2p.Connect.peer)
+  // @@protoc_insertion_point(field_set_pointer:p2p.ConnectRequest.peerIdentity)
 }
-::std::string* Connect::mutable_peer() {
-  set_has_peer();
-  // @@protoc_insertion_point(field_mutable:p2p.Connect.peer)
-  return peer_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+::std::string* ConnectRequest::mutable_peeridentity() {
+  set_has_peeridentity();
+  // @@protoc_insertion_point(field_mutable:p2p.ConnectRequest.peerIdentity)
+  return peeridentity_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* Connect::release_peer() {
-  // @@protoc_insertion_point(field_release:p2p.Connect.peer)
-  clear_has_peer();
-  return peer_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+::std::string* ConnectRequest::release_peeridentity() {
+  // @@protoc_insertion_point(field_release:p2p.ConnectRequest.peerIdentity)
+  clear_has_peeridentity();
+  return peeridentity_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void Connect::set_allocated_peer(::std::string* peer) {
-  if (peer != NULL) {
-    set_has_peer();
+void ConnectRequest::set_allocated_peeridentity(::std::string* peeridentity) {
+  if (peeridentity != NULL) {
+    set_has_peeridentity();
   } else {
-    clear_has_peer();
+    clear_has_peeridentity();
   }
-  peer_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), peer);
-  // @@protoc_insertion_point(field_set_allocated:p2p.Connect.peer)
+  peeridentity_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), peeridentity);
+  // @@protoc_insertion_point(field_set_allocated:p2p.ConnectRequest.peerIdentity)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -713,92 +741,97 @@ void Connect::set_allocated_peer(::std::string* peer) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int Connect_r::kTFieldNumber;
+const int ConnectRespond::kStatusTypeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-Connect_r::Connect_r()
+ConnectRespond::ConnectRespond()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
     protobuf_peer_2dto_2dpeer_2eproto::InitDefaults();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:p2p.Connect_r)
+  // @@protoc_insertion_point(constructor:p2p.ConnectRespond)
 }
-Connect_r::Connect_r(const Connect_r& from)
+ConnectRespond::ConnectRespond(const ConnectRespond& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  t_ = from.t_;
-  // @@protoc_insertion_point(copy_constructor:p2p.Connect_r)
+  statustype_ = from.statustype_;
+  // @@protoc_insertion_point(copy_constructor:p2p.ConnectRespond)
 }
 
-void Connect_r::SharedCtor() {
+void ConnectRespond::SharedCtor() {
   _cached_size_ = 0;
-  t_ = 1;
+  statustype_ = 1;
 }
 
-Connect_r::~Connect_r() {
-  // @@protoc_insertion_point(destructor:p2p.Connect_r)
+ConnectRespond::~ConnectRespond() {
+  // @@protoc_insertion_point(destructor:p2p.ConnectRespond)
   SharedDtor();
 }
 
-void Connect_r::SharedDtor() {
+void ConnectRespond::SharedDtor() {
 }
 
-void Connect_r::SetCachedSize(int size) const {
+void ConnectRespond::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Connect_r::descriptor() {
+const ::google::protobuf::Descriptor* ConnectRespond::descriptor() {
   protobuf_peer_2dto_2dpeer_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_peer_2dto_2dpeer_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const Connect_r& Connect_r::default_instance() {
+const ConnectRespond& ConnectRespond::default_instance() {
   protobuf_peer_2dto_2dpeer_2eproto::InitDefaults();
   return *internal_default_instance();
 }
 
-Connect_r* Connect_r::New(::google::protobuf::Arena* arena) const {
-  Connect_r* n = new Connect_r;
+ConnectRespond* ConnectRespond::New(::google::protobuf::Arena* arena) const {
+  ConnectRespond* n = new ConnectRespond;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void Connect_r::Clear() {
-// @@protoc_insertion_point(message_clear_start:p2p.Connect_r)
-  t_ = 1;
+void ConnectRespond::Clear() {
+// @@protoc_insertion_point(message_clear_start:p2p.ConnectRespond)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  statustype_ = 1;
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
 
-bool Connect_r::MergePartialFromCodedStream(
+bool ConnectRespond::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:p2p.Connect_r)
+  // @@protoc_insertion_point(parse_start:p2p.ConnectRespond)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .p2p.StatusType t = 1 [default = SUCCESS];
+      // required .p2p.StatusType statusType = 1 [default = SUCCESS];
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u)) {
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
           if (::p2p::StatusType_IsValid(value)) {
-            set_t(static_cast< ::p2p::StatusType >(value));
+            set_statustype(static_cast< ::p2p::StatusType >(value));
           } else {
-            mutable_unknown_fields()->AddVarint(1, value);
+            mutable_unknown_fields()->AddVarint(
+                1, static_cast< ::google::protobuf::uint64>(value));
           }
         } else {
           goto handle_unusual;
@@ -808,80 +841,79 @@ bool Connect_r::MergePartialFromCodedStream(
 
       default: {
       handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+        if (tag == 0) {
           goto success;
         }
         DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
         break;
       }
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:p2p.Connect_r)
+  // @@protoc_insertion_point(parse_success:p2p.ConnectRespond)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:p2p.Connect_r)
+  // @@protoc_insertion_point(parse_failure:p2p.ConnectRespond)
   return false;
 #undef DO_
 }
 
-void Connect_r::SerializeWithCachedSizes(
+void ConnectRespond::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:p2p.Connect_r)
+  // @@protoc_insertion_point(serialize_start:p2p.ConnectRespond)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required .p2p.StatusType t = 1 [default = SUCCESS];
+  // required .p2p.StatusType statusType = 1 [default = SUCCESS];
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      1, this->t(), output);
+      1, this->statustype(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
+        _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:p2p.Connect_r)
+  // @@protoc_insertion_point(serialize_end:p2p.ConnectRespond)
 }
 
-::google::protobuf::uint8* Connect_r::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* ConnectRespond::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:p2p.Connect_r)
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:p2p.ConnectRespond)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required .p2p.StatusType t = 1 [default = SUCCESS];
+  // required .p2p.StatusType statusType = 1 [default = SUCCESS];
   if (cached_has_bits & 0x00000001u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      1, this->t(), target);
+      1, this->statustype(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
+        _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:p2p.Connect_r)
+  // @@protoc_insertion_point(serialize_to_array_end:p2p.ConnectRespond)
   return target;
 }
 
-size_t Connect_r::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:p2p.Connect_r)
+size_t ConnectRespond::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:p2p.ConnectRespond)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
+        _internal_metadata_.unknown_fields());
   }
-  // required .p2p.StatusType t = 1 [default = SUCCESS];
-  if (has_t()) {
+  // required .p2p.StatusType statusType = 1 [default = SUCCESS];
+  if (has_statustype()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->t());
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->statustype());
   }
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -890,94 +922,95 @@ size_t Connect_r::ByteSizeLong() const {
   return total_size;
 }
 
-void Connect_r::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:p2p.Connect_r)
+void ConnectRespond::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:p2p.ConnectRespond)
   GOOGLE_DCHECK_NE(&from, this);
-  const Connect_r* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const Connect_r>(
+  const ConnectRespond* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const ConnectRespond>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:p2p.Connect_r)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:p2p.ConnectRespond)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:p2p.Connect_r)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:p2p.ConnectRespond)
     MergeFrom(*source);
   }
 }
 
-void Connect_r::MergeFrom(const Connect_r& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:p2p.Connect_r)
+void ConnectRespond::MergeFrom(const ConnectRespond& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:p2p.ConnectRespond)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_t()) {
-    set_t(from.t());
+  if (from.has_statustype()) {
+    set_statustype(from.statustype());
   }
 }
 
-void Connect_r::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:p2p.Connect_r)
+void ConnectRespond::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:p2p.ConnectRespond)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Connect_r::CopyFrom(const Connect_r& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:p2p.Connect_r)
+void ConnectRespond::CopyFrom(const ConnectRespond& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:p2p.ConnectRespond)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Connect_r::IsInitialized() const {
+bool ConnectRespond::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
   return true;
 }
 
-void Connect_r::Swap(Connect_r* other) {
+void ConnectRespond::Swap(ConnectRespond* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void Connect_r::InternalSwap(Connect_r* other) {
-  std::swap(t_, other->t_);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
+void ConnectRespond::InternalSwap(ConnectRespond* other) {
+  using std::swap;
+  swap(statustype_, other->statustype_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  std::swap(_cached_size_, other->_cached_size_);
+  swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata Connect_r::GetMetadata() const {
+::google::protobuf::Metadata ConnectRespond::GetMetadata() const {
   protobuf_peer_2dto_2dpeer_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_peer_2dto_2dpeer_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// Connect_r
+// ConnectRespond
 
-// required .p2p.StatusType t = 1 [default = SUCCESS];
-bool Connect_r::has_t() const {
+// required .p2p.StatusType statusType = 1 [default = SUCCESS];
+bool ConnectRespond::has_statustype() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-void Connect_r::set_has_t() {
+void ConnectRespond::set_has_statustype() {
   _has_bits_[0] |= 0x00000001u;
 }
-void Connect_r::clear_has_t() {
+void ConnectRespond::clear_has_statustype() {
   _has_bits_[0] &= ~0x00000001u;
 }
-void Connect_r::clear_t() {
-  t_ = 1;
-  clear_has_t();
+void ConnectRespond::clear_statustype() {
+  statustype_ = 1;
+  clear_has_statustype();
 }
-::p2p::StatusType Connect_r::t() const {
-  // @@protoc_insertion_point(field_get:p2p.Connect_r.t)
-  return static_cast< ::p2p::StatusType >(t_);
+::p2p::StatusType ConnectRespond::statustype() const {
+  // @@protoc_insertion_point(field_get:p2p.ConnectRespond.statusType)
+  return static_cast< ::p2p::StatusType >(statustype_);
 }
-void Connect_r::set_t(::p2p::StatusType value) {
+void ConnectRespond::set_statustype(::p2p::StatusType value) {
   assert(::p2p::StatusType_IsValid(value));
-  set_has_t();
-  t_ = value;
-  // @@protoc_insertion_point(field_set:p2p.Connect_r.t)
+  set_has_statustype();
+  statustype_ = value;
+  // @@protoc_insertion_point(field_set:p2p.ConnectRespond.statusType)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -985,90 +1018,94 @@ void Connect_r::set_t(::p2p::StatusType value) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int GetUserOnline_r::kUserOnlineFieldNumber;
+const int GetUsersOnlineRespond::kUsersOnlineFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-GetUserOnline_r::GetUserOnline_r()
+GetUsersOnlineRespond::GetUsersOnlineRespond()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
     protobuf_peer_2dto_2dpeer_2eproto::InitDefaults();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:p2p.GetUserOnline_r)
+  // @@protoc_insertion_point(constructor:p2p.GetUsersOnlineRespond)
 }
-GetUserOnline_r::GetUserOnline_r(const GetUserOnline_r& from)
+GetUsersOnlineRespond::GetUsersOnlineRespond(const GetUsersOnlineRespond& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_),
       _cached_size_(0),
-      user_online_(from.user_online_) {
+      usersonline_(from.usersonline_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:p2p.GetUserOnline_r)
+  // @@protoc_insertion_point(copy_constructor:p2p.GetUsersOnlineRespond)
 }
 
-void GetUserOnline_r::SharedCtor() {
+void GetUsersOnlineRespond::SharedCtor() {
   _cached_size_ = 0;
 }
 
-GetUserOnline_r::~GetUserOnline_r() {
-  // @@protoc_insertion_point(destructor:p2p.GetUserOnline_r)
+GetUsersOnlineRespond::~GetUsersOnlineRespond() {
+  // @@protoc_insertion_point(destructor:p2p.GetUsersOnlineRespond)
   SharedDtor();
 }
 
-void GetUserOnline_r::SharedDtor() {
+void GetUsersOnlineRespond::SharedDtor() {
 }
 
-void GetUserOnline_r::SetCachedSize(int size) const {
+void GetUsersOnlineRespond::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* GetUserOnline_r::descriptor() {
+const ::google::protobuf::Descriptor* GetUsersOnlineRespond::descriptor() {
   protobuf_peer_2dto_2dpeer_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_peer_2dto_2dpeer_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const GetUserOnline_r& GetUserOnline_r::default_instance() {
+const GetUsersOnlineRespond& GetUsersOnlineRespond::default_instance() {
   protobuf_peer_2dto_2dpeer_2eproto::InitDefaults();
   return *internal_default_instance();
 }
 
-GetUserOnline_r* GetUserOnline_r::New(::google::protobuf::Arena* arena) const {
-  GetUserOnline_r* n = new GetUserOnline_r;
+GetUsersOnlineRespond* GetUsersOnlineRespond::New(::google::protobuf::Arena* arena) const {
+  GetUsersOnlineRespond* n = new GetUsersOnlineRespond;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void GetUserOnline_r::Clear() {
-// @@protoc_insertion_point(message_clear_start:p2p.GetUserOnline_r)
-  user_online_.Clear();
+void GetUsersOnlineRespond::Clear() {
+// @@protoc_insertion_point(message_clear_start:p2p.GetUsersOnlineRespond)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  usersonline_.Clear();
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
 
-bool GetUserOnline_r::MergePartialFromCodedStream(
+bool GetUsersOnlineRespond::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:p2p.GetUserOnline_r)
+  // @@protoc_insertion_point(parse_start:p2p.GetUsersOnlineRespond)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated string user_online = 1;
+      // repeated string usersOnline = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u)) {
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->add_user_online()));
+                input, this->add_usersonline()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->user_online(this->user_online_size() - 1).data(),
-            this->user_online(this->user_online_size() - 1).length(),
+            this->usersonline(this->usersonline_size() - 1).data(),
+            static_cast<int>(this->usersonline(this->usersonline_size() - 1).length()),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "p2p.GetUserOnline_r.user_online");
+            "p2p.GetUsersOnlineRespond.usersOnline");
         } else {
           goto handle_unusual;
         }
@@ -1077,88 +1114,87 @@ bool GetUserOnline_r::MergePartialFromCodedStream(
 
       default: {
       handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+        if (tag == 0) {
           goto success;
         }
         DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
         break;
       }
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:p2p.GetUserOnline_r)
+  // @@protoc_insertion_point(parse_success:p2p.GetUsersOnlineRespond)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:p2p.GetUserOnline_r)
+  // @@protoc_insertion_point(parse_failure:p2p.GetUsersOnlineRespond)
   return false;
 #undef DO_
 }
 
-void GetUserOnline_r::SerializeWithCachedSizes(
+void GetUsersOnlineRespond::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:p2p.GetUserOnline_r)
+  // @@protoc_insertion_point(serialize_start:p2p.GetUsersOnlineRespond)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated string user_online = 1;
-  for (int i = 0, n = this->user_online_size(); i < n; i++) {
+  // repeated string usersOnline = 1;
+  for (int i = 0, n = this->usersonline_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->user_online(i).data(), this->user_online(i).length(),
+      this->usersonline(i).data(), static_cast<int>(this->usersonline(i).length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "p2p.GetUserOnline_r.user_online");
+      "p2p.GetUsersOnlineRespond.usersOnline");
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      1, this->user_online(i), output);
+      1, this->usersonline(i), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
+        _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:p2p.GetUserOnline_r)
+  // @@protoc_insertion_point(serialize_end:p2p.GetUsersOnlineRespond)
 }
 
-::google::protobuf::uint8* GetUserOnline_r::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* GetUsersOnlineRespond::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:p2p.GetUserOnline_r)
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:p2p.GetUsersOnlineRespond)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated string user_online = 1;
-  for (int i = 0, n = this->user_online_size(); i < n; i++) {
+  // repeated string usersOnline = 1;
+  for (int i = 0, n = this->usersonline_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->user_online(i).data(), this->user_online(i).length(),
+      this->usersonline(i).data(), static_cast<int>(this->usersonline(i).length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "p2p.GetUserOnline_r.user_online");
+      "p2p.GetUsersOnlineRespond.usersOnline");
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteStringToArray(1, this->user_online(i), target);
+      WriteStringToArray(1, this->usersonline(i), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
+        _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:p2p.GetUserOnline_r)
+  // @@protoc_insertion_point(serialize_to_array_end:p2p.GetUsersOnlineRespond)
   return target;
 }
 
-size_t GetUserOnline_r::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:p2p.GetUserOnline_r)
+size_t GetUsersOnlineRespond::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:p2p.GetUsersOnlineRespond)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
+        _internal_metadata_.unknown_fields());
   }
-  // repeated string user_online = 1;
+  // repeated string usersOnline = 1;
   total_size += 1 *
-      ::google::protobuf::internal::FromIntSize(this->user_online_size());
-  for (int i = 0, n = this->user_online_size(); i < n; i++) {
+      ::google::protobuf::internal::FromIntSize(this->usersonline_size());
+  for (int i = 0, n = this->usersonline_size(); i < n; i++) {
     total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
-      this->user_online(i));
+      this->usersonline(i));
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1168,135 +1204,136 @@ size_t GetUserOnline_r::ByteSizeLong() const {
   return total_size;
 }
 
-void GetUserOnline_r::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:p2p.GetUserOnline_r)
+void GetUsersOnlineRespond::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:p2p.GetUsersOnlineRespond)
   GOOGLE_DCHECK_NE(&from, this);
-  const GetUserOnline_r* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const GetUserOnline_r>(
+  const GetUsersOnlineRespond* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const GetUsersOnlineRespond>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:p2p.GetUserOnline_r)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:p2p.GetUsersOnlineRespond)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:p2p.GetUserOnline_r)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:p2p.GetUsersOnlineRespond)
     MergeFrom(*source);
   }
 }
 
-void GetUserOnline_r::MergeFrom(const GetUserOnline_r& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:p2p.GetUserOnline_r)
+void GetUsersOnlineRespond::MergeFrom(const GetUsersOnlineRespond& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:p2p.GetUsersOnlineRespond)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  user_online_.MergeFrom(from.user_online_);
+  usersonline_.MergeFrom(from.usersonline_);
 }
 
-void GetUserOnline_r::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:p2p.GetUserOnline_r)
+void GetUsersOnlineRespond::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:p2p.GetUsersOnlineRespond)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void GetUserOnline_r::CopyFrom(const GetUserOnline_r& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:p2p.GetUserOnline_r)
+void GetUsersOnlineRespond::CopyFrom(const GetUsersOnlineRespond& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:p2p.GetUsersOnlineRespond)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool GetUserOnline_r::IsInitialized() const {
+bool GetUsersOnlineRespond::IsInitialized() const {
   return true;
 }
 
-void GetUserOnline_r::Swap(GetUserOnline_r* other) {
+void GetUsersOnlineRespond::Swap(GetUsersOnlineRespond* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void GetUserOnline_r::InternalSwap(GetUserOnline_r* other) {
-  user_online_.InternalSwap(&other->user_online_);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
+void GetUsersOnlineRespond::InternalSwap(GetUsersOnlineRespond* other) {
+  using std::swap;
+  usersonline_.InternalSwap(&other->usersonline_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  std::swap(_cached_size_, other->_cached_size_);
+  swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata GetUserOnline_r::GetMetadata() const {
+::google::protobuf::Metadata GetUsersOnlineRespond::GetMetadata() const {
   protobuf_peer_2dto_2dpeer_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_peer_2dto_2dpeer_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// GetUserOnline_r
+// GetUsersOnlineRespond
 
-// repeated string user_online = 1;
-int GetUserOnline_r::user_online_size() const {
-  return user_online_.size();
+// repeated string usersOnline = 1;
+int GetUsersOnlineRespond::usersonline_size() const {
+  return usersonline_.size();
 }
-void GetUserOnline_r::clear_user_online() {
-  user_online_.Clear();
+void GetUsersOnlineRespond::clear_usersonline() {
+  usersonline_.Clear();
 }
-const ::std::string& GetUserOnline_r::user_online(int index) const {
-  // @@protoc_insertion_point(field_get:p2p.GetUserOnline_r.user_online)
-  return user_online_.Get(index);
+const ::std::string& GetUsersOnlineRespond::usersonline(int index) const {
+  // @@protoc_insertion_point(field_get:p2p.GetUsersOnlineRespond.usersOnline)
+  return usersonline_.Get(index);
 }
-::std::string* GetUserOnline_r::mutable_user_online(int index) {
-  // @@protoc_insertion_point(field_mutable:p2p.GetUserOnline_r.user_online)
-  return user_online_.Mutable(index);
+::std::string* GetUsersOnlineRespond::mutable_usersonline(int index) {
+  // @@protoc_insertion_point(field_mutable:p2p.GetUsersOnlineRespond.usersOnline)
+  return usersonline_.Mutable(index);
 }
-void GetUserOnline_r::set_user_online(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:p2p.GetUserOnline_r.user_online)
-  user_online_.Mutable(index)->assign(value);
+void GetUsersOnlineRespond::set_usersonline(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:p2p.GetUsersOnlineRespond.usersOnline)
+  usersonline_.Mutable(index)->assign(value);
 }
 #if LANG_CXX11
-void GetUserOnline_r::set_user_online(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:p2p.GetUserOnline_r.user_online)
-  user_online_.Mutable(index)->assign(std::move(value));
+void GetUsersOnlineRespond::set_usersonline(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:p2p.GetUsersOnlineRespond.usersOnline)
+  usersonline_.Mutable(index)->assign(std::move(value));
 }
 #endif
-void GetUserOnline_r::set_user_online(int index, const char* value) {
+void GetUsersOnlineRespond::set_usersonline(int index, const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  user_online_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:p2p.GetUserOnline_r.user_online)
+  usersonline_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:p2p.GetUsersOnlineRespond.usersOnline)
 }
-void GetUserOnline_r::set_user_online(int index, const char* value, size_t size) {
-  user_online_.Mutable(index)->assign(
+void GetUsersOnlineRespond::set_usersonline(int index, const char* value, size_t size) {
+  usersonline_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:p2p.GetUserOnline_r.user_online)
+  // @@protoc_insertion_point(field_set_pointer:p2p.GetUsersOnlineRespond.usersOnline)
 }
-::std::string* GetUserOnline_r::add_user_online() {
-  // @@protoc_insertion_point(field_add_mutable:p2p.GetUserOnline_r.user_online)
-  return user_online_.Add();
+::std::string* GetUsersOnlineRespond::add_usersonline() {
+  // @@protoc_insertion_point(field_add_mutable:p2p.GetUsersOnlineRespond.usersOnline)
+  return usersonline_.Add();
 }
-void GetUserOnline_r::add_user_online(const ::std::string& value) {
-  user_online_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:p2p.GetUserOnline_r.user_online)
+void GetUsersOnlineRespond::add_usersonline(const ::std::string& value) {
+  usersonline_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:p2p.GetUsersOnlineRespond.usersOnline)
 }
 #if LANG_CXX11
-void GetUserOnline_r::add_user_online(::std::string&& value) {
-  user_online_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:p2p.GetUserOnline_r.user_online)
+void GetUsersOnlineRespond::add_usersonline(::std::string&& value) {
+  usersonline_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:p2p.GetUsersOnlineRespond.usersOnline)
 }
 #endif
-void GetUserOnline_r::add_user_online(const char* value) {
+void GetUsersOnlineRespond::add_usersonline(const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  user_online_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:p2p.GetUserOnline_r.user_online)
+  usersonline_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:p2p.GetUsersOnlineRespond.usersOnline)
 }
-void GetUserOnline_r::add_user_online(const char* value, size_t size) {
-  user_online_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:p2p.GetUserOnline_r.user_online)
+void GetUsersOnlineRespond::add_usersonline(const char* value, size_t size) {
+  usersonline_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:p2p.GetUsersOnlineRespond.usersOnline)
 }
 const ::google::protobuf::RepeatedPtrField< ::std::string>&
-GetUserOnline_r::user_online() const {
-  // @@protoc_insertion_point(field_list:p2p.GetUserOnline_r.user_online)
-  return user_online_;
+GetUsersOnlineRespond::usersonline() const {
+  // @@protoc_insertion_point(field_list:p2p.GetUsersOnlineRespond.usersOnline)
+  return usersonline_;
 }
 ::google::protobuf::RepeatedPtrField< ::std::string>*
-GetUserOnline_r::mutable_user_online() {
-  // @@protoc_insertion_point(field_mutable_list:p2p.GetUserOnline_r.user_online)
-  return &user_online_;
+GetUsersOnlineRespond::mutable_usersonline() {
+  // @@protoc_insertion_point(field_mutable_list:p2p.GetUsersOnlineRespond.usersOnline)
+  return &usersonline_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -1304,97 +1341,101 @@ GetUserOnline_r::mutable_user_online() {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int Info::kPeerFieldNumber;
+const int NotifyRequest::kPeerIdentityFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-Info::Info()
+NotifyRequest::NotifyRequest()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
     protobuf_peer_2dto_2dpeer_2eproto::InitDefaults();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:p2p.Info)
+  // @@protoc_insertion_point(constructor:p2p.NotifyRequest)
 }
-Info::Info(const Info& from)
+NotifyRequest::NotifyRequest(const NotifyRequest& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  peer_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_peer()) {
-    peer_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.peer_);
+  peeridentity_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_peeridentity()) {
+    peeridentity_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.peeridentity_);
   }
-  // @@protoc_insertion_point(copy_constructor:p2p.Info)
+  // @@protoc_insertion_point(copy_constructor:p2p.NotifyRequest)
 }
 
-void Info::SharedCtor() {
+void NotifyRequest::SharedCtor() {
   _cached_size_ = 0;
-  peer_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  peeridentity_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-Info::~Info() {
-  // @@protoc_insertion_point(destructor:p2p.Info)
+NotifyRequest::~NotifyRequest() {
+  // @@protoc_insertion_point(destructor:p2p.NotifyRequest)
   SharedDtor();
 }
 
-void Info::SharedDtor() {
-  peer_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+void NotifyRequest::SharedDtor() {
+  peeridentity_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-void Info::SetCachedSize(int size) const {
+void NotifyRequest::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Info::descriptor() {
+const ::google::protobuf::Descriptor* NotifyRequest::descriptor() {
   protobuf_peer_2dto_2dpeer_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_peer_2dto_2dpeer_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const Info& Info::default_instance() {
+const NotifyRequest& NotifyRequest::default_instance() {
   protobuf_peer_2dto_2dpeer_2eproto::InitDefaults();
   return *internal_default_instance();
 }
 
-Info* Info::New(::google::protobuf::Arena* arena) const {
-  Info* n = new Info;
+NotifyRequest* NotifyRequest::New(::google::protobuf::Arena* arena) const {
+  NotifyRequest* n = new NotifyRequest;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void Info::Clear() {
-// @@protoc_insertion_point(message_clear_start:p2p.Info)
-  if (has_peer()) {
-    GOOGLE_DCHECK(!peer_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-    (*peer_.UnsafeRawStringPointer())->clear();
+void NotifyRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:p2p.NotifyRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (has_peeridentity()) {
+    GOOGLE_DCHECK(!peeridentity_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+    (*peeridentity_.UnsafeRawStringPointer())->clear();
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
 
-bool Info::MergePartialFromCodedStream(
+bool NotifyRequest::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:p2p.Info)
+  // @@protoc_insertion_point(parse_start:p2p.NotifyRequest)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required string peer = 1;
+      // required string peerIdentity = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u)) {
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_peer()));
+                input, this->mutable_peeridentity()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->peer().data(), this->peer().length(),
+            this->peeridentity().data(), static_cast<int>(this->peeridentity().length()),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "p2p.Info.peer");
+            "p2p.NotifyRequest.peerIdentity");
         } else {
           goto handle_unusual;
         }
@@ -1403,90 +1444,89 @@ bool Info::MergePartialFromCodedStream(
 
       default: {
       handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+        if (tag == 0) {
           goto success;
         }
         DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
         break;
       }
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:p2p.Info)
+  // @@protoc_insertion_point(parse_success:p2p.NotifyRequest)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:p2p.Info)
+  // @@protoc_insertion_point(parse_failure:p2p.NotifyRequest)
   return false;
 #undef DO_
 }
 
-void Info::SerializeWithCachedSizes(
+void NotifyRequest::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:p2p.Info)
+  // @@protoc_insertion_point(serialize_start:p2p.NotifyRequest)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required string peer = 1;
+  // required string peerIdentity = 1;
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->peer().data(), this->peer().length(),
+      this->peeridentity().data(), static_cast<int>(this->peeridentity().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "p2p.Info.peer");
+      "p2p.NotifyRequest.peerIdentity");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->peer(), output);
+      1, this->peeridentity(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
+        _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:p2p.Info)
+  // @@protoc_insertion_point(serialize_end:p2p.NotifyRequest)
 }
 
-::google::protobuf::uint8* Info::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* NotifyRequest::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:p2p.Info)
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:p2p.NotifyRequest)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required string peer = 1;
+  // required string peerIdentity = 1;
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->peer().data(), this->peer().length(),
+      this->peeridentity().data(), static_cast<int>(this->peeridentity().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "p2p.Info.peer");
+      "p2p.NotifyRequest.peerIdentity");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->peer(), target);
+        1, this->peeridentity(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
+        _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:p2p.Info)
+  // @@protoc_insertion_point(serialize_to_array_end:p2p.NotifyRequest)
   return target;
 }
 
-size_t Info::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:p2p.Info)
+size_t NotifyRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:p2p.NotifyRequest)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
+        _internal_metadata_.unknown_fields());
   }
-  // required string peer = 1;
-  if (has_peer()) {
+  // required string peerIdentity = 1;
+  if (has_peeridentity()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->peer());
+        this->peeridentity());
   }
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -1495,133 +1535,134 @@ size_t Info::ByteSizeLong() const {
   return total_size;
 }
 
-void Info::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:p2p.Info)
+void NotifyRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:p2p.NotifyRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  const Info* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const Info>(
+  const NotifyRequest* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const NotifyRequest>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:p2p.Info)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:p2p.NotifyRequest)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:p2p.Info)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:p2p.NotifyRequest)
     MergeFrom(*source);
   }
 }
 
-void Info::MergeFrom(const Info& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:p2p.Info)
+void NotifyRequest::MergeFrom(const NotifyRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:p2p.NotifyRequest)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_peer()) {
-    set_has_peer();
-    peer_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.peer_);
+  if (from.has_peeridentity()) {
+    set_has_peeridentity();
+    peeridentity_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.peeridentity_);
   }
 }
 
-void Info::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:p2p.Info)
+void NotifyRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:p2p.NotifyRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Info::CopyFrom(const Info& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:p2p.Info)
+void NotifyRequest::CopyFrom(const NotifyRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:p2p.NotifyRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Info::IsInitialized() const {
+bool NotifyRequest::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
   return true;
 }
 
-void Info::Swap(Info* other) {
+void NotifyRequest::Swap(NotifyRequest* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void Info::InternalSwap(Info* other) {
-  peer_.Swap(&other->peer_);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
+void NotifyRequest::InternalSwap(NotifyRequest* other) {
+  using std::swap;
+  peeridentity_.Swap(&other->peeridentity_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  std::swap(_cached_size_, other->_cached_size_);
+  swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata Info::GetMetadata() const {
+::google::protobuf::Metadata NotifyRequest::GetMetadata() const {
   protobuf_peer_2dto_2dpeer_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_peer_2dto_2dpeer_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// Info
+// NotifyRequest
 
-// required string peer = 1;
-bool Info::has_peer() const {
+// required string peerIdentity = 1;
+bool NotifyRequest::has_peeridentity() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-void Info::set_has_peer() {
+void NotifyRequest::set_has_peeridentity() {
   _has_bits_[0] |= 0x00000001u;
 }
-void Info::clear_has_peer() {
+void NotifyRequest::clear_has_peeridentity() {
   _has_bits_[0] &= ~0x00000001u;
 }
-void Info::clear_peer() {
-  peer_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_peer();
+void NotifyRequest::clear_peeridentity() {
+  peeridentity_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_peeridentity();
 }
-const ::std::string& Info::peer() const {
-  // @@protoc_insertion_point(field_get:p2p.Info.peer)
-  return peer_.GetNoArena();
+const ::std::string& NotifyRequest::peeridentity() const {
+  // @@protoc_insertion_point(field_get:p2p.NotifyRequest.peerIdentity)
+  return peeridentity_.GetNoArena();
 }
-void Info::set_peer(const ::std::string& value) {
-  set_has_peer();
-  peer_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:p2p.Info.peer)
+void NotifyRequest::set_peeridentity(const ::std::string& value) {
+  set_has_peeridentity();
+  peeridentity_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:p2p.NotifyRequest.peerIdentity)
 }
 #if LANG_CXX11
-void Info::set_peer(::std::string&& value) {
-  set_has_peer();
-  peer_.SetNoArena(
+void NotifyRequest::set_peeridentity(::std::string&& value) {
+  set_has_peeridentity();
+  peeridentity_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:p2p.Info.peer)
+  // @@protoc_insertion_point(field_set_rvalue:p2p.NotifyRequest.peerIdentity)
 }
 #endif
-void Info::set_peer(const char* value) {
+void NotifyRequest::set_peeridentity(const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  set_has_peer();
-  peer_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:p2p.Info.peer)
+  set_has_peeridentity();
+  peeridentity_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:p2p.NotifyRequest.peerIdentity)
 }
-void Info::set_peer(const char* value, size_t size) {
-  set_has_peer();
-  peer_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+void NotifyRequest::set_peeridentity(const char* value, size_t size) {
+  set_has_peeridentity();
+  peeridentity_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:p2p.Info.peer)
+  // @@protoc_insertion_point(field_set_pointer:p2p.NotifyRequest.peerIdentity)
 }
-::std::string* Info::mutable_peer() {
-  set_has_peer();
-  // @@protoc_insertion_point(field_mutable:p2p.Info.peer)
-  return peer_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+::std::string* NotifyRequest::mutable_peeridentity() {
+  set_has_peeridentity();
+  // @@protoc_insertion_point(field_mutable:p2p.NotifyRequest.peerIdentity)
+  return peeridentity_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* Info::release_peer() {
-  // @@protoc_insertion_point(field_release:p2p.Info.peer)
-  clear_has_peer();
-  return peer_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+::std::string* NotifyRequest::release_peeridentity() {
+  // @@protoc_insertion_point(field_release:p2p.NotifyRequest.peerIdentity)
+  clear_has_peeridentity();
+  return peeridentity_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void Info::set_allocated_peer(::std::string* peer) {
-  if (peer != NULL) {
-    set_has_peer();
+void NotifyRequest::set_allocated_peeridentity(::std::string* peeridentity) {
+  if (peeridentity != NULL) {
+    set_has_peeridentity();
   } else {
-    clear_has_peer();
+    clear_has_peeridentity();
   }
-  peer_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), peer);
-  // @@protoc_insertion_point(field_set_allocated:p2p.Info.peer)
+  peeridentity_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), peeridentity);
+  // @@protoc_insertion_point(field_set_allocated:p2p.NotifyRequest.peerIdentity)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -1629,92 +1670,97 @@ void Info::set_allocated_peer(::std::string* peer) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int Info_r::kTFieldNumber;
+const int NotifyRespond::kStatusTypeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-Info_r::Info_r()
+NotifyRespond::NotifyRespond()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
     protobuf_peer_2dto_2dpeer_2eproto::InitDefaults();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:p2p.Info_r)
+  // @@protoc_insertion_point(constructor:p2p.NotifyRespond)
 }
-Info_r::Info_r(const Info_r& from)
+NotifyRespond::NotifyRespond(const NotifyRespond& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  t_ = from.t_;
-  // @@protoc_insertion_point(copy_constructor:p2p.Info_r)
+  statustype_ = from.statustype_;
+  // @@protoc_insertion_point(copy_constructor:p2p.NotifyRespond)
 }
 
-void Info_r::SharedCtor() {
+void NotifyRespond::SharedCtor() {
   _cached_size_ = 0;
-  t_ = 1;
+  statustype_ = 1;
 }
 
-Info_r::~Info_r() {
-  // @@protoc_insertion_point(destructor:p2p.Info_r)
+NotifyRespond::~NotifyRespond() {
+  // @@protoc_insertion_point(destructor:p2p.NotifyRespond)
   SharedDtor();
 }
 
-void Info_r::SharedDtor() {
+void NotifyRespond::SharedDtor() {
 }
 
-void Info_r::SetCachedSize(int size) const {
+void NotifyRespond::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Info_r::descriptor() {
+const ::google::protobuf::Descriptor* NotifyRespond::descriptor() {
   protobuf_peer_2dto_2dpeer_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_peer_2dto_2dpeer_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const Info_r& Info_r::default_instance() {
+const NotifyRespond& NotifyRespond::default_instance() {
   protobuf_peer_2dto_2dpeer_2eproto::InitDefaults();
   return *internal_default_instance();
 }
 
-Info_r* Info_r::New(::google::protobuf::Arena* arena) const {
-  Info_r* n = new Info_r;
+NotifyRespond* NotifyRespond::New(::google::protobuf::Arena* arena) const {
+  NotifyRespond* n = new NotifyRespond;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void Info_r::Clear() {
-// @@protoc_insertion_point(message_clear_start:p2p.Info_r)
-  t_ = 1;
+void NotifyRespond::Clear() {
+// @@protoc_insertion_point(message_clear_start:p2p.NotifyRespond)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  statustype_ = 1;
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
 
-bool Info_r::MergePartialFromCodedStream(
+bool NotifyRespond::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:p2p.Info_r)
+  // @@protoc_insertion_point(parse_start:p2p.NotifyRespond)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .p2p.StatusType t = 1 [default = SUCCESS];
+      // required .p2p.StatusType statusType = 1 [default = SUCCESS];
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u)) {
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
           if (::p2p::StatusType_IsValid(value)) {
-            set_t(static_cast< ::p2p::StatusType >(value));
+            set_statustype(static_cast< ::p2p::StatusType >(value));
           } else {
-            mutable_unknown_fields()->AddVarint(1, value);
+            mutable_unknown_fields()->AddVarint(
+                1, static_cast< ::google::protobuf::uint64>(value));
           }
         } else {
           goto handle_unusual;
@@ -1724,80 +1770,79 @@ bool Info_r::MergePartialFromCodedStream(
 
       default: {
       handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+        if (tag == 0) {
           goto success;
         }
         DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
         break;
       }
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:p2p.Info_r)
+  // @@protoc_insertion_point(parse_success:p2p.NotifyRespond)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:p2p.Info_r)
+  // @@protoc_insertion_point(parse_failure:p2p.NotifyRespond)
   return false;
 #undef DO_
 }
 
-void Info_r::SerializeWithCachedSizes(
+void NotifyRespond::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:p2p.Info_r)
+  // @@protoc_insertion_point(serialize_start:p2p.NotifyRespond)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required .p2p.StatusType t = 1 [default = SUCCESS];
+  // required .p2p.StatusType statusType = 1 [default = SUCCESS];
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      1, this->t(), output);
+      1, this->statustype(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
+        _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:p2p.Info_r)
+  // @@protoc_insertion_point(serialize_end:p2p.NotifyRespond)
 }
 
-::google::protobuf::uint8* Info_r::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* NotifyRespond::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:p2p.Info_r)
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:p2p.NotifyRespond)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required .p2p.StatusType t = 1 [default = SUCCESS];
+  // required .p2p.StatusType statusType = 1 [default = SUCCESS];
   if (cached_has_bits & 0x00000001u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      1, this->t(), target);
+      1, this->statustype(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
+        _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:p2p.Info_r)
+  // @@protoc_insertion_point(serialize_to_array_end:p2p.NotifyRespond)
   return target;
 }
 
-size_t Info_r::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:p2p.Info_r)
+size_t NotifyRespond::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:p2p.NotifyRespond)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
+        _internal_metadata_.unknown_fields());
   }
-  // required .p2p.StatusType t = 1 [default = SUCCESS];
-  if (has_t()) {
+  // required .p2p.StatusType statusType = 1 [default = SUCCESS];
+  if (has_statustype()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->t());
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->statustype());
   }
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -1806,94 +1851,95 @@ size_t Info_r::ByteSizeLong() const {
   return total_size;
 }
 
-void Info_r::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:p2p.Info_r)
+void NotifyRespond::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:p2p.NotifyRespond)
   GOOGLE_DCHECK_NE(&from, this);
-  const Info_r* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const Info_r>(
+  const NotifyRespond* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const NotifyRespond>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:p2p.Info_r)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:p2p.NotifyRespond)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:p2p.Info_r)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:p2p.NotifyRespond)
     MergeFrom(*source);
   }
 }
 
-void Info_r::MergeFrom(const Info_r& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:p2p.Info_r)
+void NotifyRespond::MergeFrom(const NotifyRespond& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:p2p.NotifyRespond)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_t()) {
-    set_t(from.t());
+  if (from.has_statustype()) {
+    set_statustype(from.statustype());
   }
 }
 
-void Info_r::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:p2p.Info_r)
+void NotifyRespond::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:p2p.NotifyRespond)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Info_r::CopyFrom(const Info_r& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:p2p.Info_r)
+void NotifyRespond::CopyFrom(const NotifyRespond& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:p2p.NotifyRespond)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Info_r::IsInitialized() const {
+bool NotifyRespond::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
   return true;
 }
 
-void Info_r::Swap(Info_r* other) {
+void NotifyRespond::Swap(NotifyRespond* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void Info_r::InternalSwap(Info_r* other) {
-  std::swap(t_, other->t_);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
+void NotifyRespond::InternalSwap(NotifyRespond* other) {
+  using std::swap;
+  swap(statustype_, other->statustype_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  std::swap(_cached_size_, other->_cached_size_);
+  swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata Info_r::GetMetadata() const {
+::google::protobuf::Metadata NotifyRespond::GetMetadata() const {
   protobuf_peer_2dto_2dpeer_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_peer_2dto_2dpeer_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// Info_r
+// NotifyRespond
 
-// required .p2p.StatusType t = 1 [default = SUCCESS];
-bool Info_r::has_t() const {
+// required .p2p.StatusType statusType = 1 [default = SUCCESS];
+bool NotifyRespond::has_statustype() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-void Info_r::set_has_t() {
+void NotifyRespond::set_has_statustype() {
   _has_bits_[0] |= 0x00000001u;
 }
-void Info_r::clear_has_t() {
+void NotifyRespond::clear_has_statustype() {
   _has_bits_[0] &= ~0x00000001u;
 }
-void Info_r::clear_t() {
-  t_ = 1;
-  clear_has_t();
+void NotifyRespond::clear_statustype() {
+  statustype_ = 1;
+  clear_has_statustype();
 }
-::p2p::StatusType Info_r::t() const {
-  // @@protoc_insertion_point(field_get:p2p.Info_r.t)
-  return static_cast< ::p2p::StatusType >(t_);
+::p2p::StatusType NotifyRespond::statustype() const {
+  // @@protoc_insertion_point(field_get:p2p.NotifyRespond.statusType)
+  return static_cast< ::p2p::StatusType >(statustype_);
 }
-void Info_r::set_t(::p2p::StatusType value) {
+void NotifyRespond::set_statustype(::p2p::StatusType value) {
   assert(::p2p::StatusType_IsValid(value));
-  set_has_t();
-  t_ = value;
-  // @@protoc_insertion_point(field_set:p2p.Info_r.t)
+  set_has_statustype();
+  statustype_ = value;
+  // @@protoc_insertion_point(field_set:p2p.NotifyRespond.statusType)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -1901,92 +1947,97 @@ void Info_r::set_t(::p2p::StatusType value) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int Hello_r::kTFieldNumber;
+const int HelloRespond::kStatusTypeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-Hello_r::Hello_r()
+HelloRespond::HelloRespond()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
     protobuf_peer_2dto_2dpeer_2eproto::InitDefaults();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:p2p.Hello_r)
+  // @@protoc_insertion_point(constructor:p2p.HelloRespond)
 }
-Hello_r::Hello_r(const Hello_r& from)
+HelloRespond::HelloRespond(const HelloRespond& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  t_ = from.t_;
-  // @@protoc_insertion_point(copy_constructor:p2p.Hello_r)
+  statustype_ = from.statustype_;
+  // @@protoc_insertion_point(copy_constructor:p2p.HelloRespond)
 }
 
-void Hello_r::SharedCtor() {
+void HelloRespond::SharedCtor() {
   _cached_size_ = 0;
-  t_ = 1;
+  statustype_ = 1;
 }
 
-Hello_r::~Hello_r() {
-  // @@protoc_insertion_point(destructor:p2p.Hello_r)
+HelloRespond::~HelloRespond() {
+  // @@protoc_insertion_point(destructor:p2p.HelloRespond)
   SharedDtor();
 }
 
-void Hello_r::SharedDtor() {
+void HelloRespond::SharedDtor() {
 }
 
-void Hello_r::SetCachedSize(int size) const {
+void HelloRespond::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Hello_r::descriptor() {
+const ::google::protobuf::Descriptor* HelloRespond::descriptor() {
   protobuf_peer_2dto_2dpeer_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_peer_2dto_2dpeer_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const Hello_r& Hello_r::default_instance() {
+const HelloRespond& HelloRespond::default_instance() {
   protobuf_peer_2dto_2dpeer_2eproto::InitDefaults();
   return *internal_default_instance();
 }
 
-Hello_r* Hello_r::New(::google::protobuf::Arena* arena) const {
-  Hello_r* n = new Hello_r;
+HelloRespond* HelloRespond::New(::google::protobuf::Arena* arena) const {
+  HelloRespond* n = new HelloRespond;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void Hello_r::Clear() {
-// @@protoc_insertion_point(message_clear_start:p2p.Hello_r)
-  t_ = 1;
+void HelloRespond::Clear() {
+// @@protoc_insertion_point(message_clear_start:p2p.HelloRespond)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  statustype_ = 1;
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
 
-bool Hello_r::MergePartialFromCodedStream(
+bool HelloRespond::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:p2p.Hello_r)
+  // @@protoc_insertion_point(parse_start:p2p.HelloRespond)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .p2p.StatusType t = 1 [default = SUCCESS];
+      // required .p2p.StatusType statusType = 1 [default = SUCCESS];
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u)) {
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
           if (::p2p::StatusType_IsValid(value)) {
-            set_t(static_cast< ::p2p::StatusType >(value));
+            set_statustype(static_cast< ::p2p::StatusType >(value));
           } else {
-            mutable_unknown_fields()->AddVarint(1, value);
+            mutable_unknown_fields()->AddVarint(
+                1, static_cast< ::google::protobuf::uint64>(value));
           }
         } else {
           goto handle_unusual;
@@ -1996,80 +2047,79 @@ bool Hello_r::MergePartialFromCodedStream(
 
       default: {
       handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+        if (tag == 0) {
           goto success;
         }
         DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
         break;
       }
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:p2p.Hello_r)
+  // @@protoc_insertion_point(parse_success:p2p.HelloRespond)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:p2p.Hello_r)
+  // @@protoc_insertion_point(parse_failure:p2p.HelloRespond)
   return false;
 #undef DO_
 }
 
-void Hello_r::SerializeWithCachedSizes(
+void HelloRespond::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:p2p.Hello_r)
+  // @@protoc_insertion_point(serialize_start:p2p.HelloRespond)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required .p2p.StatusType t = 1 [default = SUCCESS];
+  // required .p2p.StatusType statusType = 1 [default = SUCCESS];
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      1, this->t(), output);
+      1, this->statustype(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
+        _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:p2p.Hello_r)
+  // @@protoc_insertion_point(serialize_end:p2p.HelloRespond)
 }
 
-::google::protobuf::uint8* Hello_r::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* HelloRespond::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:p2p.Hello_r)
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:p2p.HelloRespond)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required .p2p.StatusType t = 1 [default = SUCCESS];
+  // required .p2p.StatusType statusType = 1 [default = SUCCESS];
   if (cached_has_bits & 0x00000001u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      1, this->t(), target);
+      1, this->statustype(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
+        _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:p2p.Hello_r)
+  // @@protoc_insertion_point(serialize_to_array_end:p2p.HelloRespond)
   return target;
 }
 
-size_t Hello_r::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:p2p.Hello_r)
+size_t HelloRespond::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:p2p.HelloRespond)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
+        _internal_metadata_.unknown_fields());
   }
-  // required .p2p.StatusType t = 1 [default = SUCCESS];
-  if (has_t()) {
+  // required .p2p.StatusType statusType = 1 [default = SUCCESS];
+  if (has_statustype()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->t());
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->statustype());
   }
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -2078,240 +2128,244 @@ size_t Hello_r::ByteSizeLong() const {
   return total_size;
 }
 
-void Hello_r::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:p2p.Hello_r)
+void HelloRespond::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:p2p.HelloRespond)
   GOOGLE_DCHECK_NE(&from, this);
-  const Hello_r* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const Hello_r>(
+  const HelloRespond* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const HelloRespond>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:p2p.Hello_r)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:p2p.HelloRespond)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:p2p.Hello_r)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:p2p.HelloRespond)
     MergeFrom(*source);
   }
 }
 
-void Hello_r::MergeFrom(const Hello_r& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:p2p.Hello_r)
+void HelloRespond::MergeFrom(const HelloRespond& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:p2p.HelloRespond)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_t()) {
-    set_t(from.t());
+  if (from.has_statustype()) {
+    set_statustype(from.statustype());
   }
 }
 
-void Hello_r::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:p2p.Hello_r)
+void HelloRespond::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:p2p.HelloRespond)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Hello_r::CopyFrom(const Hello_r& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:p2p.Hello_r)
+void HelloRespond::CopyFrom(const HelloRespond& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:p2p.HelloRespond)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Hello_r::IsInitialized() const {
+bool HelloRespond::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
   return true;
 }
 
-void Hello_r::Swap(Hello_r* other) {
+void HelloRespond::Swap(HelloRespond* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void Hello_r::InternalSwap(Hello_r* other) {
-  std::swap(t_, other->t_);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
+void HelloRespond::InternalSwap(HelloRespond* other) {
+  using std::swap;
+  swap(statustype_, other->statustype_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  std::swap(_cached_size_, other->_cached_size_);
+  swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata Hello_r::GetMetadata() const {
+::google::protobuf::Metadata HelloRespond::GetMetadata() const {
   protobuf_peer_2dto_2dpeer_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_peer_2dto_2dpeer_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// Hello_r
+// HelloRespond
 
-// required .p2p.StatusType t = 1 [default = SUCCESS];
-bool Hello_r::has_t() const {
+// required .p2p.StatusType statusType = 1 [default = SUCCESS];
+bool HelloRespond::has_statustype() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-void Hello_r::set_has_t() {
+void HelloRespond::set_has_statustype() {
   _has_bits_[0] |= 0x00000001u;
 }
-void Hello_r::clear_has_t() {
+void HelloRespond::clear_has_statustype() {
   _has_bits_[0] &= ~0x00000001u;
 }
-void Hello_r::clear_t() {
-  t_ = 1;
-  clear_has_t();
+void HelloRespond::clear_statustype() {
+  statustype_ = 1;
+  clear_has_statustype();
 }
-::p2p::StatusType Hello_r::t() const {
-  // @@protoc_insertion_point(field_get:p2p.Hello_r.t)
-  return static_cast< ::p2p::StatusType >(t_);
+::p2p::StatusType HelloRespond::statustype() const {
+  // @@protoc_insertion_point(field_get:p2p.HelloRespond.statusType)
+  return static_cast< ::p2p::StatusType >(statustype_);
 }
-void Hello_r::set_t(::p2p::StatusType value) {
+void HelloRespond::set_statustype(::p2p::StatusType value) {
   assert(::p2p::StatusType_IsValid(value));
-  set_has_t();
-  t_ = value;
-  // @@protoc_insertion_point(field_set:p2p.Hello_r.t)
+  set_has_statustype();
+  statustype_ = value;
+  // @@protoc_insertion_point(field_set:p2p.HelloRespond.statusType)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
 
-::google::protobuf::internal::ExplicitlyConstructed< ::std::string> Packet::_default_version_;
+::google::protobuf::internal::ExplicitlyConstructed< ::std::string> PacketRequst::_default_version_;
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int Packet::kApiIdFieldNumber;
-const int Packet::kUserIdFieldNumber;
-const int Packet::kCntFieldNumber;
-const int Packet::kInfFieldNumber;
-const int Packet::kVersionFieldNumber;
+const int PacketRequst::kRpcApiFieldNumber;
+const int PacketRequst::kPeerIdentityFieldNumber;
+const int PacketRequst::kConnectRequestFieldNumber;
+const int PacketRequst::kNotifyRequestFieldNumber;
+const int PacketRequst::kVersionFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-Packet::Packet()
+PacketRequst::PacketRequst()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
     protobuf_peer_2dto_2dpeer_2eproto::InitDefaults();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:p2p.Packet)
+  // @@protoc_insertion_point(constructor:p2p.PacketRequst)
 }
-Packet::Packet(const Packet& from)
+PacketRequst::PacketRequst(const PacketRequst& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  user_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_user_id()) {
-    user_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_id_);
+  peeridentity_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_peeridentity()) {
+    peeridentity_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.peeridentity_);
   }
-  version_.UnsafeSetDefault(&Packet::_default_version_.get());
+  version_.UnsafeSetDefault(&PacketRequst::_default_version_.get());
   if (from.has_version()) {
-    version_.AssignWithDefault(&Packet::_default_version_.get(), from.version_);
+    version_.AssignWithDefault(&PacketRequst::_default_version_.get(), from.version_);
   }
-  if (from.has_cnt()) {
-    cnt_ = new ::p2p::Connect(*from.cnt_);
+  if (from.has_connectrequest()) {
+    connectrequest_ = new ::p2p::ConnectRequest(*from.connectrequest_);
   } else {
-    cnt_ = NULL;
+    connectrequest_ = NULL;
   }
-  if (from.has_inf()) {
-    inf_ = new ::p2p::Info(*from.inf_);
+  if (from.has_notifyrequest()) {
+    notifyrequest_ = new ::p2p::NotifyRequest(*from.notifyrequest_);
   } else {
-    inf_ = NULL;
+    notifyrequest_ = NULL;
   }
-  api_id_ = from.api_id_;
-  // @@protoc_insertion_point(copy_constructor:p2p.Packet)
+  rpcapi_ = from.rpcapi_;
+  // @@protoc_insertion_point(copy_constructor:p2p.PacketRequst)
 }
 
-void Packet::SharedCtor() {
+void PacketRequst::SharedCtor() {
   _cached_size_ = 0;
-  user_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  version_.UnsafeSetDefault(&Packet::_default_version_.get());
-  ::memset(&cnt_, 0, reinterpret_cast<char*>(&inf_) -
-    reinterpret_cast<char*>(&cnt_) + sizeof(inf_));
-  api_id_ = 1;
+  peeridentity_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  version_.UnsafeSetDefault(&PacketRequst::_default_version_.get());
+  ::memset(&connectrequest_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&notifyrequest_) -
+      reinterpret_cast<char*>(&connectrequest_)) + sizeof(notifyrequest_));
+  rpcapi_ = 1;
 }
 
-Packet::~Packet() {
-  // @@protoc_insertion_point(destructor:p2p.Packet)
+PacketRequst::~PacketRequst() {
+  // @@protoc_insertion_point(destructor:p2p.PacketRequst)
   SharedDtor();
 }
 
-void Packet::SharedDtor() {
-  user_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  version_.DestroyNoArena(&Packet::_default_version_.get());
-  if (this != internal_default_instance()) {
-    delete cnt_;
-  }
-  if (this != internal_default_instance()) {
-    delete inf_;
-  }
+void PacketRequst::SharedDtor() {
+  peeridentity_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  version_.DestroyNoArena(&PacketRequst::_default_version_.get());
+  if (this != internal_default_instance()) delete connectrequest_;
+  if (this != internal_default_instance()) delete notifyrequest_;
 }
 
-void Packet::SetCachedSize(int size) const {
+void PacketRequst::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Packet::descriptor() {
+const ::google::protobuf::Descriptor* PacketRequst::descriptor() {
   protobuf_peer_2dto_2dpeer_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_peer_2dto_2dpeer_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const Packet& Packet::default_instance() {
+const PacketRequst& PacketRequst::default_instance() {
   protobuf_peer_2dto_2dpeer_2eproto::InitDefaults();
   return *internal_default_instance();
 }
 
-Packet* Packet::New(::google::protobuf::Arena* arena) const {
-  Packet* n = new Packet;
+PacketRequst* PacketRequst::New(::google::protobuf::Arena* arena) const {
+  PacketRequst* n = new PacketRequst;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void Packet::Clear() {
-// @@protoc_insertion_point(message_clear_start:p2p.Packet)
-  if (_has_bits_[0 / 32] & 31u) {
-    if (has_user_id()) {
-      GOOGLE_DCHECK(!user_id_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-      (*user_id_.UnsafeRawStringPointer())->clear();
+void PacketRequst::Clear() {
+// @@protoc_insertion_point(message_clear_start:p2p.PacketRequst)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 31u) {
+    if (cached_has_bits & 0x00000001u) {
+      GOOGLE_DCHECK(!peeridentity_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*peeridentity_.UnsafeRawStringPointer())->clear();
     }
-    if (has_version()) {
-      GOOGLE_DCHECK(!version_.IsDefault(&Packet::_default_version_.get()));
-      (*version_.UnsafeRawStringPointer())->assign(*&Packet::_default_version_.get());
+    if (cached_has_bits & 0x00000002u) {
+      GOOGLE_DCHECK(!version_.IsDefault(&PacketRequst::_default_version_.get()));
+      (*version_.UnsafeRawStringPointer())->assign(*&PacketRequst::_default_version_.get());
     }
-    if (has_cnt()) {
-      GOOGLE_DCHECK(cnt_ != NULL);
-      cnt_->::p2p::Connect::Clear();
+    if (cached_has_bits & 0x00000004u) {
+      GOOGLE_DCHECK(connectrequest_ != NULL);
+      connectrequest_->::p2p::ConnectRequest::Clear();
     }
-    if (has_inf()) {
-      GOOGLE_DCHECK(inf_ != NULL);
-      inf_->::p2p::Info::Clear();
+    if (cached_has_bits & 0x00000008u) {
+      GOOGLE_DCHECK(notifyrequest_ != NULL);
+      notifyrequest_->::p2p::NotifyRequest::Clear();
     }
-    api_id_ = 1;
+    rpcapi_ = 1;
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
 
-bool Packet::MergePartialFromCodedStream(
+bool PacketRequst::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:p2p.Packet)
+  // @@protoc_insertion_point(parse_start:p2p.PacketRequst)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .p2p.API_ID api_id = 1;
+      // required .p2p.RPCAPI rpcApi = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u)) {
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::p2p::API_ID_IsValid(value)) {
-            set_api_id(static_cast< ::p2p::API_ID >(value));
+          if (::p2p::RPCAPI_IsValid(value)) {
+            set_rpcapi(static_cast< ::p2p::RPCAPI >(value));
           } else {
-            mutable_unknown_fields()->AddVarint(1, value);
+            mutable_unknown_fields()->AddVarint(
+                1, static_cast< ::google::protobuf::uint64>(value));
           }
         } else {
           goto handle_unusual;
@@ -2319,40 +2373,40 @@ bool Packet::MergePartialFromCodedStream(
         break;
       }
 
-      // required string user_id = 2;
+      // required string peerIdentity = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u)) {
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_user_id()));
+                input, this->mutable_peeridentity()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->user_id().data(), this->user_id().length(),
+            this->peeridentity().data(), static_cast<int>(this->peeridentity().length()),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "p2p.Packet.user_id");
+            "p2p.PacketRequst.peerIdentity");
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional .p2p.Connect cnt = 3;
+      // optional .p2p.ConnectRequest connectRequest = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(26u)) {
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_cnt()));
+               input, mutable_connectrequest()));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional .p2p.Info inf = 4;
+      // optional .p2p.NotifyRequest notifyRequest = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(34u)) {
+            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_inf()));
+               input, mutable_notifyrequest()));
         } else {
           goto handle_unusual;
         }
@@ -2362,13 +2416,13 @@ bool Packet::MergePartialFromCodedStream(
       // optional string version = 5 [default = "0.1.0"];
       case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(42u)) {
+            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_version()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->version().data(), this->version().length(),
+            this->version().data(), static_cast<int>(this->version().length()),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "p2p.Packet.version");
+            "p2p.PacketRequst.version");
         } else {
           goto handle_unusual;
         }
@@ -2377,122 +2431,121 @@ bool Packet::MergePartialFromCodedStream(
 
       default: {
       handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+        if (tag == 0) {
           goto success;
         }
         DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
         break;
       }
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:p2p.Packet)
+  // @@protoc_insertion_point(parse_success:p2p.PacketRequst)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:p2p.Packet)
+  // @@protoc_insertion_point(parse_failure:p2p.PacketRequst)
   return false;
 #undef DO_
 }
 
-void Packet::SerializeWithCachedSizes(
+void PacketRequst::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:p2p.Packet)
+  // @@protoc_insertion_point(serialize_start:p2p.PacketRequst)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required .p2p.API_ID api_id = 1;
+  // required .p2p.RPCAPI rpcApi = 1;
   if (cached_has_bits & 0x00000010u) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      1, this->api_id(), output);
+      1, this->rpcapi(), output);
   }
 
-  // required string user_id = 2;
+  // required string peerIdentity = 2;
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->user_id().data(), this->user_id().length(),
+      this->peeridentity().data(), static_cast<int>(this->peeridentity().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "p2p.Packet.user_id");
+      "p2p.PacketRequst.peerIdentity");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->user_id(), output);
+      2, this->peeridentity(), output);
   }
 
-  // optional .p2p.Connect cnt = 3;
+  // optional .p2p.ConnectRequest connectRequest = 3;
   if (cached_has_bits & 0x00000004u) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, *this->cnt_, output);
+      3, *this->connectrequest_, output);
   }
 
-  // optional .p2p.Info inf = 4;
+  // optional .p2p.NotifyRequest notifyRequest = 4;
   if (cached_has_bits & 0x00000008u) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, *this->inf_, output);
+      4, *this->notifyrequest_, output);
   }
 
   // optional string version = 5 [default = "0.1.0"];
   if (cached_has_bits & 0x00000002u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->version().data(), this->version().length(),
+      this->version().data(), static_cast<int>(this->version().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "p2p.Packet.version");
+      "p2p.PacketRequst.version");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       5, this->version(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
+        _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:p2p.Packet)
+  // @@protoc_insertion_point(serialize_end:p2p.PacketRequst)
 }
 
-::google::protobuf::uint8* Packet::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* PacketRequst::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:p2p.Packet)
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:p2p.PacketRequst)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required .p2p.API_ID api_id = 1;
+  // required .p2p.RPCAPI rpcApi = 1;
   if (cached_has_bits & 0x00000010u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      1, this->api_id(), target);
+      1, this->rpcapi(), target);
   }
 
-  // required string user_id = 2;
+  // required string peerIdentity = 2;
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->user_id().data(), this->user_id().length(),
+      this->peeridentity().data(), static_cast<int>(this->peeridentity().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "p2p.Packet.user_id");
+      "p2p.PacketRequst.peerIdentity");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->user_id(), target);
+        2, this->peeridentity(), target);
   }
 
-  // optional .p2p.Connect cnt = 3;
+  // optional .p2p.ConnectRequest connectRequest = 3;
   if (cached_has_bits & 0x00000004u) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        3, *this->cnt_, deterministic, target);
+        3, *this->connectrequest_, deterministic, target);
   }
 
-  // optional .p2p.Info inf = 4;
+  // optional .p2p.NotifyRequest notifyRequest = 4;
   if (cached_has_bits & 0x00000008u) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        4, *this->inf_, deterministic, target);
+        4, *this->notifyrequest_, deterministic, target);
   }
 
   // optional string version = 5 [default = "0.1.0"];
   if (cached_has_bits & 0x00000002u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->version().data(), this->version().length(),
+      this->version().data(), static_cast<int>(this->version().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "p2p.Packet.version");
+      "p2p.PacketRequst.version");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         5, this->version(), target);
@@ -2500,49 +2553,49 @@ void Packet::SerializeWithCachedSizes(
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
+        _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:p2p.Packet)
+  // @@protoc_insertion_point(serialize_to_array_end:p2p.PacketRequst)
   return target;
 }
 
-size_t Packet::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:p2p.Packet)
+size_t PacketRequst::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:p2p.PacketRequst)
   size_t total_size = 0;
 
-  if (has_user_id()) {
-    // required string user_id = 2;
+  if (has_peeridentity()) {
+    // required string peerIdentity = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->user_id());
+        this->peeridentity());
   }
 
-  if (has_api_id()) {
-    // required .p2p.API_ID api_id = 1;
+  if (has_rpcapi()) {
+    // required .p2p.RPCAPI rpcApi = 1;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->api_id());
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->rpcapi());
   }
 
   return total_size;
 }
-size_t Packet::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:p2p.Packet)
+size_t PacketRequst::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:p2p.PacketRequst)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
+        _internal_metadata_.unknown_fields());
   }
   if (((_has_bits_[0] & 0x00000011) ^ 0x00000011) == 0) {  // All required fields are present.
-    // required string user_id = 2;
+    // required string peerIdentity = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->user_id());
+        this->peeridentity());
 
-    // required .p2p.API_ID api_id = 1;
+    // required .p2p.RPCAPI rpcApi = 1;
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->api_id());
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->rpcapi());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -2555,18 +2608,18 @@ size_t Packet::ByteSizeLong() const {
           this->version());
     }
 
-    // optional .p2p.Connect cnt = 3;
-    if (has_cnt()) {
+    // optional .p2p.ConnectRequest connectRequest = 3;
+    if (has_connectrequest()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          *this->cnt_);
+          *this->connectrequest_);
     }
 
-    // optional .p2p.Info inf = 4;
-    if (has_inf()) {
+    // optional .p2p.NotifyRequest notifyRequest = 4;
+    if (has_notifyrequest()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          *this->inf_);
+          *this->notifyrequest_);
     }
 
   }
@@ -2577,23 +2630,23 @@ size_t Packet::ByteSizeLong() const {
   return total_size;
 }
 
-void Packet::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:p2p.Packet)
+void PacketRequst::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:p2p.PacketRequst)
   GOOGLE_DCHECK_NE(&from, this);
-  const Packet* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const Packet>(
+  const PacketRequst* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const PacketRequst>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:p2p.Packet)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:p2p.PacketRequst)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:p2p.Packet)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:p2p.PacketRequst)
     MergeFrom(*source);
   }
 }
 
-void Packet::MergeFrom(const Packet& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:p2p.Packet)
+void PacketRequst::MergeFrom(const PacketRequst& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:p2p.PacketRequst)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -2602,474 +2655,476 @@ void Packet::MergeFrom(const Packet& from) {
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 31u) {
     if (cached_has_bits & 0x00000001u) {
-      set_has_user_id();
-      user_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_id_);
+      set_has_peeridentity();
+      peeridentity_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.peeridentity_);
     }
     if (cached_has_bits & 0x00000002u) {
       set_has_version();
-      version_.AssignWithDefault(&Packet::_default_version_.get(), from.version_);
+      version_.AssignWithDefault(&PacketRequst::_default_version_.get(), from.version_);
     }
     if (cached_has_bits & 0x00000004u) {
-      mutable_cnt()->::p2p::Connect::MergeFrom(from.cnt());
+      mutable_connectrequest()->::p2p::ConnectRequest::MergeFrom(from.connectrequest());
     }
     if (cached_has_bits & 0x00000008u) {
-      mutable_inf()->::p2p::Info::MergeFrom(from.inf());
+      mutable_notifyrequest()->::p2p::NotifyRequest::MergeFrom(from.notifyrequest());
     }
     if (cached_has_bits & 0x00000010u) {
-      api_id_ = from.api_id_;
+      rpcapi_ = from.rpcapi_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
 }
 
-void Packet::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:p2p.Packet)
+void PacketRequst::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:p2p.PacketRequst)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Packet::CopyFrom(const Packet& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:p2p.Packet)
+void PacketRequst::CopyFrom(const PacketRequst& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:p2p.PacketRequst)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Packet::IsInitialized() const {
+bool PacketRequst::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000011) != 0x00000011) return false;
-  if (has_cnt()) {
-    if (!this->cnt_->IsInitialized()) return false;
+  if (has_connectrequest()) {
+    if (!this->connectrequest_->IsInitialized()) return false;
   }
-  if (has_inf()) {
-    if (!this->inf_->IsInitialized()) return false;
+  if (has_notifyrequest()) {
+    if (!this->notifyrequest_->IsInitialized()) return false;
   }
   return true;
 }
 
-void Packet::Swap(Packet* other) {
+void PacketRequst::Swap(PacketRequst* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void Packet::InternalSwap(Packet* other) {
-  user_id_.Swap(&other->user_id_);
+void PacketRequst::InternalSwap(PacketRequst* other) {
+  using std::swap;
+  peeridentity_.Swap(&other->peeridentity_);
   version_.Swap(&other->version_);
-  std::swap(cnt_, other->cnt_);
-  std::swap(inf_, other->inf_);
-  std::swap(api_id_, other->api_id_);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  swap(connectrequest_, other->connectrequest_);
+  swap(notifyrequest_, other->notifyrequest_);
+  swap(rpcapi_, other->rpcapi_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  std::swap(_cached_size_, other->_cached_size_);
+  swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata Packet::GetMetadata() const {
+::google::protobuf::Metadata PacketRequst::GetMetadata() const {
   protobuf_peer_2dto_2dpeer_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_peer_2dto_2dpeer_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// Packet
+// PacketRequst
 
-// required .p2p.API_ID api_id = 1;
-bool Packet::has_api_id() const {
+// required .p2p.RPCAPI rpcApi = 1;
+bool PacketRequst::has_rpcapi() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-void Packet::set_has_api_id() {
+void PacketRequst::set_has_rpcapi() {
   _has_bits_[0] |= 0x00000010u;
 }
-void Packet::clear_has_api_id() {
+void PacketRequst::clear_has_rpcapi() {
   _has_bits_[0] &= ~0x00000010u;
 }
-void Packet::clear_api_id() {
-  api_id_ = 1;
-  clear_has_api_id();
+void PacketRequst::clear_rpcapi() {
+  rpcapi_ = 1;
+  clear_has_rpcapi();
 }
-::p2p::API_ID Packet::api_id() const {
-  // @@protoc_insertion_point(field_get:p2p.Packet.api_id)
-  return static_cast< ::p2p::API_ID >(api_id_);
+::p2p::RPCAPI PacketRequst::rpcapi() const {
+  // @@protoc_insertion_point(field_get:p2p.PacketRequst.rpcApi)
+  return static_cast< ::p2p::RPCAPI >(rpcapi_);
 }
-void Packet::set_api_id(::p2p::API_ID value) {
-  assert(::p2p::API_ID_IsValid(value));
-  set_has_api_id();
-  api_id_ = value;
-  // @@protoc_insertion_point(field_set:p2p.Packet.api_id)
+void PacketRequst::set_rpcapi(::p2p::RPCAPI value) {
+  assert(::p2p::RPCAPI_IsValid(value));
+  set_has_rpcapi();
+  rpcapi_ = value;
+  // @@protoc_insertion_point(field_set:p2p.PacketRequst.rpcApi)
 }
 
-// required string user_id = 2;
-bool Packet::has_user_id() const {
+// required string peerIdentity = 2;
+bool PacketRequst::has_peeridentity() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-void Packet::set_has_user_id() {
+void PacketRequst::set_has_peeridentity() {
   _has_bits_[0] |= 0x00000001u;
 }
-void Packet::clear_has_user_id() {
+void PacketRequst::clear_has_peeridentity() {
   _has_bits_[0] &= ~0x00000001u;
 }
-void Packet::clear_user_id() {
-  user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_user_id();
+void PacketRequst::clear_peeridentity() {
+  peeridentity_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_peeridentity();
 }
-const ::std::string& Packet::user_id() const {
-  // @@protoc_insertion_point(field_get:p2p.Packet.user_id)
-  return user_id_.GetNoArena();
+const ::std::string& PacketRequst::peeridentity() const {
+  // @@protoc_insertion_point(field_get:p2p.PacketRequst.peerIdentity)
+  return peeridentity_.GetNoArena();
 }
-void Packet::set_user_id(const ::std::string& value) {
-  set_has_user_id();
-  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:p2p.Packet.user_id)
+void PacketRequst::set_peeridentity(const ::std::string& value) {
+  set_has_peeridentity();
+  peeridentity_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:p2p.PacketRequst.peerIdentity)
 }
 #if LANG_CXX11
-void Packet::set_user_id(::std::string&& value) {
-  set_has_user_id();
-  user_id_.SetNoArena(
+void PacketRequst::set_peeridentity(::std::string&& value) {
+  set_has_peeridentity();
+  peeridentity_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:p2p.Packet.user_id)
+  // @@protoc_insertion_point(field_set_rvalue:p2p.PacketRequst.peerIdentity)
 }
 #endif
-void Packet::set_user_id(const char* value) {
+void PacketRequst::set_peeridentity(const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  set_has_user_id();
-  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:p2p.Packet.user_id)
+  set_has_peeridentity();
+  peeridentity_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:p2p.PacketRequst.peerIdentity)
 }
-void Packet::set_user_id(const char* value, size_t size) {
-  set_has_user_id();
-  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+void PacketRequst::set_peeridentity(const char* value, size_t size) {
+  set_has_peeridentity();
+  peeridentity_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:p2p.Packet.user_id)
+  // @@protoc_insertion_point(field_set_pointer:p2p.PacketRequst.peerIdentity)
 }
-::std::string* Packet::mutable_user_id() {
-  set_has_user_id();
-  // @@protoc_insertion_point(field_mutable:p2p.Packet.user_id)
-  return user_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+::std::string* PacketRequst::mutable_peeridentity() {
+  set_has_peeridentity();
+  // @@protoc_insertion_point(field_mutable:p2p.PacketRequst.peerIdentity)
+  return peeridentity_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* Packet::release_user_id() {
-  // @@protoc_insertion_point(field_release:p2p.Packet.user_id)
-  clear_has_user_id();
-  return user_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+::std::string* PacketRequst::release_peeridentity() {
+  // @@protoc_insertion_point(field_release:p2p.PacketRequst.peerIdentity)
+  clear_has_peeridentity();
+  return peeridentity_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void Packet::set_allocated_user_id(::std::string* user_id) {
-  if (user_id != NULL) {
-    set_has_user_id();
+void PacketRequst::set_allocated_peeridentity(::std::string* peeridentity) {
+  if (peeridentity != NULL) {
+    set_has_peeridentity();
   } else {
-    clear_has_user_id();
+    clear_has_peeridentity();
   }
-  user_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_id);
-  // @@protoc_insertion_point(field_set_allocated:p2p.Packet.user_id)
+  peeridentity_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), peeridentity);
+  // @@protoc_insertion_point(field_set_allocated:p2p.PacketRequst.peerIdentity)
 }
 
-// optional .p2p.Connect cnt = 3;
-bool Packet::has_cnt() const {
+// optional .p2p.ConnectRequest connectRequest = 3;
+bool PacketRequst::has_connectrequest() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-void Packet::set_has_cnt() {
+void PacketRequst::set_has_connectrequest() {
   _has_bits_[0] |= 0x00000004u;
 }
-void Packet::clear_has_cnt() {
+void PacketRequst::clear_has_connectrequest() {
   _has_bits_[0] &= ~0x00000004u;
 }
-void Packet::clear_cnt() {
-  if (cnt_ != NULL) cnt_->::p2p::Connect::Clear();
-  clear_has_cnt();
+void PacketRequst::clear_connectrequest() {
+  if (connectrequest_ != NULL) connectrequest_->::p2p::ConnectRequest::Clear();
+  clear_has_connectrequest();
 }
-const ::p2p::Connect& Packet::cnt() const {
-  // @@protoc_insertion_point(field_get:p2p.Packet.cnt)
-  return cnt_ != NULL ? *cnt_
-                         : *::p2p::Connect::internal_default_instance();
+const ::p2p::ConnectRequest& PacketRequst::connectrequest() const {
+  const ::p2p::ConnectRequest* p = connectrequest_;
+  // @@protoc_insertion_point(field_get:p2p.PacketRequst.connectRequest)
+  return p != NULL ? *p : *reinterpret_cast<const ::p2p::ConnectRequest*>(
+      &::p2p::_ConnectRequest_default_instance_);
 }
-::p2p::Connect* Packet::mutable_cnt() {
-  set_has_cnt();
-  if (cnt_ == NULL) {
-    cnt_ = new ::p2p::Connect;
+::p2p::ConnectRequest* PacketRequst::mutable_connectrequest() {
+  set_has_connectrequest();
+  if (connectrequest_ == NULL) {
+    connectrequest_ = new ::p2p::ConnectRequest;
   }
-  // @@protoc_insertion_point(field_mutable:p2p.Packet.cnt)
-  return cnt_;
+  // @@protoc_insertion_point(field_mutable:p2p.PacketRequst.connectRequest)
+  return connectrequest_;
 }
-::p2p::Connect* Packet::release_cnt() {
-  // @@protoc_insertion_point(field_release:p2p.Packet.cnt)
-  clear_has_cnt();
-  ::p2p::Connect* temp = cnt_;
-  cnt_ = NULL;
+::p2p::ConnectRequest* PacketRequst::release_connectrequest() {
+  // @@protoc_insertion_point(field_release:p2p.PacketRequst.connectRequest)
+  clear_has_connectrequest();
+  ::p2p::ConnectRequest* temp = connectrequest_;
+  connectrequest_ = NULL;
   return temp;
 }
-void Packet::set_allocated_cnt(::p2p::Connect* cnt) {
-  delete cnt_;
-  cnt_ = cnt;
-  if (cnt) {
-    set_has_cnt();
+void PacketRequst::set_allocated_connectrequest(::p2p::ConnectRequest* connectrequest) {
+  delete connectrequest_;
+  connectrequest_ = connectrequest;
+  if (connectrequest) {
+    set_has_connectrequest();
   } else {
-    clear_has_cnt();
+    clear_has_connectrequest();
   }
-  // @@protoc_insertion_point(field_set_allocated:p2p.Packet.cnt)
+  // @@protoc_insertion_point(field_set_allocated:p2p.PacketRequst.connectRequest)
 }
 
-// optional .p2p.Info inf = 4;
-bool Packet::has_inf() const {
+// optional .p2p.NotifyRequest notifyRequest = 4;
+bool PacketRequst::has_notifyrequest() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-void Packet::set_has_inf() {
+void PacketRequst::set_has_notifyrequest() {
   _has_bits_[0] |= 0x00000008u;
 }
-void Packet::clear_has_inf() {
+void PacketRequst::clear_has_notifyrequest() {
   _has_bits_[0] &= ~0x00000008u;
 }
-void Packet::clear_inf() {
-  if (inf_ != NULL) inf_->::p2p::Info::Clear();
-  clear_has_inf();
+void PacketRequst::clear_notifyrequest() {
+  if (notifyrequest_ != NULL) notifyrequest_->::p2p::NotifyRequest::Clear();
+  clear_has_notifyrequest();
 }
-const ::p2p::Info& Packet::inf() const {
-  // @@protoc_insertion_point(field_get:p2p.Packet.inf)
-  return inf_ != NULL ? *inf_
-                         : *::p2p::Info::internal_default_instance();
+const ::p2p::NotifyRequest& PacketRequst::notifyrequest() const {
+  const ::p2p::NotifyRequest* p = notifyrequest_;
+  // @@protoc_insertion_point(field_get:p2p.PacketRequst.notifyRequest)
+  return p != NULL ? *p : *reinterpret_cast<const ::p2p::NotifyRequest*>(
+      &::p2p::_NotifyRequest_default_instance_);
 }
-::p2p::Info* Packet::mutable_inf() {
-  set_has_inf();
-  if (inf_ == NULL) {
-    inf_ = new ::p2p::Info;
+::p2p::NotifyRequest* PacketRequst::mutable_notifyrequest() {
+  set_has_notifyrequest();
+  if (notifyrequest_ == NULL) {
+    notifyrequest_ = new ::p2p::NotifyRequest;
   }
-  // @@protoc_insertion_point(field_mutable:p2p.Packet.inf)
-  return inf_;
+  // @@protoc_insertion_point(field_mutable:p2p.PacketRequst.notifyRequest)
+  return notifyrequest_;
 }
-::p2p::Info* Packet::release_inf() {
-  // @@protoc_insertion_point(field_release:p2p.Packet.inf)
-  clear_has_inf();
-  ::p2p::Info* temp = inf_;
-  inf_ = NULL;
+::p2p::NotifyRequest* PacketRequst::release_notifyrequest() {
+  // @@protoc_insertion_point(field_release:p2p.PacketRequst.notifyRequest)
+  clear_has_notifyrequest();
+  ::p2p::NotifyRequest* temp = notifyrequest_;
+  notifyrequest_ = NULL;
   return temp;
 }
-void Packet::set_allocated_inf(::p2p::Info* inf) {
-  delete inf_;
-  inf_ = inf;
-  if (inf) {
-    set_has_inf();
+void PacketRequst::set_allocated_notifyrequest(::p2p::NotifyRequest* notifyrequest) {
+  delete notifyrequest_;
+  notifyrequest_ = notifyrequest;
+  if (notifyrequest) {
+    set_has_notifyrequest();
   } else {
-    clear_has_inf();
+    clear_has_notifyrequest();
   }
-  // @@protoc_insertion_point(field_set_allocated:p2p.Packet.inf)
+  // @@protoc_insertion_point(field_set_allocated:p2p.PacketRequst.notifyRequest)
 }
 
 // optional string version = 5 [default = "0.1.0"];
-bool Packet::has_version() const {
+bool PacketRequst::has_version() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-void Packet::set_has_version() {
+void PacketRequst::set_has_version() {
   _has_bits_[0] |= 0x00000002u;
 }
-void Packet::clear_has_version() {
+void PacketRequst::clear_has_version() {
   _has_bits_[0] &= ~0x00000002u;
 }
-void Packet::clear_version() {
-  version_.ClearToDefaultNoArena(&Packet::_default_version_.get());
+void PacketRequst::clear_version() {
+  version_.ClearToDefaultNoArena(&PacketRequst::_default_version_.get());
   clear_has_version();
 }
-const ::std::string& Packet::version() const {
-  // @@protoc_insertion_point(field_get:p2p.Packet.version)
+const ::std::string& PacketRequst::version() const {
+  // @@protoc_insertion_point(field_get:p2p.PacketRequst.version)
   return version_.GetNoArena();
 }
-void Packet::set_version(const ::std::string& value) {
+void PacketRequst::set_version(const ::std::string& value) {
   set_has_version();
-  version_.SetNoArena(&Packet::_default_version_.get(), value);
-  // @@protoc_insertion_point(field_set:p2p.Packet.version)
+  version_.SetNoArena(&PacketRequst::_default_version_.get(), value);
+  // @@protoc_insertion_point(field_set:p2p.PacketRequst.version)
 }
 #if LANG_CXX11
-void Packet::set_version(::std::string&& value) {
+void PacketRequst::set_version(::std::string&& value) {
   set_has_version();
   version_.SetNoArena(
-    &Packet::_default_version_.get(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:p2p.Packet.version)
+    &PacketRequst::_default_version_.get(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:p2p.PacketRequst.version)
 }
 #endif
-void Packet::set_version(const char* value) {
+void PacketRequst::set_version(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_version();
-  version_.SetNoArena(&Packet::_default_version_.get(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:p2p.Packet.version)
+  version_.SetNoArena(&PacketRequst::_default_version_.get(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:p2p.PacketRequst.version)
 }
-void Packet::set_version(const char* value, size_t size) {
+void PacketRequst::set_version(const char* value, size_t size) {
   set_has_version();
-  version_.SetNoArena(&Packet::_default_version_.get(),
+  version_.SetNoArena(&PacketRequst::_default_version_.get(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:p2p.Packet.version)
+  // @@protoc_insertion_point(field_set_pointer:p2p.PacketRequst.version)
 }
-::std::string* Packet::mutable_version() {
+::std::string* PacketRequst::mutable_version() {
   set_has_version();
-  // @@protoc_insertion_point(field_mutable:p2p.Packet.version)
-  return version_.MutableNoArena(&Packet::_default_version_.get());
+  // @@protoc_insertion_point(field_mutable:p2p.PacketRequst.version)
+  return version_.MutableNoArena(&PacketRequst::_default_version_.get());
 }
-::std::string* Packet::release_version() {
-  // @@protoc_insertion_point(field_release:p2p.Packet.version)
+::std::string* PacketRequst::release_version() {
+  // @@protoc_insertion_point(field_release:p2p.PacketRequst.version)
   clear_has_version();
-  return version_.ReleaseNoArena(&Packet::_default_version_.get());
+  return version_.ReleaseNoArena(&PacketRequst::_default_version_.get());
 }
-void Packet::set_allocated_version(::std::string* version) {
+void PacketRequst::set_allocated_version(::std::string* version) {
   if (version != NULL) {
     set_has_version();
   } else {
     clear_has_version();
   }
-  version_.SetAllocatedNoArena(&Packet::_default_version_.get(), version);
-  // @@protoc_insertion_point(field_set_allocated:p2p.Packet.version)
+  version_.SetAllocatedNoArena(&PacketRequst::_default_version_.get(), version);
+  // @@protoc_insertion_point(field_set_allocated:p2p.PacketRequst.version)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
 
-::google::protobuf::internal::ExplicitlyConstructed< ::std::string> RPacket::_default_version_;
+::google::protobuf::internal::ExplicitlyConstructed< ::std::string> PacketRespond::_default_version_;
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int RPacket::kApiIdFieldNumber;
-const int RPacket::kCntFieldNumber;
-const int RPacket::kGuonlineFieldNumber;
-const int RPacket::kInFieldNumber;
-const int RPacket::kHelloFieldNumber;
-const int RPacket::kVersionFieldNumber;
+const int PacketRespond::kRpcApiFieldNumber;
+const int PacketRespond::kConnectRespondFieldNumber;
+const int PacketRespond::kGetUsersOnlineRespondFieldNumber;
+const int PacketRespond::kNotifyRespondFieldNumber;
+const int PacketRespond::kHelloRespondFieldNumber;
+const int PacketRespond::kVersionFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-RPacket::RPacket()
+PacketRespond::PacketRespond()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
     protobuf_peer_2dto_2dpeer_2eproto::InitDefaults();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:p2p.RPacket)
+  // @@protoc_insertion_point(constructor:p2p.PacketRespond)
 }
-RPacket::RPacket(const RPacket& from)
+PacketRespond::PacketRespond(const PacketRespond& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  version_.UnsafeSetDefault(&RPacket::_default_version_.get());
+  version_.UnsafeSetDefault(&PacketRespond::_default_version_.get());
   if (from.has_version()) {
-    version_.AssignWithDefault(&RPacket::_default_version_.get(), from.version_);
+    version_.AssignWithDefault(&PacketRespond::_default_version_.get(), from.version_);
   }
-  if (from.has_cnt()) {
-    cnt_ = new ::p2p::Connect_r(*from.cnt_);
+  if (from.has_connectrespond()) {
+    connectrespond_ = new ::p2p::ConnectRespond(*from.connectrespond_);
   } else {
-    cnt_ = NULL;
+    connectrespond_ = NULL;
   }
-  if (from.has_guonline()) {
-    guonline_ = new ::p2p::GetUserOnline_r(*from.guonline_);
+  if (from.has_getusersonlinerespond()) {
+    getusersonlinerespond_ = new ::p2p::GetUsersOnlineRespond(*from.getusersonlinerespond_);
   } else {
-    guonline_ = NULL;
+    getusersonlinerespond_ = NULL;
   }
-  if (from.has_in()) {
-    in_ = new ::p2p::Info_r(*from.in_);
+  if (from.has_notifyrespond()) {
+    notifyrespond_ = new ::p2p::NotifyRespond(*from.notifyrespond_);
   } else {
-    in_ = NULL;
+    notifyrespond_ = NULL;
   }
-  if (from.has_hello()) {
-    hello_ = new ::p2p::Hello_r(*from.hello_);
+  if (from.has_hellorespond()) {
+    hellorespond_ = new ::p2p::HelloRespond(*from.hellorespond_);
   } else {
-    hello_ = NULL;
+    hellorespond_ = NULL;
   }
-  api_id_ = from.api_id_;
-  // @@protoc_insertion_point(copy_constructor:p2p.RPacket)
+  rpcapi_ = from.rpcapi_;
+  // @@protoc_insertion_point(copy_constructor:p2p.PacketRespond)
 }
 
-void RPacket::SharedCtor() {
+void PacketRespond::SharedCtor() {
   _cached_size_ = 0;
-  version_.UnsafeSetDefault(&RPacket::_default_version_.get());
-  ::memset(&cnt_, 0, reinterpret_cast<char*>(&hello_) -
-    reinterpret_cast<char*>(&cnt_) + sizeof(hello_));
-  api_id_ = 1;
+  version_.UnsafeSetDefault(&PacketRespond::_default_version_.get());
+  ::memset(&connectrespond_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&hellorespond_) -
+      reinterpret_cast<char*>(&connectrespond_)) + sizeof(hellorespond_));
+  rpcapi_ = 1;
 }
 
-RPacket::~RPacket() {
-  // @@protoc_insertion_point(destructor:p2p.RPacket)
+PacketRespond::~PacketRespond() {
+  // @@protoc_insertion_point(destructor:p2p.PacketRespond)
   SharedDtor();
 }
 
-void RPacket::SharedDtor() {
-  version_.DestroyNoArena(&RPacket::_default_version_.get());
-  if (this != internal_default_instance()) {
-    delete cnt_;
-  }
-  if (this != internal_default_instance()) {
-    delete guonline_;
-  }
-  if (this != internal_default_instance()) {
-    delete in_;
-  }
-  if (this != internal_default_instance()) {
-    delete hello_;
-  }
+void PacketRespond::SharedDtor() {
+  version_.DestroyNoArena(&PacketRespond::_default_version_.get());
+  if (this != internal_default_instance()) delete connectrespond_;
+  if (this != internal_default_instance()) delete getusersonlinerespond_;
+  if (this != internal_default_instance()) delete notifyrespond_;
+  if (this != internal_default_instance()) delete hellorespond_;
 }
 
-void RPacket::SetCachedSize(int size) const {
+void PacketRespond::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* RPacket::descriptor() {
+const ::google::protobuf::Descriptor* PacketRespond::descriptor() {
   protobuf_peer_2dto_2dpeer_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_peer_2dto_2dpeer_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const RPacket& RPacket::default_instance() {
+const PacketRespond& PacketRespond::default_instance() {
   protobuf_peer_2dto_2dpeer_2eproto::InitDefaults();
   return *internal_default_instance();
 }
 
-RPacket* RPacket::New(::google::protobuf::Arena* arena) const {
-  RPacket* n = new RPacket;
+PacketRespond* PacketRespond::New(::google::protobuf::Arena* arena) const {
+  PacketRespond* n = new PacketRespond;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void RPacket::Clear() {
-// @@protoc_insertion_point(message_clear_start:p2p.RPacket)
-  if (_has_bits_[0 / 32] & 63u) {
-    if (has_version()) {
-      GOOGLE_DCHECK(!version_.IsDefault(&RPacket::_default_version_.get()));
-      (*version_.UnsafeRawStringPointer())->assign(*&RPacket::_default_version_.get());
+void PacketRespond::Clear() {
+// @@protoc_insertion_point(message_clear_start:p2p.PacketRespond)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 63u) {
+    if (cached_has_bits & 0x00000001u) {
+      GOOGLE_DCHECK(!version_.IsDefault(&PacketRespond::_default_version_.get()));
+      (*version_.UnsafeRawStringPointer())->assign(*&PacketRespond::_default_version_.get());
     }
-    if (has_cnt()) {
-      GOOGLE_DCHECK(cnt_ != NULL);
-      cnt_->::p2p::Connect_r::Clear();
+    if (cached_has_bits & 0x00000002u) {
+      GOOGLE_DCHECK(connectrespond_ != NULL);
+      connectrespond_->::p2p::ConnectRespond::Clear();
     }
-    if (has_guonline()) {
-      GOOGLE_DCHECK(guonline_ != NULL);
-      guonline_->::p2p::GetUserOnline_r::Clear();
+    if (cached_has_bits & 0x00000004u) {
+      GOOGLE_DCHECK(getusersonlinerespond_ != NULL);
+      getusersonlinerespond_->::p2p::GetUsersOnlineRespond::Clear();
     }
-    if (has_in()) {
-      GOOGLE_DCHECK(in_ != NULL);
-      in_->::p2p::Info_r::Clear();
+    if (cached_has_bits & 0x00000008u) {
+      GOOGLE_DCHECK(notifyrespond_ != NULL);
+      notifyrespond_->::p2p::NotifyRespond::Clear();
     }
-    if (has_hello()) {
-      GOOGLE_DCHECK(hello_ != NULL);
-      hello_->::p2p::Hello_r::Clear();
+    if (cached_has_bits & 0x00000010u) {
+      GOOGLE_DCHECK(hellorespond_ != NULL);
+      hellorespond_->::p2p::HelloRespond::Clear();
     }
-    api_id_ = 1;
+    rpcapi_ = 1;
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
 
-bool RPacket::MergePartialFromCodedStream(
+bool PacketRespond::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:p2p.RPacket)
+  // @@protoc_insertion_point(parse_start:p2p.PacketRespond)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .p2p.API_ID api_id = 1;
+      // required .p2p.RPCAPI rpcApi = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u)) {
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::p2p::API_ID_IsValid(value)) {
-            set_api_id(static_cast< ::p2p::API_ID >(value));
+          if (::p2p::RPCAPI_IsValid(value)) {
+            set_rpcapi(static_cast< ::p2p::RPCAPI >(value));
           } else {
-            mutable_unknown_fields()->AddVarint(1, value);
+            mutable_unknown_fields()->AddVarint(
+                1, static_cast< ::google::protobuf::uint64>(value));
           }
         } else {
           goto handle_unusual;
@@ -3077,48 +3132,48 @@ bool RPacket::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .p2p.Connect_r cnt = 2;
+      // optional .p2p.ConnectRespond connectRespond = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u)) {
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_cnt()));
+               input, mutable_connectrespond()));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional .p2p.GetUserOnline_r guonline = 3;
+      // optional .p2p.GetUsersOnlineRespond getUsersOnlineRespond = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(26u)) {
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_guonline()));
+               input, mutable_getusersonlinerespond()));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional .p2p.Info_r in = 4;
+      // optional .p2p.NotifyRespond notifyRespond = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(34u)) {
+            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_in()));
+               input, mutable_notifyrespond()));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional .p2p.Hello_r hello = 5;
+      // optional .p2p.HelloRespond helloRespond = 5;
       case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(42u)) {
+            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_hello()));
+               input, mutable_hellorespond()));
         } else {
           goto handle_unusual;
         }
@@ -3128,13 +3183,13 @@ bool RPacket::MergePartialFromCodedStream(
       // optional string version = 6 [default = "0.1.0"];
       case 6: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(50u)) {
+            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_version()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->version().data(), this->version().length(),
+            this->version().data(), static_cast<int>(this->version().length()),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "p2p.RPacket.version");
+            "p2p.PacketRespond.version");
         } else {
           goto handle_unusual;
         }
@@ -3143,127 +3198,126 @@ bool RPacket::MergePartialFromCodedStream(
 
       default: {
       handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+        if (tag == 0) {
           goto success;
         }
         DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
         break;
       }
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:p2p.RPacket)
+  // @@protoc_insertion_point(parse_success:p2p.PacketRespond)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:p2p.RPacket)
+  // @@protoc_insertion_point(parse_failure:p2p.PacketRespond)
   return false;
 #undef DO_
 }
 
-void RPacket::SerializeWithCachedSizes(
+void PacketRespond::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:p2p.RPacket)
+  // @@protoc_insertion_point(serialize_start:p2p.PacketRespond)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required .p2p.API_ID api_id = 1;
+  // required .p2p.RPCAPI rpcApi = 1;
   if (cached_has_bits & 0x00000020u) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      1, this->api_id(), output);
+      1, this->rpcapi(), output);
   }
 
-  // optional .p2p.Connect_r cnt = 2;
+  // optional .p2p.ConnectRespond connectRespond = 2;
   if (cached_has_bits & 0x00000002u) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, *this->cnt_, output);
+      2, *this->connectrespond_, output);
   }
 
-  // optional .p2p.GetUserOnline_r guonline = 3;
+  // optional .p2p.GetUsersOnlineRespond getUsersOnlineRespond = 3;
   if (cached_has_bits & 0x00000004u) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, *this->guonline_, output);
+      3, *this->getusersonlinerespond_, output);
   }
 
-  // optional .p2p.Info_r in = 4;
+  // optional .p2p.NotifyRespond notifyRespond = 4;
   if (cached_has_bits & 0x00000008u) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, *this->in_, output);
+      4, *this->notifyrespond_, output);
   }
 
-  // optional .p2p.Hello_r hello = 5;
+  // optional .p2p.HelloRespond helloRespond = 5;
   if (cached_has_bits & 0x00000010u) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      5, *this->hello_, output);
+      5, *this->hellorespond_, output);
   }
 
   // optional string version = 6 [default = "0.1.0"];
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->version().data(), this->version().length(),
+      this->version().data(), static_cast<int>(this->version().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "p2p.RPacket.version");
+      "p2p.PacketRespond.version");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       6, this->version(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
+        _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:p2p.RPacket)
+  // @@protoc_insertion_point(serialize_end:p2p.PacketRespond)
 }
 
-::google::protobuf::uint8* RPacket::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* PacketRespond::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:p2p.RPacket)
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:p2p.PacketRespond)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required .p2p.API_ID api_id = 1;
+  // required .p2p.RPCAPI rpcApi = 1;
   if (cached_has_bits & 0x00000020u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      1, this->api_id(), target);
+      1, this->rpcapi(), target);
   }
 
-  // optional .p2p.Connect_r cnt = 2;
+  // optional .p2p.ConnectRespond connectRespond = 2;
   if (cached_has_bits & 0x00000002u) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        2, *this->cnt_, deterministic, target);
+        2, *this->connectrespond_, deterministic, target);
   }
 
-  // optional .p2p.GetUserOnline_r guonline = 3;
+  // optional .p2p.GetUsersOnlineRespond getUsersOnlineRespond = 3;
   if (cached_has_bits & 0x00000004u) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        3, *this->guonline_, deterministic, target);
+        3, *this->getusersonlinerespond_, deterministic, target);
   }
 
-  // optional .p2p.Info_r in = 4;
+  // optional .p2p.NotifyRespond notifyRespond = 4;
   if (cached_has_bits & 0x00000008u) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        4, *this->in_, deterministic, target);
+        4, *this->notifyrespond_, deterministic, target);
   }
 
-  // optional .p2p.Hello_r hello = 5;
+  // optional .p2p.HelloRespond helloRespond = 5;
   if (cached_has_bits & 0x00000010u) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        5, *this->hello_, deterministic, target);
+        5, *this->hellorespond_, deterministic, target);
   }
 
   // optional string version = 6 [default = "0.1.0"];
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->version().data(), this->version().length(),
+      this->version().data(), static_cast<int>(this->version().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "p2p.RPacket.version");
+      "p2p.PacketRespond.version");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         6, this->version(), target);
@@ -3271,25 +3325,25 @@ void RPacket::SerializeWithCachedSizes(
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
+        _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:p2p.RPacket)
+  // @@protoc_insertion_point(serialize_to_array_end:p2p.PacketRespond)
   return target;
 }
 
-size_t RPacket::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:p2p.RPacket)
+size_t PacketRespond::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:p2p.PacketRespond)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
+        _internal_metadata_.unknown_fields());
   }
-  // required .p2p.API_ID api_id = 1;
-  if (has_api_id()) {
+  // required .p2p.RPCAPI rpcApi = 1;
+  if (has_rpcapi()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->api_id());
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->rpcapi());
   }
   if (_has_bits_[0 / 32] & 31u) {
     // optional string version = 6 [default = "0.1.0"];
@@ -3299,32 +3353,32 @@ size_t RPacket::ByteSizeLong() const {
           this->version());
     }
 
-    // optional .p2p.Connect_r cnt = 2;
-    if (has_cnt()) {
+    // optional .p2p.ConnectRespond connectRespond = 2;
+    if (has_connectrespond()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          *this->cnt_);
+          *this->connectrespond_);
     }
 
-    // optional .p2p.GetUserOnline_r guonline = 3;
-    if (has_guonline()) {
+    // optional .p2p.GetUsersOnlineRespond getUsersOnlineRespond = 3;
+    if (has_getusersonlinerespond()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          *this->guonline_);
+          *this->getusersonlinerespond_);
     }
 
-    // optional .p2p.Info_r in = 4;
-    if (has_in()) {
+    // optional .p2p.NotifyRespond notifyRespond = 4;
+    if (has_notifyrespond()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          *this->in_);
+          *this->notifyrespond_);
     }
 
-    // optional .p2p.Hello_r hello = 5;
-    if (has_hello()) {
+    // optional .p2p.HelloRespond helloRespond = 5;
+    if (has_hellorespond()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          *this->hello_);
+          *this->hellorespond_);
     }
 
   }
@@ -3335,23 +3389,23 @@ size_t RPacket::ByteSizeLong() const {
   return total_size;
 }
 
-void RPacket::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:p2p.RPacket)
+void PacketRespond::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:p2p.PacketRespond)
   GOOGLE_DCHECK_NE(&from, this);
-  const RPacket* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const RPacket>(
+  const PacketRespond* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const PacketRespond>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:p2p.RPacket)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:p2p.PacketRespond)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:p2p.RPacket)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:p2p.PacketRespond)
     MergeFrom(*source);
   }
 }
 
-void RPacket::MergeFrom(const RPacket& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:p2p.RPacket)
+void PacketRespond::MergeFrom(const PacketRespond& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:p2p.PacketRespond)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -3361,345 +3415,350 @@ void RPacket::MergeFrom(const RPacket& from) {
   if (cached_has_bits & 63u) {
     if (cached_has_bits & 0x00000001u) {
       set_has_version();
-      version_.AssignWithDefault(&RPacket::_default_version_.get(), from.version_);
+      version_.AssignWithDefault(&PacketRespond::_default_version_.get(), from.version_);
     }
     if (cached_has_bits & 0x00000002u) {
-      mutable_cnt()->::p2p::Connect_r::MergeFrom(from.cnt());
+      mutable_connectrespond()->::p2p::ConnectRespond::MergeFrom(from.connectrespond());
     }
     if (cached_has_bits & 0x00000004u) {
-      mutable_guonline()->::p2p::GetUserOnline_r::MergeFrom(from.guonline());
+      mutable_getusersonlinerespond()->::p2p::GetUsersOnlineRespond::MergeFrom(from.getusersonlinerespond());
     }
     if (cached_has_bits & 0x00000008u) {
-      mutable_in()->::p2p::Info_r::MergeFrom(from.in());
+      mutable_notifyrespond()->::p2p::NotifyRespond::MergeFrom(from.notifyrespond());
     }
     if (cached_has_bits & 0x00000010u) {
-      mutable_hello()->::p2p::Hello_r::MergeFrom(from.hello());
+      mutable_hellorespond()->::p2p::HelloRespond::MergeFrom(from.hellorespond());
     }
     if (cached_has_bits & 0x00000020u) {
-      api_id_ = from.api_id_;
+      rpcapi_ = from.rpcapi_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
 }
 
-void RPacket::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:p2p.RPacket)
+void PacketRespond::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:p2p.PacketRespond)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void RPacket::CopyFrom(const RPacket& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:p2p.RPacket)
+void PacketRespond::CopyFrom(const PacketRespond& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:p2p.PacketRespond)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool RPacket::IsInitialized() const {
+bool PacketRespond::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000020) != 0x00000020) return false;
-  if (has_cnt()) {
-    if (!this->cnt_->IsInitialized()) return false;
+  if (has_connectrespond()) {
+    if (!this->connectrespond_->IsInitialized()) return false;
   }
-  if (has_in()) {
-    if (!this->in_->IsInitialized()) return false;
+  if (has_notifyrespond()) {
+    if (!this->notifyrespond_->IsInitialized()) return false;
   }
-  if (has_hello()) {
-    if (!this->hello_->IsInitialized()) return false;
+  if (has_hellorespond()) {
+    if (!this->hellorespond_->IsInitialized()) return false;
   }
   return true;
 }
 
-void RPacket::Swap(RPacket* other) {
+void PacketRespond::Swap(PacketRespond* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void RPacket::InternalSwap(RPacket* other) {
+void PacketRespond::InternalSwap(PacketRespond* other) {
+  using std::swap;
   version_.Swap(&other->version_);
-  std::swap(cnt_, other->cnt_);
-  std::swap(guonline_, other->guonline_);
-  std::swap(in_, other->in_);
-  std::swap(hello_, other->hello_);
-  std::swap(api_id_, other->api_id_);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  swap(connectrespond_, other->connectrespond_);
+  swap(getusersonlinerespond_, other->getusersonlinerespond_);
+  swap(notifyrespond_, other->notifyrespond_);
+  swap(hellorespond_, other->hellorespond_);
+  swap(rpcapi_, other->rpcapi_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  std::swap(_cached_size_, other->_cached_size_);
+  swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata RPacket::GetMetadata() const {
+::google::protobuf::Metadata PacketRespond::GetMetadata() const {
   protobuf_peer_2dto_2dpeer_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_peer_2dto_2dpeer_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// RPacket
+// PacketRespond
 
-// required .p2p.API_ID api_id = 1;
-bool RPacket::has_api_id() const {
+// required .p2p.RPCAPI rpcApi = 1;
+bool PacketRespond::has_rpcapi() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-void RPacket::set_has_api_id() {
+void PacketRespond::set_has_rpcapi() {
   _has_bits_[0] |= 0x00000020u;
 }
-void RPacket::clear_has_api_id() {
+void PacketRespond::clear_has_rpcapi() {
   _has_bits_[0] &= ~0x00000020u;
 }
-void RPacket::clear_api_id() {
-  api_id_ = 1;
-  clear_has_api_id();
+void PacketRespond::clear_rpcapi() {
+  rpcapi_ = 1;
+  clear_has_rpcapi();
 }
-::p2p::API_ID RPacket::api_id() const {
-  // @@protoc_insertion_point(field_get:p2p.RPacket.api_id)
-  return static_cast< ::p2p::API_ID >(api_id_);
+::p2p::RPCAPI PacketRespond::rpcapi() const {
+  // @@protoc_insertion_point(field_get:p2p.PacketRespond.rpcApi)
+  return static_cast< ::p2p::RPCAPI >(rpcapi_);
 }
-void RPacket::set_api_id(::p2p::API_ID value) {
-  assert(::p2p::API_ID_IsValid(value));
-  set_has_api_id();
-  api_id_ = value;
-  // @@protoc_insertion_point(field_set:p2p.RPacket.api_id)
+void PacketRespond::set_rpcapi(::p2p::RPCAPI value) {
+  assert(::p2p::RPCAPI_IsValid(value));
+  set_has_rpcapi();
+  rpcapi_ = value;
+  // @@protoc_insertion_point(field_set:p2p.PacketRespond.rpcApi)
 }
 
-// optional .p2p.Connect_r cnt = 2;
-bool RPacket::has_cnt() const {
+// optional .p2p.ConnectRespond connectRespond = 2;
+bool PacketRespond::has_connectrespond() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-void RPacket::set_has_cnt() {
+void PacketRespond::set_has_connectrespond() {
   _has_bits_[0] |= 0x00000002u;
 }
-void RPacket::clear_has_cnt() {
+void PacketRespond::clear_has_connectrespond() {
   _has_bits_[0] &= ~0x00000002u;
 }
-void RPacket::clear_cnt() {
-  if (cnt_ != NULL) cnt_->::p2p::Connect_r::Clear();
-  clear_has_cnt();
+void PacketRespond::clear_connectrespond() {
+  if (connectrespond_ != NULL) connectrespond_->::p2p::ConnectRespond::Clear();
+  clear_has_connectrespond();
 }
-const ::p2p::Connect_r& RPacket::cnt() const {
-  // @@protoc_insertion_point(field_get:p2p.RPacket.cnt)
-  return cnt_ != NULL ? *cnt_
-                         : *::p2p::Connect_r::internal_default_instance();
+const ::p2p::ConnectRespond& PacketRespond::connectrespond() const {
+  const ::p2p::ConnectRespond* p = connectrespond_;
+  // @@protoc_insertion_point(field_get:p2p.PacketRespond.connectRespond)
+  return p != NULL ? *p : *reinterpret_cast<const ::p2p::ConnectRespond*>(
+      &::p2p::_ConnectRespond_default_instance_);
 }
-::p2p::Connect_r* RPacket::mutable_cnt() {
-  set_has_cnt();
-  if (cnt_ == NULL) {
-    cnt_ = new ::p2p::Connect_r;
+::p2p::ConnectRespond* PacketRespond::mutable_connectrespond() {
+  set_has_connectrespond();
+  if (connectrespond_ == NULL) {
+    connectrespond_ = new ::p2p::ConnectRespond;
   }
-  // @@protoc_insertion_point(field_mutable:p2p.RPacket.cnt)
-  return cnt_;
+  // @@protoc_insertion_point(field_mutable:p2p.PacketRespond.connectRespond)
+  return connectrespond_;
 }
-::p2p::Connect_r* RPacket::release_cnt() {
-  // @@protoc_insertion_point(field_release:p2p.RPacket.cnt)
-  clear_has_cnt();
-  ::p2p::Connect_r* temp = cnt_;
-  cnt_ = NULL;
+::p2p::ConnectRespond* PacketRespond::release_connectrespond() {
+  // @@protoc_insertion_point(field_release:p2p.PacketRespond.connectRespond)
+  clear_has_connectrespond();
+  ::p2p::ConnectRespond* temp = connectrespond_;
+  connectrespond_ = NULL;
   return temp;
 }
-void RPacket::set_allocated_cnt(::p2p::Connect_r* cnt) {
-  delete cnt_;
-  cnt_ = cnt;
-  if (cnt) {
-    set_has_cnt();
+void PacketRespond::set_allocated_connectrespond(::p2p::ConnectRespond* connectrespond) {
+  delete connectrespond_;
+  connectrespond_ = connectrespond;
+  if (connectrespond) {
+    set_has_connectrespond();
   } else {
-    clear_has_cnt();
+    clear_has_connectrespond();
   }
-  // @@protoc_insertion_point(field_set_allocated:p2p.RPacket.cnt)
+  // @@protoc_insertion_point(field_set_allocated:p2p.PacketRespond.connectRespond)
 }
 
-// optional .p2p.GetUserOnline_r guonline = 3;
-bool RPacket::has_guonline() const {
+// optional .p2p.GetUsersOnlineRespond getUsersOnlineRespond = 3;
+bool PacketRespond::has_getusersonlinerespond() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-void RPacket::set_has_guonline() {
+void PacketRespond::set_has_getusersonlinerespond() {
   _has_bits_[0] |= 0x00000004u;
 }
-void RPacket::clear_has_guonline() {
+void PacketRespond::clear_has_getusersonlinerespond() {
   _has_bits_[0] &= ~0x00000004u;
 }
-void RPacket::clear_guonline() {
-  if (guonline_ != NULL) guonline_->::p2p::GetUserOnline_r::Clear();
-  clear_has_guonline();
+void PacketRespond::clear_getusersonlinerespond() {
+  if (getusersonlinerespond_ != NULL) getusersonlinerespond_->::p2p::GetUsersOnlineRespond::Clear();
+  clear_has_getusersonlinerespond();
 }
-const ::p2p::GetUserOnline_r& RPacket::guonline() const {
-  // @@protoc_insertion_point(field_get:p2p.RPacket.guonline)
-  return guonline_ != NULL ? *guonline_
-                         : *::p2p::GetUserOnline_r::internal_default_instance();
+const ::p2p::GetUsersOnlineRespond& PacketRespond::getusersonlinerespond() const {
+  const ::p2p::GetUsersOnlineRespond* p = getusersonlinerespond_;
+  // @@protoc_insertion_point(field_get:p2p.PacketRespond.getUsersOnlineRespond)
+  return p != NULL ? *p : *reinterpret_cast<const ::p2p::GetUsersOnlineRespond*>(
+      &::p2p::_GetUsersOnlineRespond_default_instance_);
 }
-::p2p::GetUserOnline_r* RPacket::mutable_guonline() {
-  set_has_guonline();
-  if (guonline_ == NULL) {
-    guonline_ = new ::p2p::GetUserOnline_r;
+::p2p::GetUsersOnlineRespond* PacketRespond::mutable_getusersonlinerespond() {
+  set_has_getusersonlinerespond();
+  if (getusersonlinerespond_ == NULL) {
+    getusersonlinerespond_ = new ::p2p::GetUsersOnlineRespond;
   }
-  // @@protoc_insertion_point(field_mutable:p2p.RPacket.guonline)
-  return guonline_;
+  // @@protoc_insertion_point(field_mutable:p2p.PacketRespond.getUsersOnlineRespond)
+  return getusersonlinerespond_;
 }
-::p2p::GetUserOnline_r* RPacket::release_guonline() {
-  // @@protoc_insertion_point(field_release:p2p.RPacket.guonline)
-  clear_has_guonline();
-  ::p2p::GetUserOnline_r* temp = guonline_;
-  guonline_ = NULL;
+::p2p::GetUsersOnlineRespond* PacketRespond::release_getusersonlinerespond() {
+  // @@protoc_insertion_point(field_release:p2p.PacketRespond.getUsersOnlineRespond)
+  clear_has_getusersonlinerespond();
+  ::p2p::GetUsersOnlineRespond* temp = getusersonlinerespond_;
+  getusersonlinerespond_ = NULL;
   return temp;
 }
-void RPacket::set_allocated_guonline(::p2p::GetUserOnline_r* guonline) {
-  delete guonline_;
-  guonline_ = guonline;
-  if (guonline) {
-    set_has_guonline();
+void PacketRespond::set_allocated_getusersonlinerespond(::p2p::GetUsersOnlineRespond* getusersonlinerespond) {
+  delete getusersonlinerespond_;
+  getusersonlinerespond_ = getusersonlinerespond;
+  if (getusersonlinerespond) {
+    set_has_getusersonlinerespond();
   } else {
-    clear_has_guonline();
+    clear_has_getusersonlinerespond();
   }
-  // @@protoc_insertion_point(field_set_allocated:p2p.RPacket.guonline)
+  // @@protoc_insertion_point(field_set_allocated:p2p.PacketRespond.getUsersOnlineRespond)
 }
 
-// optional .p2p.Info_r in = 4;
-bool RPacket::has_in() const {
+// optional .p2p.NotifyRespond notifyRespond = 4;
+bool PacketRespond::has_notifyrespond() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-void RPacket::set_has_in() {
+void PacketRespond::set_has_notifyrespond() {
   _has_bits_[0] |= 0x00000008u;
 }
-void RPacket::clear_has_in() {
+void PacketRespond::clear_has_notifyrespond() {
   _has_bits_[0] &= ~0x00000008u;
 }
-void RPacket::clear_in() {
-  if (in_ != NULL) in_->::p2p::Info_r::Clear();
-  clear_has_in();
+void PacketRespond::clear_notifyrespond() {
+  if (notifyrespond_ != NULL) notifyrespond_->::p2p::NotifyRespond::Clear();
+  clear_has_notifyrespond();
 }
-const ::p2p::Info_r& RPacket::in() const {
-  // @@protoc_insertion_point(field_get:p2p.RPacket.in)
-  return in_ != NULL ? *in_
-                         : *::p2p::Info_r::internal_default_instance();
+const ::p2p::NotifyRespond& PacketRespond::notifyrespond() const {
+  const ::p2p::NotifyRespond* p = notifyrespond_;
+  // @@protoc_insertion_point(field_get:p2p.PacketRespond.notifyRespond)
+  return p != NULL ? *p : *reinterpret_cast<const ::p2p::NotifyRespond*>(
+      &::p2p::_NotifyRespond_default_instance_);
 }
-::p2p::Info_r* RPacket::mutable_in() {
-  set_has_in();
-  if (in_ == NULL) {
-    in_ = new ::p2p::Info_r;
+::p2p::NotifyRespond* PacketRespond::mutable_notifyrespond() {
+  set_has_notifyrespond();
+  if (notifyrespond_ == NULL) {
+    notifyrespond_ = new ::p2p::NotifyRespond;
   }
-  // @@protoc_insertion_point(field_mutable:p2p.RPacket.in)
-  return in_;
+  // @@protoc_insertion_point(field_mutable:p2p.PacketRespond.notifyRespond)
+  return notifyrespond_;
 }
-::p2p::Info_r* RPacket::release_in() {
-  // @@protoc_insertion_point(field_release:p2p.RPacket.in)
-  clear_has_in();
-  ::p2p::Info_r* temp = in_;
-  in_ = NULL;
+::p2p::NotifyRespond* PacketRespond::release_notifyrespond() {
+  // @@protoc_insertion_point(field_release:p2p.PacketRespond.notifyRespond)
+  clear_has_notifyrespond();
+  ::p2p::NotifyRespond* temp = notifyrespond_;
+  notifyrespond_ = NULL;
   return temp;
 }
-void RPacket::set_allocated_in(::p2p::Info_r* in) {
-  delete in_;
-  in_ = in;
-  if (in) {
-    set_has_in();
+void PacketRespond::set_allocated_notifyrespond(::p2p::NotifyRespond* notifyrespond) {
+  delete notifyrespond_;
+  notifyrespond_ = notifyrespond;
+  if (notifyrespond) {
+    set_has_notifyrespond();
   } else {
-    clear_has_in();
+    clear_has_notifyrespond();
   }
-  // @@protoc_insertion_point(field_set_allocated:p2p.RPacket.in)
+  // @@protoc_insertion_point(field_set_allocated:p2p.PacketRespond.notifyRespond)
 }
 
-// optional .p2p.Hello_r hello = 5;
-bool RPacket::has_hello() const {
+// optional .p2p.HelloRespond helloRespond = 5;
+bool PacketRespond::has_hellorespond() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-void RPacket::set_has_hello() {
+void PacketRespond::set_has_hellorespond() {
   _has_bits_[0] |= 0x00000010u;
 }
-void RPacket::clear_has_hello() {
+void PacketRespond::clear_has_hellorespond() {
   _has_bits_[0] &= ~0x00000010u;
 }
-void RPacket::clear_hello() {
-  if (hello_ != NULL) hello_->::p2p::Hello_r::Clear();
-  clear_has_hello();
+void PacketRespond::clear_hellorespond() {
+  if (hellorespond_ != NULL) hellorespond_->::p2p::HelloRespond::Clear();
+  clear_has_hellorespond();
 }
-const ::p2p::Hello_r& RPacket::hello() const {
-  // @@protoc_insertion_point(field_get:p2p.RPacket.hello)
-  return hello_ != NULL ? *hello_
-                         : *::p2p::Hello_r::internal_default_instance();
+const ::p2p::HelloRespond& PacketRespond::hellorespond() const {
+  const ::p2p::HelloRespond* p = hellorespond_;
+  // @@protoc_insertion_point(field_get:p2p.PacketRespond.helloRespond)
+  return p != NULL ? *p : *reinterpret_cast<const ::p2p::HelloRespond*>(
+      &::p2p::_HelloRespond_default_instance_);
 }
-::p2p::Hello_r* RPacket::mutable_hello() {
-  set_has_hello();
-  if (hello_ == NULL) {
-    hello_ = new ::p2p::Hello_r;
+::p2p::HelloRespond* PacketRespond::mutable_hellorespond() {
+  set_has_hellorespond();
+  if (hellorespond_ == NULL) {
+    hellorespond_ = new ::p2p::HelloRespond;
   }
-  // @@protoc_insertion_point(field_mutable:p2p.RPacket.hello)
-  return hello_;
+  // @@protoc_insertion_point(field_mutable:p2p.PacketRespond.helloRespond)
+  return hellorespond_;
 }
-::p2p::Hello_r* RPacket::release_hello() {
-  // @@protoc_insertion_point(field_release:p2p.RPacket.hello)
-  clear_has_hello();
-  ::p2p::Hello_r* temp = hello_;
-  hello_ = NULL;
+::p2p::HelloRespond* PacketRespond::release_hellorespond() {
+  // @@protoc_insertion_point(field_release:p2p.PacketRespond.helloRespond)
+  clear_has_hellorespond();
+  ::p2p::HelloRespond* temp = hellorespond_;
+  hellorespond_ = NULL;
   return temp;
 }
-void RPacket::set_allocated_hello(::p2p::Hello_r* hello) {
-  delete hello_;
-  hello_ = hello;
-  if (hello) {
-    set_has_hello();
+void PacketRespond::set_allocated_hellorespond(::p2p::HelloRespond* hellorespond) {
+  delete hellorespond_;
+  hellorespond_ = hellorespond;
+  if (hellorespond) {
+    set_has_hellorespond();
   } else {
-    clear_has_hello();
+    clear_has_hellorespond();
   }
-  // @@protoc_insertion_point(field_set_allocated:p2p.RPacket.hello)
+  // @@protoc_insertion_point(field_set_allocated:p2p.PacketRespond.helloRespond)
 }
 
 // optional string version = 6 [default = "0.1.0"];
-bool RPacket::has_version() const {
+bool PacketRespond::has_version() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-void RPacket::set_has_version() {
+void PacketRespond::set_has_version() {
   _has_bits_[0] |= 0x00000001u;
 }
-void RPacket::clear_has_version() {
+void PacketRespond::clear_has_version() {
   _has_bits_[0] &= ~0x00000001u;
 }
-void RPacket::clear_version() {
-  version_.ClearToDefaultNoArena(&RPacket::_default_version_.get());
+void PacketRespond::clear_version() {
+  version_.ClearToDefaultNoArena(&PacketRespond::_default_version_.get());
   clear_has_version();
 }
-const ::std::string& RPacket::version() const {
-  // @@protoc_insertion_point(field_get:p2p.RPacket.version)
+const ::std::string& PacketRespond::version() const {
+  // @@protoc_insertion_point(field_get:p2p.PacketRespond.version)
   return version_.GetNoArena();
 }
-void RPacket::set_version(const ::std::string& value) {
+void PacketRespond::set_version(const ::std::string& value) {
   set_has_version();
-  version_.SetNoArena(&RPacket::_default_version_.get(), value);
-  // @@protoc_insertion_point(field_set:p2p.RPacket.version)
+  version_.SetNoArena(&PacketRespond::_default_version_.get(), value);
+  // @@protoc_insertion_point(field_set:p2p.PacketRespond.version)
 }
 #if LANG_CXX11
-void RPacket::set_version(::std::string&& value) {
+void PacketRespond::set_version(::std::string&& value) {
   set_has_version();
   version_.SetNoArena(
-    &RPacket::_default_version_.get(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:p2p.RPacket.version)
+    &PacketRespond::_default_version_.get(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:p2p.PacketRespond.version)
 }
 #endif
-void RPacket::set_version(const char* value) {
+void PacketRespond::set_version(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_version();
-  version_.SetNoArena(&RPacket::_default_version_.get(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:p2p.RPacket.version)
+  version_.SetNoArena(&PacketRespond::_default_version_.get(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:p2p.PacketRespond.version)
 }
-void RPacket::set_version(const char* value, size_t size) {
+void PacketRespond::set_version(const char* value, size_t size) {
   set_has_version();
-  version_.SetNoArena(&RPacket::_default_version_.get(),
+  version_.SetNoArena(&PacketRespond::_default_version_.get(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:p2p.RPacket.version)
+  // @@protoc_insertion_point(field_set_pointer:p2p.PacketRespond.version)
 }
-::std::string* RPacket::mutable_version() {
+::std::string* PacketRespond::mutable_version() {
   set_has_version();
-  // @@protoc_insertion_point(field_mutable:p2p.RPacket.version)
-  return version_.MutableNoArena(&RPacket::_default_version_.get());
+  // @@protoc_insertion_point(field_mutable:p2p.PacketRespond.version)
+  return version_.MutableNoArena(&PacketRespond::_default_version_.get());
 }
-::std::string* RPacket::release_version() {
-  // @@protoc_insertion_point(field_release:p2p.RPacket.version)
+::std::string* PacketRespond::release_version() {
+  // @@protoc_insertion_point(field_release:p2p.PacketRespond.version)
   clear_has_version();
-  return version_.ReleaseNoArena(&RPacket::_default_version_.get());
+  return version_.ReleaseNoArena(&PacketRespond::_default_version_.get());
 }
-void RPacket::set_allocated_version(::std::string* version) {
+void PacketRespond::set_allocated_version(::std::string* version) {
   if (version != NULL) {
     set_has_version();
   } else {
     clear_has_version();
   }
-  version_.SetAllocatedNoArena(&RPacket::_default_version_.get(), version);
-  // @@protoc_insertion_point(field_set_allocated:p2p.RPacket.version)
+  version_.SetAllocatedNoArena(&PacketRespond::_default_version_.get(), version);
+  // @@protoc_insertion_point(field_set_allocated:p2p.PacketRespond.version)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -3708,7 +3767,7 @@ void RPacket::set_allocated_version(::std::string* version) {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int Address::kIdFieldNumber;
-const int Address::kAddrFieldNumber;
+const int Address::kAddressFieldNumber;
 const int Address::kPortFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -3726,9 +3785,9 @@ Address::Address(const Address& from)
       _has_bits_(from._has_bits_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  addr_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_addr()) {
-    addr_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.addr_);
+  address_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_address()) {
+    address_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.address_);
   }
   id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.has_id()) {
@@ -3740,7 +3799,7 @@ Address::Address(const Address& from)
 
 void Address::SharedCtor() {
   _cached_size_ = 0;
-  addr_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  address_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   port_ = 0;
 }
@@ -3751,7 +3810,7 @@ Address::~Address() {
 }
 
 void Address::SharedDtor() {
-  addr_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  address_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
@@ -3780,12 +3839,17 @@ Address* Address::New(::google::protobuf::Arena* arena) const {
 
 void Address::Clear() {
 // @@protoc_insertion_point(message_clear_start:p2p.Address)
-  if (_has_bits_[0 / 32] & 3u) {
-    if (has_addr()) {
-      GOOGLE_DCHECK(!addr_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-      (*addr_.UnsafeRawStringPointer())->clear();
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 3u) {
+    if (cached_has_bits & 0x00000001u) {
+      GOOGLE_DCHECK(!address_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*address_.UnsafeRawStringPointer())->clear();
     }
-    if (has_id()) {
+    if (cached_has_bits & 0x00000002u) {
       GOOGLE_DCHECK(!id_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
       (*id_.UnsafeRawStringPointer())->clear();
     }
@@ -3805,16 +3869,16 @@ bool Address::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required string addr = 2;
+      // required string address = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u)) {
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_addr()));
+                input, this->mutable_address()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->addr().data(), this->addr().length(),
+            this->address().data(), static_cast<int>(this->address().length()),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "p2p.Address.addr");
+            "p2p.Address.address");
         } else {
           goto handle_unusual;
         }
@@ -3824,7 +3888,7 @@ bool Address::MergePartialFromCodedStream(
       // required int32 port = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(24u)) {
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
           set_has_port();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -3838,11 +3902,11 @@ bool Address::MergePartialFromCodedStream(
       // required string id = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(34u)) {
+            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_id()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->id().data(), this->id().length(),
+            this->id().data(), static_cast<int>(this->id().length()),
             ::google::protobuf::internal::WireFormat::PARSE,
             "p2p.Address.id");
         } else {
@@ -3853,13 +3917,11 @@ bool Address::MergePartialFromCodedStream(
 
       default: {
       handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+        if (tag == 0) {
           goto success;
         }
         DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
         break;
       }
     }
@@ -3880,14 +3942,14 @@ void Address::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required string addr = 2;
+  // required string address = 2;
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->addr().data(), this->addr().length(),
+      this->address().data(), static_cast<int>(this->address().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "p2p.Address.addr");
+      "p2p.Address.address");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->addr(), output);
+      2, this->address(), output);
   }
 
   // required int32 port = 3;
@@ -3898,7 +3960,7 @@ void Address::SerializeWithCachedSizes(
   // required string id = 4;
   if (cached_has_bits & 0x00000002u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->id().data(), this->id().length(),
+      this->id().data(), static_cast<int>(this->id().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "p2p.Address.id");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
@@ -3907,27 +3969,28 @@ void Address::SerializeWithCachedSizes(
 
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
+        _internal_metadata_.unknown_fields(), output);
   }
   // @@protoc_insertion_point(serialize_end:p2p.Address)
 }
 
 ::google::protobuf::uint8* Address::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:p2p.Address)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required string addr = 2;
+  // required string address = 2;
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->addr().data(), this->addr().length(),
+      this->address().data(), static_cast<int>(this->address().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "p2p.Address.addr");
+      "p2p.Address.address");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->addr(), target);
+        2, this->address(), target);
   }
 
   // required int32 port = 3;
@@ -3938,7 +4001,7 @@ void Address::SerializeWithCachedSizes(
   // required string id = 4;
   if (cached_has_bits & 0x00000002u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->id().data(), this->id().length(),
+      this->id().data(), static_cast<int>(this->id().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "p2p.Address.id");
     target =
@@ -3948,7 +4011,7 @@ void Address::SerializeWithCachedSizes(
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
+        _internal_metadata_.unknown_fields(), target);
   }
   // @@protoc_insertion_point(serialize_to_array_end:p2p.Address)
   return target;
@@ -3958,11 +4021,11 @@ size_t Address::RequiredFieldsByteSizeFallback() const {
 // @@protoc_insertion_point(required_fields_byte_size_fallback_start:p2p.Address)
   size_t total_size = 0;
 
-  if (has_addr()) {
-    // required string addr = 2;
+  if (has_address()) {
+    // required string address = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->addr());
+        this->address());
   }
 
   if (has_id()) {
@@ -3988,13 +4051,13 @@ size_t Address::ByteSizeLong() const {
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
+        _internal_metadata_.unknown_fields());
   }
   if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
-    // required string addr = 2;
+    // required string address = 2;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->addr());
+        this->address());
 
     // required string id = 4;
     total_size += 1 +
@@ -4041,8 +4104,8 @@ void Address::MergeFrom(const Address& from) {
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 7u) {
     if (cached_has_bits & 0x00000001u) {
-      set_has_addr();
-      addr_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.addr_);
+      set_has_address();
+      address_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.address_);
     }
     if (cached_has_bits & 0x00000002u) {
       set_has_id();
@@ -4079,12 +4142,13 @@ void Address::Swap(Address* other) {
   InternalSwap(other);
 }
 void Address::InternalSwap(Address* other) {
-  addr_.Swap(&other->addr_);
+  using std::swap;
+  address_.Swap(&other->address_);
   id_.Swap(&other->id_);
-  std::swap(port_, other->port_);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  swap(port_, other->port_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  std::swap(_cached_size_, other->_cached_size_);
+  swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata Address::GetMetadata() const {
@@ -4158,67 +4222,67 @@ void Address::set_allocated_id(::std::string* id) {
   // @@protoc_insertion_point(field_set_allocated:p2p.Address.id)
 }
 
-// required string addr = 2;
-bool Address::has_addr() const {
+// required string address = 2;
+bool Address::has_address() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-void Address::set_has_addr() {
+void Address::set_has_address() {
   _has_bits_[0] |= 0x00000001u;
 }
-void Address::clear_has_addr() {
+void Address::clear_has_address() {
   _has_bits_[0] &= ~0x00000001u;
 }
-void Address::clear_addr() {
-  addr_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_addr();
+void Address::clear_address() {
+  address_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_address();
 }
-const ::std::string& Address::addr() const {
-  // @@protoc_insertion_point(field_get:p2p.Address.addr)
-  return addr_.GetNoArena();
+const ::std::string& Address::address() const {
+  // @@protoc_insertion_point(field_get:p2p.Address.address)
+  return address_.GetNoArena();
 }
-void Address::set_addr(const ::std::string& value) {
-  set_has_addr();
-  addr_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:p2p.Address.addr)
+void Address::set_address(const ::std::string& value) {
+  set_has_address();
+  address_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:p2p.Address.address)
 }
 #if LANG_CXX11
-void Address::set_addr(::std::string&& value) {
-  set_has_addr();
-  addr_.SetNoArena(
+void Address::set_address(::std::string&& value) {
+  set_has_address();
+  address_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:p2p.Address.addr)
+  // @@protoc_insertion_point(field_set_rvalue:p2p.Address.address)
 }
 #endif
-void Address::set_addr(const char* value) {
+void Address::set_address(const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  set_has_addr();
-  addr_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:p2p.Address.addr)
+  set_has_address();
+  address_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:p2p.Address.address)
 }
-void Address::set_addr(const char* value, size_t size) {
-  set_has_addr();
-  addr_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+void Address::set_address(const char* value, size_t size) {
+  set_has_address();
+  address_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:p2p.Address.addr)
+  // @@protoc_insertion_point(field_set_pointer:p2p.Address.address)
 }
-::std::string* Address::mutable_addr() {
-  set_has_addr();
-  // @@protoc_insertion_point(field_mutable:p2p.Address.addr)
-  return addr_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+::std::string* Address::mutable_address() {
+  set_has_address();
+  // @@protoc_insertion_point(field_mutable:p2p.Address.address)
+  return address_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* Address::release_addr() {
-  // @@protoc_insertion_point(field_release:p2p.Address.addr)
-  clear_has_addr();
-  return addr_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+::std::string* Address::release_address() {
+  // @@protoc_insertion_point(field_release:p2p.Address.address)
+  clear_has_address();
+  return address_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void Address::set_allocated_addr(::std::string* addr) {
-  if (addr != NULL) {
-    set_has_addr();
+void Address::set_allocated_address(::std::string* address) {
+  if (address != NULL) {
+    set_has_address();
   } else {
-    clear_has_addr();
+    clear_has_address();
   }
-  addr_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), addr);
-  // @@protoc_insertion_point(field_set_allocated:p2p.Address.addr)
+  address_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), address);
+  // @@protoc_insertion_point(field_set_allocated:p2p.Address.address)
 }
 
 // required int32 port = 3;
@@ -4252,7 +4316,7 @@ void Address::set_port(::google::protobuf::int32 value) {
 ::google::protobuf::internal::ExplicitlyConstructed< ::std::string> Initiative::_default_version_;
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int Initiative::kTFieldNumber;
-const int Initiative::kAdrFieldNumber;
+const int Initiative::kAddressFieldNumber;
 const int Initiative::kVersionFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -4274,10 +4338,10 @@ Initiative::Initiative(const Initiative& from)
   if (from.has_version()) {
     version_.AssignWithDefault(&Initiative::_default_version_.get(), from.version_);
   }
-  if (from.has_adr()) {
-    adr_ = new ::p2p::Address(*from.adr_);
+  if (from.has_address()) {
+    address_ = new ::p2p::Address(*from.address_);
   } else {
-    adr_ = NULL;
+    address_ = NULL;
   }
   t_ = from.t_;
   // @@protoc_insertion_point(copy_constructor:p2p.Initiative)
@@ -4286,7 +4350,7 @@ Initiative::Initiative(const Initiative& from)
 void Initiative::SharedCtor() {
   _cached_size_ = 0;
   version_.UnsafeSetDefault(&Initiative::_default_version_.get());
-  adr_ = NULL;
+  address_ = NULL;
   t_ = 1;
 }
 
@@ -4297,9 +4361,7 @@ Initiative::~Initiative() {
 
 void Initiative::SharedDtor() {
   version_.DestroyNoArena(&Initiative::_default_version_.get());
-  if (this != internal_default_instance()) {
-    delete adr_;
-  }
+  if (this != internal_default_instance()) delete address_;
 }
 
 void Initiative::SetCachedSize(int size) const {
@@ -4327,14 +4389,19 @@ Initiative* Initiative::New(::google::protobuf::Arena* arena) const {
 
 void Initiative::Clear() {
 // @@protoc_insertion_point(message_clear_start:p2p.Initiative)
-  if (_has_bits_[0 / 32] & 7u) {
-    if (has_version()) {
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 7u) {
+    if (cached_has_bits & 0x00000001u) {
       GOOGLE_DCHECK(!version_.IsDefault(&Initiative::_default_version_.get()));
       (*version_.UnsafeRawStringPointer())->assign(*&Initiative::_default_version_.get());
     }
-    if (has_adr()) {
-      GOOGLE_DCHECK(adr_ != NULL);
-      adr_->::p2p::Address::Clear();
+    if (cached_has_bits & 0x00000002u) {
+      GOOGLE_DCHECK(address_ != NULL);
+      address_->::p2p::Address::Clear();
     }
     t_ = 1;
   }
@@ -4355,7 +4422,7 @@ bool Initiative::MergePartialFromCodedStream(
       // required .p2p.InitiativeType t = 1 [default = ADDRESS];
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u)) {
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -4363,7 +4430,8 @@ bool Initiative::MergePartialFromCodedStream(
           if (::p2p::InitiativeType_IsValid(value)) {
             set_t(static_cast< ::p2p::InitiativeType >(value));
           } else {
-            mutable_unknown_fields()->AddVarint(1, value);
+            mutable_unknown_fields()->AddVarint(
+                1, static_cast< ::google::protobuf::uint64>(value));
           }
         } else {
           goto handle_unusual;
@@ -4371,12 +4439,12 @@ bool Initiative::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .p2p.Address adr = 2;
+      // optional .p2p.Address address = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u)) {
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_adr()));
+               input, mutable_address()));
         } else {
           goto handle_unusual;
         }
@@ -4386,11 +4454,11 @@ bool Initiative::MergePartialFromCodedStream(
       // optional string version = 3 [default = "0.1.0"];
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(26u)) {
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_version()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->version().data(), this->version().length(),
+            this->version().data(), static_cast<int>(this->version().length()),
             ::google::protobuf::internal::WireFormat::PARSE,
             "p2p.Initiative.version");
         } else {
@@ -4401,13 +4469,11 @@ bool Initiative::MergePartialFromCodedStream(
 
       default: {
       handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+        if (tag == 0) {
           goto success;
         }
         DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
         break;
       }
     }
@@ -4434,16 +4500,16 @@ void Initiative::SerializeWithCachedSizes(
       1, this->t(), output);
   }
 
-  // optional .p2p.Address adr = 2;
+  // optional .p2p.Address address = 2;
   if (cached_has_bits & 0x00000002u) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, *this->adr_, output);
+      2, *this->address_, output);
   }
 
   // optional string version = 3 [default = "0.1.0"];
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->version().data(), this->version().length(),
+      this->version().data(), static_cast<int>(this->version().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "p2p.Initiative.version");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
@@ -4452,13 +4518,14 @@ void Initiative::SerializeWithCachedSizes(
 
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
+        _internal_metadata_.unknown_fields(), output);
   }
   // @@protoc_insertion_point(serialize_end:p2p.Initiative)
 }
 
 ::google::protobuf::uint8* Initiative::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:p2p.Initiative)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -4470,17 +4537,17 @@ void Initiative::SerializeWithCachedSizes(
       1, this->t(), target);
   }
 
-  // optional .p2p.Address adr = 2;
+  // optional .p2p.Address address = 2;
   if (cached_has_bits & 0x00000002u) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        2, *this->adr_, deterministic, target);
+        2, *this->address_, deterministic, target);
   }
 
   // optional string version = 3 [default = "0.1.0"];
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->version().data(), this->version().length(),
+      this->version().data(), static_cast<int>(this->version().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "p2p.Initiative.version");
     target =
@@ -4490,7 +4557,7 @@ void Initiative::SerializeWithCachedSizes(
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
+        _internal_metadata_.unknown_fields(), target);
   }
   // @@protoc_insertion_point(serialize_to_array_end:p2p.Initiative)
   return target;
@@ -4503,7 +4570,7 @@ size_t Initiative::ByteSizeLong() const {
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
+        _internal_metadata_.unknown_fields());
   }
   // required .p2p.InitiativeType t = 1 [default = ADDRESS];
   if (has_t()) {
@@ -4518,11 +4585,11 @@ size_t Initiative::ByteSizeLong() const {
           this->version());
     }
 
-    // optional .p2p.Address adr = 2;
-    if (has_adr()) {
+    // optional .p2p.Address address = 2;
+    if (has_address()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          *this->adr_);
+          *this->address_);
     }
 
   }
@@ -4562,7 +4629,7 @@ void Initiative::MergeFrom(const Initiative& from) {
       version_.AssignWithDefault(&Initiative::_default_version_.get(), from.version_);
     }
     if (cached_has_bits & 0x00000002u) {
-      mutable_adr()->::p2p::Address::MergeFrom(from.adr());
+      mutable_address()->::p2p::Address::MergeFrom(from.address());
     }
     if (cached_has_bits & 0x00000004u) {
       t_ = from.t_;
@@ -4587,8 +4654,8 @@ void Initiative::CopyFrom(const Initiative& from) {
 
 bool Initiative::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000004) != 0x00000004) return false;
-  if (has_adr()) {
-    if (!this->adr_->IsInitialized()) return false;
+  if (has_address()) {
+    if (!this->address_->IsInitialized()) return false;
   }
   return true;
 }
@@ -4598,12 +4665,13 @@ void Initiative::Swap(Initiative* other) {
   InternalSwap(other);
 }
 void Initiative::InternalSwap(Initiative* other) {
+  using std::swap;
   version_.Swap(&other->version_);
-  std::swap(adr_, other->adr_);
-  std::swap(t_, other->t_);
-  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  swap(address_, other->address_);
+  swap(t_, other->t_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  std::swap(_cached_size_, other->_cached_size_);
+  swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata Initiative::GetMetadata() const {
@@ -4639,49 +4707,50 @@ void Initiative::set_t(::p2p::InitiativeType value) {
   // @@protoc_insertion_point(field_set:p2p.Initiative.t)
 }
 
-// optional .p2p.Address adr = 2;
-bool Initiative::has_adr() const {
+// optional .p2p.Address address = 2;
+bool Initiative::has_address() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-void Initiative::set_has_adr() {
+void Initiative::set_has_address() {
   _has_bits_[0] |= 0x00000002u;
 }
-void Initiative::clear_has_adr() {
+void Initiative::clear_has_address() {
   _has_bits_[0] &= ~0x00000002u;
 }
-void Initiative::clear_adr() {
-  if (adr_ != NULL) adr_->::p2p::Address::Clear();
-  clear_has_adr();
+void Initiative::clear_address() {
+  if (address_ != NULL) address_->::p2p::Address::Clear();
+  clear_has_address();
 }
-const ::p2p::Address& Initiative::adr() const {
-  // @@protoc_insertion_point(field_get:p2p.Initiative.adr)
-  return adr_ != NULL ? *adr_
-                         : *::p2p::Address::internal_default_instance();
+const ::p2p::Address& Initiative::address() const {
+  const ::p2p::Address* p = address_;
+  // @@protoc_insertion_point(field_get:p2p.Initiative.address)
+  return p != NULL ? *p : *reinterpret_cast<const ::p2p::Address*>(
+      &::p2p::_Address_default_instance_);
 }
-::p2p::Address* Initiative::mutable_adr() {
-  set_has_adr();
-  if (adr_ == NULL) {
-    adr_ = new ::p2p::Address;
+::p2p::Address* Initiative::mutable_address() {
+  set_has_address();
+  if (address_ == NULL) {
+    address_ = new ::p2p::Address;
   }
-  // @@protoc_insertion_point(field_mutable:p2p.Initiative.adr)
-  return adr_;
+  // @@protoc_insertion_point(field_mutable:p2p.Initiative.address)
+  return address_;
 }
-::p2p::Address* Initiative::release_adr() {
-  // @@protoc_insertion_point(field_release:p2p.Initiative.adr)
-  clear_has_adr();
-  ::p2p::Address* temp = adr_;
-  adr_ = NULL;
+::p2p::Address* Initiative::release_address() {
+  // @@protoc_insertion_point(field_release:p2p.Initiative.address)
+  clear_has_address();
+  ::p2p::Address* temp = address_;
+  address_ = NULL;
   return temp;
 }
-void Initiative::set_allocated_adr(::p2p::Address* adr) {
-  delete adr_;
-  adr_ = adr;
-  if (adr) {
-    set_has_adr();
+void Initiative::set_allocated_address(::p2p::Address* address) {
+  delete address_;
+  address_ = address;
+  if (address) {
+    set_has_address();
   } else {
-    clear_has_adr();
+    clear_has_address();
   }
-  // @@protoc_insertion_point(field_set_allocated:p2p.Initiative.adr)
+  // @@protoc_insertion_point(field_set_allocated:p2p.Initiative.address)
 }
 
 // optional string version = 3 [default = "0.1.0"];

@@ -2,9 +2,12 @@ syntax = "proto2";
 
 package p2p;
 
-enum API_ID
+/*
+	服务端提供的远程服务
+*/
+enum RPCAPI
 {
-	GETUSERONLINE = 1; //获取当前在线的用户
+	GETUSERSONLINE = 1; //获取当前在线的用户
 	CONNECT = 2; //连接指定的用户
 	INFO = 3; //通知指定用户
 	OFFLINE = 4; //下线
@@ -12,6 +15,9 @@ enum API_ID
 	HELLO = 6;
 }
 
+/*
+	当前的状态
+*/
 enum StatusType {
 	SUCCESS = 1;
 	FAILURE = 2;
@@ -22,53 +28,76 @@ enum StatusType {
 	EXIST = 7;
 }
 
-
-message Connect
+/*
+	向服务器发起连接另一个在线用户的请求，
+*/
+message ConnectRequest
 {
-	required string  peer = 1;
+	required string  peerIdentity = 1; //链接对象的Id，用mac地址;
 }
 
-message Connect_r
+/*
+	服务器返回给发起方
+*/
+message ConnectRespond
 {
-	required StatusType t = 1 [default = SUCCESS];
+	required StatusType statusType = 1 [default = SUCCESS];
 }
 
-message GetUserOnline_r
+/*
+	返回当前在线的所有用户
+*/
+message GetUsersOnlineRespond
 {
-	repeated string  user_online = 1;
+	repeated string usersOnline = 1;
 }
 
-message Info
+/*
+	服务器向接收链接方发送链接通知，当其接到通知后准备开始打洞
+*/
+message NotifyRequest
 {
-	required string peer = 1;
+	required string peerIdentity = 1;
 }
 
-message Info_r
+/*
+	接收方返回状态
+*/
+message NotifyRespond
 {
-	required StatusType t = 1 [default = SUCCESS];
+	required StatusType statusType = 1 [default = SUCCESS];
 }
 
-message Hello_r
+/*
+	服务器返回Hello应答 
+*/
+message HelloRespond
 {
-	required StatusType t = 1 [ default = SUCCESS ];
+	required StatusType statusType = 1 [ default = SUCCESS ];
 }
 
-message Packet
+/*
+	客户端向服务器发送的请求包
+*/
+message PacketRequst
 {
-	required API_ID api_id = 1;
-	required string user_id = 2;
-	optional Connect cnt = 3;
-	optional Info inf = 4;
+	required RPCAPI rpcApi = 1;
+	required string peerIdentity = 2;
+	optional ConnectRequest connectRequest = 3;
+	optional NotifyRequest notifyRequest = 4;
 	optional string version = 5 [default = "0.1.0"];
 }
 
-message RPacket
+/*
+	服务器返回给客户端的应答包
+*/
+message PacketRespond
 {
-	required API_ID api_id = 1;
-	optional Connect_r cnt = 2;
-	optional GetUserOnline_r guonline = 3;
-	optional Info_r in = 4;
-	optional Hello_r hello = 5;
+	required RPCAPI rpcApi = 1;
+	optional ConnectRespond connectRespond = 2;
+	optional GetUsersOnlineRespond getUsersOnlineRespond = 3;
+	optional NotifyRespond notifyRespond = 4;
+	optional HelloRespond helloRespond = 5;
 	optional string version = 6 [default = "0.1.0"];
 }
 
@@ -80,13 +109,13 @@ enum InitiativeType
 message Address
 {
 	required string id = 4;
-	required string addr = 2;
+	required string address = 2;
 	required int32 port = 3;	
 }
 
 message Initiative
 {
 	required InitiativeType t = 1 [ default = ADDRESS ];
-	optional Address adr = 2;
+	optional Address address = 2;
 	optional string version = 3 [default = "0.1.0" ];
 }
