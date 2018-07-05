@@ -5,127 +5,137 @@
 
 using namespace p2p;
 
-#define HOLE_PORT 9798
-
 static sockaddr_in hole, server;
 static short port_udp_bind, port_tcp_bind;
 static short port_udp_server, port_tcp_server;
-static std::string user_id;
+static std::string peerIdentity;
 static std::string server_ip, server_udp;
 
 CTcp *CHole;
-CTcp *CP2p;
-#define SEND_PACKET	{\
+CTcp *CPeer;
+
+#define SEND_PACKET(X)	{\
 	char* cbyte = NULL;\
 	unsigned int cbytes = 0;\
-	cbytes = serializeToArray_(cbyte, pkt);\
+	cbytes = serializeToArray_(cbyte, pktRequest);\
 	if(cbytes <= 0){\
 		printf("this is out\n");\
 		return -1;\
 	}\
-	printf("send %d\n", CHole->send(cbyte, cbytes));\
+	printf("send %d\n", (X)->sendMessage(cbyte, cbytes));\
 	printf(">>>>>>>>>>>>>>>>\n");\
 	delete[] cbyte;\
 }
 
-void Init(const char* _user_id, const char* _server_ip, short udp_port, short tcp_port, short bind_udp_port, short bind_tcp_port)
+void peer_init(const char* _peerIdentity, const char* _server_ip, short bind_tcp_port)
 {
-	user_id = _user_id;
+	peerIdentity = _peerIdentity;
 	server_ip = _server_ip;
-	port_tcp_server = tcp_port;
-	port_udp_server = udp_port;
+	port_tcp_server = TCP_PORT;
 	port_tcp_bind = bind_tcp_port;
-	port_udp_bind = bind_udp_port;
 
 	return;
 }
 
-
-
-int hello()
+//发送Hello请求，会将peer的消息注册到Server
+int peer_hello()
 {
-	Packet pkt;
-	//pkt.set_version();
-	pkt.set_api_id(p2p::HELLO);
-	
-	pkt.set_user_id(user_id);
-	printf("%s\n", pkt.version().c_str());	
-	SEND_PACKET;
+	PacketRequst pktRequest;
+	pktRequest.set_rpcapi(p2p::HELLO);	
+	pktRequest.set_peeridentity(peerIdentity);
+	printf("%s\n", pktRequest.version().c_str());
+	SEND_PACKET(CPeer);
 	return 0;	
 }
 
-int listonline()
+//枚举当前在线的Peer
+int peer_listonline()
 {
-	Packet pkt;
-	pkt.set_api_id(p2p::GETUSERONLINE);
-	pkt.set_user_id(user_id);
+	PacketRequst pktRequest;
+	pktRequest.set_rpcapi(p2p::GETUSERSONLINE);
+	pktRequest.set_peeridentity(peerIdentity);
 
-	SEND_PACKET;
+	SEND_PACKET(CPeer);
 
 	return 0;
 }
 
-
-int connect(const char* peer)
+//向指定的peer发送链接的请求
+int peer_connect(const char* peer)
 {
-	Packet pkt;
-	pkt.set_api_id(p2p::CONNECT);
-	pkt.set_user_id(user_id);
-	Connect *c =  pkt.mutable_cnt();
-	c->set_peer(::std::string(peer));
-	SEND_PACKET;
+	PacketRequst pktRequest;
+	pktRequest.set_rpcapi(p2p::CONNECT);
+	pktRequest.set_peeridentity(peerIdentity);
+	ConnectRequest *cntRequest = pktRequest.mutable_connectrequest();
+	cntRequest->set_peeridentity(::std::string(peer));
+
+	if (CHole != NULL){
+		delete CHole;
+		CHole = new CTcp();
+	}
+
+	if (0 != CHole->bindAddress(NULL, port_tcp_bind)){
+		printf("bint the port: %d failure!!", port_tcp_bind);
+		return -1;
+	}
+
+	CHole->startServer();
+	SEND_PACKET(CHole);
 	
 	return 0;
 }
 
-static int rpanalyse(RPacket rp)
+//解析server返回的respond
+static int packtRespondAnalysis(PacketRespond pktRespond)
 {
-	switch(rp.api_id())
+	GetUsersOnlineRespond guoRespond;
+	ConnectRespond cntRespond;
+	NotifyRespond  notifyRespond;
+
+	switch (pktRespond.rpcapi())
 	{
 		case p2p::HELLO:
 			printf("hello from server\n");
 			break;
-		case p2p::GETUSERONLINE:
-			if(!rp.has_guonline()){
+		case p2p::GETUSERSONLINE:
+			if (!pktRespond.has_getusersonlinerespond()){
 				printf(" the peer list is not exist");
 				return -1;
 			}
 			else{
-				GetUserOnline_r gr;
-				gr = rp.guonline();
-				for(int j = 0 ; j < gr.user_online_size(); j++){
-					const std::string& a = gr.user_online(j);
-					printf("===online== %s ==\n", a.c_str());
+				//打印当前在线的peer
+				guoRespond = pktRespond.getusersonlinerespond();
+				for (int j = 0; j < guoRespond.usersonline_size(); j++){
+					const std::string& peer = guoRespond.usersonline(j);
+					printf("===online== %s ==\n", peer.c_str());
 				}
 
 			}break;
 		case p2p::CONNECT:
-			if(!rp.has_cnt()){
+			if (!pktRespond.has_connectrespond()){
 				printf("the cnt rp is not exist !\n");
-				delete CP2p;
+				delete CHole;
 				return -1;
 			}
 			else{
-				Connect_r cnr;
-				cnr = rp.cnt();
-				printf("the connect  return : %d\n", cnr.t());
-				if(cnr.t() != p2p::SUCCESS)
-				{
+				cntRespond = pktRespond.connectrespond();
+				printf("the connect  return status: %d\n", cntRespond.statustype());
+				if (cntRespond.statustype() != p2p::SUCCESS){
 					printf(" the loser!!!!");
-					delete CP2p;	
+					delete CHole;	
 				}
 			}
 			break;
 		case p2p::INFO:
-			if(!rp.has_in()){
+			if (!pktRespond.has_notifyrespond()){
 				printf("the info is not exist!\n");
 				return -1;
 			}
 			else{
-				Info_r ir = rp.in();
-				return -1;
-				printf("the info return: %d\n", ir.t());
+				notifyRespond = pktRespond.notifyrespond();
+				printf("the info return status: %d\n", notifyRespond.statustype());
 			}
+			break;
 		default:
 			break;
 	}
@@ -134,74 +144,75 @@ static int rpanalyse(RPacket rp)
 }
 
 
-static int initanalyse(Initiative in)
+static int messageAnylasis(Message msg)
 {
-	Packet pkt;
-	if(!in.has_adr())
-		return -1;
-	
-	if(CP2p != NULL)
-		delete CP2p;
-
-	CP2p = new CTcp();
-
-	Address addr = in.adr();
-	if(CP2p->bindaddr(NULL, HOLE_PORT))
+	Address addr;
+	switch (msg.t())
 	{
-
-		printf(" bind the port %d error %s \n", port_tcp_bind, strerror(errno));
-		delete CP2p; CP2p = NULL;
-		return -1;
-	}
-	else
-	{
-		printf("connect to the %s %d\n", addr.addr().c_str(), HOLE_PORT);
-		if(!CP2p->connect(addr.addr().c_str(), HOLE_PORT, 5))
+	case MessageType::ADDRESS:
 		{
-			printf("connect SUCCESS, you can transcation !!!\n");
-			CP2p->recv_client();
-			return 0;
+			if (!msg.has_address()){
+				printf("address is emptu\n");
+				return -1;
+			}
+			if (CHole != NULL){
+				delete CHole;
+			}
+			
+			CHole = new CTcp();
+			addr = msg.address();
+			if (CHole->bindAddress(NULL, port_tcp_bind)){
+				printf(" bind the port %d error %s \n", port_tcp_bind, strerror(errno));
+				delete CHole; CHole = NULL;
+				return -1;
+			}
+
+			//开始直连
+			printf("connect to the %s:%d\n", addr.address().c_str(), addr.port());
+			if (!CHole->connect(addr.address().c_str(), addr.port(), 5)){
+				//直连成功开始通信
+				printf("connect SUCCESS, you can transcation !!!\n");
+				CHole->startClient();
+				break;
+			}
+
+			//如果不成功也相当于打洞成功，此时向server发起链接的请求；
+			if (CHole->connect(server_ip.c_str(), port_tcp_server, 5)){
+				printf("connect server failure: %s", strerror(errno));
+			}
+
+			//开启监听状态
+			CHole->startServer();
+			if (0 > peer_connect(addr.id().c_str())){
+				printf("send connect request failure: %s", strerror(errno));
+				delete CHole;
+				CHole = NULL;
+			}
 		}
-	}		
-
-	delete CP2p;
-	CP2p = new CTcp();
-	if(CP2p->bindaddr(NULL, HOLE_PORT)){
-
-		printf(" bind the port %d error %s\n", port_tcp_bind, strerror(errno));
-		return -1;
+	default:
+		printf("the message type: %d is not supportted\n", msg.t());
+		return -2;
 	}
 
-		
-	CP2p->recv_server();
-	sleep(1);
-	
-	pkt.set_api_id(p2p::INFO);
-	pkt.set_user_id(user_id);
-
-	Info* inf = pkt.mutable_inf();
-	inf->set_peer(addr.id());
-	printf("info the %s , i am ready\n", addr.id().c_str());
-
-	SEND_PACKET;
 
 	return 0;
 }
 
 static void* recv_cb_ch(void* p, const char* message, unsigned int len, int& s)
 {
-	RPacket rp;
-	if(rp.ParseFromArray(message, len))
-	{
-		rpanalyse(rp);
+	PacketRespond pktRespond;
+	Message msg;
+
+	if (pktRespond.ParseFromArray(message, len)){
+		printf("the version of the respond is %s\n", pktRespond.version().c_str());
+		packtRespondAnalysis(pktRespond);
 		return NULL;
 	}
 
-	printf("the version is %s\n", rp.version().c_str());	
-	Initiative init;
-	if(init.ParseFromArray(message, len))
-	{
-		initanalyse(init);
+
+	if(msg.ParseFromArray(message, len)){
+		printf("the version of the message is %s\n", msg.version().c_str());
+		messageAnylasis(msg);
 	}
 
 	return NULL;	
@@ -209,12 +220,11 @@ static void* recv_cb_ch(void* p, const char* message, unsigned int len, int& s)
 
 int peer_start()
 {
-	CHole = new CTcp();
-	CHole->registercb((void*)recv_cb_ch, NULL, CBase::READ);
-	CHole->bindaddr(NULL, port_tcp_bind);
-	if(!CHole->connect(server_ip.c_str(), port_tcp_server, 5))
-	{
-		return CHole->recv_client();
+	CPeer = new CTcp();
+	CPeer->registryCallBackMethod((void*)recv_cb_ch, NULL, CBase::READ);
+	CPeer->bindAddress(NULL, port_tcp_bind);
+	if (!CPeer->connect(server_ip.c_str(), port_tcp_server, 5)){
+		return CPeer->startClient();
 	}
 
 	return -1;

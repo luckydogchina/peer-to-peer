@@ -1,3 +1,9 @@
+/*
+ *这是一个用于socket通讯的基础库；
+ *@author：wangzhipengtest@163.com
+ *@date：04/15/2018
+ **/
+
 #ifndef __SOCKET_H__
 #define __SOCKET_H__
 
@@ -9,8 +15,8 @@
 #include <stdlib.h>
 #include <pthread.h>
 
-typedef void* (*RECV_CALLBACK_UDP)(void* p, const char* message, unsigned int len, int& s, sockaddr_in addr);
 typedef void* (*RECV_CALLBACK_TCP)(void* p, const char* message, unsigned int len, int& s);
+typedef void* (*RECV_CALLBACK_UDP)(void* p, const char* message, unsigned int len, int& s, sockaddr_in addr);
 typedef void* (*WRITE_CALLBACK)(void* p, int &s);
 typedef WRITE_CALLBACK EXCEPTION_CALLBACK;
 typedef WRITE_CALLBACK EXIT_CALLBACK;
@@ -23,39 +29,59 @@ public:
 	CBase();
 	~CBase();
 	
-enum cbtype{
-	READ = 0,
-	WRITE,
-	EXCEPTION,
-	TIMEOUT,
-	CLOSE,
-	EXIT
+enum CALLBACKTYPE{
+	READ = 0,	//recive messages 
+	WRITE,	//send messages
+	EXCEPTION,	//deal with expection 
+	TIMEOUT,// deal with timeout
+	CLOSE, //used when close socket
+	EXIT //used when service exit
 };
 
 
 	/**
 	 * @func:
-	 * 	bind the socket on the local port
+	 * 	bind the socket to the local port
 	 * @param:
 	 * 	short: the port
 	 * @return:
 	 * 	int : Success 0, errno get the error code
 	 * */
-	int bindaddr(const char *ip, short port);
+	int bindAddress(const char *ip, short port);
 
-	void registercb(void* cb, void* p, cbtype t);
-
-	void* getcb(cbtype t);
+	/*@func:
+	 *	registry the callback functions that used to analyse message. 
+	 *@param:
+	 *	callback: the point of call back functions;
+	 *	param: the param used by call back function;
+	 *	type: the type of the registried call back;
+	 *@return:
+	 *	null
+	 **/
+	void registryCallBackMethod(void* callback, void* param, CALLBACKTYPE type);
+	
+	/*@func :
+	 *	get the method matched type;
+	 *@param:
+	 *	type: the method type;
+	 *@return:
+	 *	the point of method, maybe null;
+	 **/
+	void* getCallBackMethod(CALLBACKTYPE type);
 protected:
-	int socket_m;
+	//the socket to listen connection
+	int mSocket;
 	
-	pthread_mutex_t	recv_cb_lock;
+	//protect the call back method list
+	pthread_mutex_t	mReceiveCallBackLock;
 	
-	pthread_mutexattr_t recv_cb_lock_mt;	
-
-	void* recv_cb[6];
-
-	void* pcb[6];
+	pthread_mutexattr_t mReceiveCallBackLockMutex;	
+	
+	// call back method list;
+	void* mReceiveCallBackList[6];
+	
+	// call back parament list;
+	void* mParamentsList[6];
 };
 
 class CUdp:public CBase
@@ -72,9 +98,9 @@ public:
 	 * @return:
 	 * 	Success: the number of send message bytes, Failure -1
 	 * */
-	int sendmessage(const char* ip, short port,const char* message, unsigned int len);
+	int sendMessage(const char* ip, short port,const char* message, unsigned int len);
 
-	int sendmessage(sockaddr_in addr, const char* message, unsigned int len);
+	int sendMessage(sockaddr_in addr, const char* message, unsigned int len);
 	/**
 	 * @func:
 	 * 	recv the message from the ip:port
@@ -83,7 +109,7 @@ public:
 	 * @return:
 	 * 	Success: the number of recv message bytes, Failure -1
 	 * */	
-	int recvmessage(const char* ip, short port, char* message, unsigned int ien);
+	int receiveMessage(const char* ip, short port, char* message, unsigned int ien);
 	
 	/**
 	 * @func: 
@@ -93,14 +119,17 @@ public:
 	 * @return: 
 	 * 	int: Success 0, errno get the error code
 	 * */
-	int recv();
+	int start();
 	
 private:
-	bool isrun;
-
-	pthread_t recv_proc_id;
-
-	static void* recv_proc(void* p);
+	//the flag of the server state;
+	bool mIsRunning;
+	
+	//the  server thread id;
+	pthread_t mReceiveProcessId;
+	
+	//the server method;
+	static void* mReceiveProcess(void* param);
 };
 
 class CTcp: public CBase
@@ -108,21 +137,59 @@ class CTcp: public CBase
 public:
 	CTcp();
 	~CTcp();
-
+	/*@function: 
+	 *	To create a connection to a dest address;
+	 *@param:
+	 *	ip: dest ip
+	 *	port: dest port
+	 *	sec: connect max time out;
+	 *return:
+	 *	
+	 **/
 	int connect(const char* ip, short port, unsigned int sec);
-	int recv_client();
-	int recv_server();
-	int send(const char* message, unsigned int len);
-private:
-	bool isrun;
-
-	static void* recv_proc_client(void* p);
-
-	static void* recv_proc_server(void* p);
-
-	pthread_t recv_client_id;
 	
-	pthread_t recv_servcer_id;
+	/*@function:
+	 *	start a tcp client;
+	 *@param:
+	 *	null
+	 *@return
+	 *	
+	 **/
+	int startClient();
+	
+	/*@function:
+	 *	start a tcp server;
+	 *@param:
+	 *	null
+	 *@retrun:
+	 *	
+	 **/
+	int startServer();
+	
+	/*@function: 
+	 *	send messages to socket;
+	 *@param:
+	 *	message: char type 
+	 *	length: the length of message;
+	 *@return:
+	 *	
+	 **/
+	int sendMessage(const char* message, unsigned int length);
+private:
+	//the flag of the server state;
+	bool mIsRunning;
+	
+	//the thread method to client
+	static void* mReceiveProcessForClient(void* p);
+	
+	// the thread method to server
+	static void* mReceiveProcessForServer(void* p);
+
+	//the  client thread id;
+	pthread_t mReceiveClientProcessId;
+	
+	//the  server thread id;
+	pthread_t mReceiveServerProcessId;
 };
 
 /**
@@ -139,5 +206,7 @@ bool noblock(int& s, bool is_no);
 #define UDP_PORT 7395
 
 #define TCP_PORT 7394
+
+#define HOLE_PORT 8080
 
 #endif

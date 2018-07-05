@@ -7,14 +7,14 @@
  * @return: int
  * 	Success 0
  * */
-int start();
+int server_start();
 
 /***
  * @func: stop the server peer
  * @param: void
  * @return: void
  * */
-void stop();
+void server_stop();
 
 /***
  * @func: list the online peer
@@ -22,7 +22,7 @@ void stop();
  * @return: int
  * 	Success 0
  **/
-int listonline();
+int peer_listonline();
 
 /***
  * @func: sent the hello msg
@@ -30,11 +30,35 @@ int listonline();
  * @return: int
  * 	Success 0
  * */
-int hello();
+int peer_hello();
 
-int connect(const char* peer);
+/***
+* @func: connect to other peers;
+* @param: 
+		peerIdentity: the dest peer Id;
+* @return: int
+* 	Success 0, False -1
+* */
+int peer_connect(const char* peerIdentity);
 
-void Init(const char* user_id, const char* server_id, short udp_port, short tcp_port, short bind_udp_port, short bind_tcp_port);
+/***
+* @func: start the peer
+* @param: void
+* @return: int
+* 	Success 0
+* */
+int peer_start();
+
+/***
+* @func: init the peer
+* @param: 
+	peerIdentity: the peer's id;
+	server_address: the IP of server;
+	bind_tcp_port: the port of hole;
+* @return: int
+* 	Success 0
+* */
+void peer_init(const char* peerIdentity, const char* server_address, short bind_tcp_port);
 
 
 template<typename T>
@@ -50,4 +74,4 @@ unsigned int serializeToArray_(char* &c, T t)
 
 
 
-int peer_start();
+
