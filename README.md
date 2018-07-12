@@ -1,9 +1,9 @@
 # peer-to-peer
-这时一个用于实现tcp打洞的工程，用于在处在NAPT规则网关后面的节点进行peer-to-peer通信:
+这时一个用于实现p2p 通讯的工程，用于在处在NAPT规则网关后面的节点进行peer-to-peer通信:
 整个工程按照角色划分为：
-  + 引导服务器（server）
-  + 链接发起方 (sender)
-  + 链接接受方 (recver)
+  + 打洞服务器（hole_server）
+  + 链接发起方 (alice)
+  + 链接接受方 (bob)
 
 流程如下:
   + 初始化：alice与bob链接到hole_server，hole_server获取到双方 外网地址 和 id 并保存;
@@ -16,4 +16,11 @@
  
  # 注意：
   如果alice和bob处在同一个网关后面无法成功。
-
+ # 进展
+   目前在实现tcp打洞技术，但由于tcp限制颇多，后续会拓展udp打洞技术：
+   + setup1 tcp 打洞
+      + 1.1 明文传输
+      + 1.2 拓展tls协议
+      + 1.3 用户注册管理
+   + setup2 udp 打洞
+      + 暂无
