@@ -33,6 +33,7 @@ enum StatusType {
 message ConnectRequest
 {
 	required string  peerIdentity = 1; //链接对象的Id，用mac地址;
+	required int32 counter = 2; //打洞次数计数器
 }
 
 /*

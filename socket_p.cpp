@@ -282,7 +282,7 @@ int CTcp::connect(const char* ip, short port, unsigned int sec)
 
 	int result, error = 0;
 	unsigned int len=sizeof(error);
-
+	
 	if (NULL == ip){
 		return -1;
 	}
@@ -298,19 +298,17 @@ int CTcp::connect(const char* ip, short port, unsigned int sec)
 	address.sin_family=AF_INET;
 	
 	printf("connect .....\n");	
+	//errno = 0;
 	result = ::connect(this->mSocket,(sockaddr*)&address, sizeof(address));
-	if (!result)
-	{
+	if (!result){
 		printf("connect is success!\n");
 		noblock(this->mSocket, false);	
 		return 0;
 	}
 
-	if( errno != EINPROGRESS)
-	{
-		printf("connect is failure: %s\n", strerror(errno));
-
-		noblock(this->mSocket, false);
+	if(0 <= getsockopt(this->mSocket,SOL_SOCKET,SO_ERROR,(void*)&error,&len)
+	&& (0 != error && error != EINPROGRESS)){	         
+		printf("getsockopt error...:%s\n",strerror(error));
 		return -1;
 	}
 
@@ -325,25 +323,22 @@ int CTcp::connect(const char* ip, short port, unsigned int sec)
 	{
 	case 0:
 		printf("connect is time out\n");
-		noblock(this->mSocket, false);
+		//noblock(this->mSocket, false);
 		return -1;
 	case -1:
 		printf("select is error: %s\n", strerror(errno));
-		
-		noblock(this->mSocket, false);
+		//noblock(this->mSocket, false);
 		return -1;
 	default :
 		if(FD_ISSET(this->mSocket, &w_set))
 		{
 			if(0 <= getsockopt(this->mSocket,SOL_SOCKET,SO_ERROR,(void*)&error,&len)
-					&& error)
-			{
-					         
+			&& (0 != error && error != EINPROGRESS)){
 				printf("getsockopt error:%s\n",strerror(error));
 				return -1;
 			}
 			
-			printf("connect is success!\n");	
+			printf("connect is success!\n");
 			noblock(this->mSocket, false);
 			return 0;
 		}
@@ -488,12 +483,12 @@ void* CTcp::mReceiveProcessForServer(void* param)
 			maxFd = s_list.size() != 0 ? *(--s_list.end()) : CCTcp->mSocket;
 		}
 			
-		printf("the max is %d\n", maxFd);
+		//printf("the current max is %d\n", maxFd);
 
 		switch(result)
 		{
 		case 0:
-			printf("the server time is out\n");
+			//printf("the server time is out\n");
 			if (NULL != (callBack = CCTcp->getCallBackMethod(CBase::TIMEOUT))){
 				((TIMEOUT_CALLBACK)callBack)(CCTcp->mParamentsList[CBase::TIMEOUT], CCTcp->mSocket);
 			}
@@ -503,7 +498,6 @@ void* CTcp::mReceiveProcessForServer(void* param)
 			goto s_end;
 		default:
 			for(iter = s_list.begin(); iter != s_list.end(); ){
-				printf("<<<<<<<<<<<<>>>>>>>>>>>>>>: %d\n", *iter);
 				if(FD_ISSET(*iter, &r_set)){
 					char buffer[1024] = {0};
 					int recv_len = ::recv(*iter,  buffer, 1024, 0);	
@@ -543,14 +537,13 @@ void* CTcp::mReceiveProcessForServer(void* param)
 				iter++;
 			}
 		
-			printf(">>>>>>>>>>>>>>>>>\n");	
 			//处理新接入的socket连接
 			if(FD_ISSET(CCTcp->mSocket, &r_set)){
 				memset(&address, 0, sizeof(address));	
 				addr_size = sizeof(address);
 				result = accept(CCTcp->mSocket, (sockaddr*)&address, &addr_size);
 				
-				printf("accept the socket from : %s %d %d", inet_ntoa(address.sin_addr), ntohs(address.sin_port), result);	
+				printf("accept the socket from : %s %d %d\n", inet_ntoa(address.sin_addr), ntohs(address.sin_port), result);	
 				s_list.push_back(result);
 				FD_SET(result, &o_set);	
 
@@ -558,7 +551,6 @@ void* CTcp::mReceiveProcessForServer(void* param)
 				maxFd = (result > maxFd)?result:maxFd;
 			}
 
-			printf("<<<<<<<<<<<<<<<<<<<\n");
 			if (FD_ISSET(CCTcp->mSocket, &e_set)){
 				if (NULL != (callBack = CCTcp->getCallBackMethod(CBase::EXCEPTION))){
 					((EXCEPTION_CALLBACK)callBack)(CCTcp->mParamentsList[CBase::EXCEPTION], CCTcp->mSocket);

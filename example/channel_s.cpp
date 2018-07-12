@@ -3,7 +3,7 @@
 
 int main()
 {
-	start();
+	server_start();
 	std::cin.get();
-	stop();
+	server_stop();
 }

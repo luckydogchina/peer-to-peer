@@ -5,14 +5,15 @@
 
 using namespace p2p;
 
-static sockaddr_in hole, server;
-static short port_udp_bind, port_tcp_bind;
-static short port_udp_server, port_tcp_server;
-static std::string peerIdentity;
-static std::string server_ip, server_udp;
+static sockaddr_in _hole_addr, _server_addr;
+static short _port_udp_bind, _port_tcp_bind;
+static short _port_udp_server, _port_tcp_server;
+static std::string _peerIdentity;
+static std::string _server_ip, _server_udp;
 
-CTcp *CHole;
-CTcp *CPeer;
+CTcp *CListener; //用于接受其他节点的链接
+CTcp *CHole; //用于与打洞服务器沟通;
+CTcp *CPeer; //用于与Peer服务器进行沟通;
 
 #define SEND_PACKET(X)	{\
 	char* cbyte = NULL;\
@@ -23,16 +24,15 @@ CTcp *CPeer;
 		return -1;\
 	}\
 	printf("send %d\n", (X)->sendMessage(cbyte, cbytes));\
-	printf(">>>>>>>>>>>>>>>>\n");\
 	delete[] cbyte;\
 }
 
-void peer_init(const char* _peerIdentity, const char* _server_ip, short bind_tcp_port)
+void peer_init(const char* peerIdentity, const char* server_ip, short bind_tcp_port)
 {
-	peerIdentity = _peerIdentity;
-	server_ip = _server_ip;
-	port_tcp_server = TCP_PORT;
-	port_tcp_bind = bind_tcp_port;
+	_peerIdentity = peerIdentity;
+	_server_ip = server_ip;
+	_port_tcp_server = TCP_PORT;
+	_port_tcp_bind = bind_tcp_port;
 
 	return;
 }
@@ -42,7 +42,7 @@ int peer_hello()
 {
 	PacketRequst pktRequest;
 	pktRequest.set_rpcapi(p2p::HELLO);	
-	pktRequest.set_peeridentity(peerIdentity);
+	pktRequest.set_peeridentity(_peerIdentity);
 	printf("%s\n", pktRequest.version().c_str());
 	SEND_PACKET(CPeer);
 	return 0;	
@@ -53,7 +53,7 @@ int peer_listonline()
 {
 	PacketRequst pktRequest;
 	pktRequest.set_rpcapi(p2p::GETUSERSONLINE);
-	pktRequest.set_peeridentity(peerIdentity);
+	pktRequest.set_peeridentity(_peerIdentity);
 
 	SEND_PACKET(CPeer);
 
@@ -65,21 +65,37 @@ int peer_connect(const char* peer)
 {
 	PacketRequst pktRequest;
 	pktRequest.set_rpcapi(p2p::CONNECT);
-	pktRequest.set_peeridentity(peerIdentity);
+	pktRequest.set_peeridentity(_peerIdentity);
 	ConnectRequest *cntRequest = pktRequest.mutable_connectrequest();
 	cntRequest->set_peeridentity(::std::string(peer));
+	cntRequest->set_counter(0);
 
-	if (CHole != NULL){
-		delete CHole;
-		CHole = new CTcp();
+	//创建CHole对象
+	if (CHole != NULL || CListener != NULL){
+		delete CHole; delete CListener;
+		CHole =CListener = NULL;
 	}
 
-	if (0 != CHole->bindAddress(NULL, port_tcp_bind)){
-		printf("bint the port: %d failure!!", port_tcp_bind);
+	CHole = new CTcp(); CListener = new CTcp();
+	//即使是发起链接也需要绑定地址
+	if (0 != CHole->bindAddress(NULL, _port_tcp_bind) || 0 != CListener->bindAddress(NULL, _port_tcp_bind)){
+		printf("bint the port: %d failure!!: %s\n", _port_tcp_bind, strerror(errno));
 		return -1;
 	}
 
-	CHole->startServer();
+	//链接到打洞服务器
+	if (0!=CHole->connect(_server_ip.c_str(), HOLE_PORT, 5)){
+		printf("connect the hole server failure\n");
+		return -1;
+	}
+
+	//启动监听接受线程
+	if (0 != CListener->startServer()){
+		printf("start the listen failure\n");
+		return -1;
+	}
+
+	//发送打洞引导请求
 	SEND_PACKET(CHole);
 	
 	return 0;
@@ -121,7 +137,7 @@ static int packtRespondAnalysis(PacketRespond pktRespond)
 				cntRespond = pktRespond.connectrespond();
 				printf("the connect  return status: %d\n", cntRespond.statustype());
 				if (cntRespond.statustype() != p2p::SUCCESS){
-					printf(" the loser!!!!");
+					printf("Ok, waiting connection... ...\n");
 					delete CHole;	
 				}
 			}
@@ -149,20 +165,22 @@ static int messageAnylasis(Message msg)
 	Address addr;
 	switch (msg.t())
 	{
-	case MessageType::ADDRESS:
+	case p2p::ADDRESS:
 		{
 			if (!msg.has_address()){
 				printf("address is emptu\n");
 				return -1;
 			}
-			if (CHole != NULL){
-				delete CHole;
+
+			if (CHole != NULL || CListener != NULL){
+				delete CHole;delete CListener;
+				CHole = CListener = NULL;
 			}
 			
 			CHole = new CTcp();
 			addr = msg.address();
-			if (CHole->bindAddress(NULL, port_tcp_bind)){
-				printf(" bind the port %d error %s \n", port_tcp_bind, strerror(errno));
+			if (CHole->bindAddress(NULL, _port_tcp_bind)){
+				printf(" bind the port %d failure:  %s \n", _port_tcp_bind, strerror(errno));
 				delete CHole; CHole = NULL;
 				return -1;
 			}
@@ -174,20 +192,22 @@ static int messageAnylasis(Message msg)
 				printf("connect SUCCESS, you can transcation !!!\n");
 				CHole->startClient();
 				break;
+			}else{
+				//如果不成功也相当于打洞成功，此时向server发起链接的请求；
+				printf("connect server failure: %s\n", strerror(errno));
 			}
 
-			//如果不成功也相当于打洞成功，此时向server发起链接的请求；
-			if (CHole->connect(server_ip.c_str(), port_tcp_server, 5)){
-				printf("connect server failure: %s", strerror(errno));
-			}
+			//由被请求端发起connet请求，进行反向引导
+			delete CHole; CHole = NULL;
+			peer_connect(addr.id().c_str());
 
 			//开启监听状态
-			CHole->startServer();
-			if (0 > peer_connect(addr.id().c_str())){
-				printf("send connect request failure: %s", strerror(errno));
-				delete CHole;
-				CHole = NULL;
-			}
+			// CHole->startServer();
+			// if (0 > peer_connect(addr.id().c_str())){
+			// 	printf("send connect request failure: %s", strerror(errno));
+			// 	delete CHole;
+			// 	CHole = NULL;
+			// }
 		}
 	default:
 		printf("the message type: %d is not supportted\n", msg.t());
@@ -222,8 +242,8 @@ int peer_start()
 {
 	CPeer = new CTcp();
 	CPeer->registryCallBackMethod((void*)recv_cb_ch, NULL, CBase::READ);
-	CPeer->bindAddress(NULL, port_tcp_bind);
-	if (!CPeer->connect(server_ip.c_str(), port_tcp_server, 5)){
+	//CPeer->bindAddress(NULL, _port_tcp_bind);
+	if (!CPeer->connect(_server_ip.c_str(), _port_tcp_server, 5)){
 		return CPeer->startClient();
 	}
 

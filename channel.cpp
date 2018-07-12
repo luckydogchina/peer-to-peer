@@ -11,13 +11,15 @@ static CUdp* CServerUdp;
 static CTcp* CServerTcp;
 static CTcp* CHoleS;
 
-enum PeerStatus{
-	NONE = 0,
-	UDP_EXIST,
-	TCP_EXIST,
-	ALL_EXIST,
-	UDP_EXCEPTAION,
-	TCP_EXCEPTAION
+namespace PeerStatus{
+	enum{
+		NONE = 0,
+		UDP_EXIST,
+		TCP_EXIST,
+		ALL_EXIST,
+		UDP_EXCEPTAION,
+		TCP_EXCEPTAION
+	};
 };
 
 typedef struct Peer{
@@ -30,8 +32,8 @@ typedef struct Peer{
 public:
 	Peer()
 	{
-		this->status = NONE;
-		this->exp = NONE;
+		this->status = PeerStatus::NONE;
+		this->exp = PeerStatus::NONE;
 	       	this->s = -1;
 		memset(&this->ip_u, 0, sizeof(this->ip_u));
 		memset(&this->ip_t, 0, sizeof(this->ip_t));
@@ -66,8 +68,9 @@ typedef int(*SERVANT_API)(PacketRequst& pkt, int s);
 	if(iter == peerList.end()){\
 		printf("user is not exist!\n");\
 		result = -2;\
+	}else{\
+		Y = iter->second;\
 	}\
-	Y = iter->second;\
 	pthread_mutex_unlock(&peerListLock);\
 }
 
@@ -152,11 +155,12 @@ int servant_connect(PacketRequst& pktRequest, int s){
 	}
 
 	//TODO: Info the B 
+	pktRespond.set_rpcapi(p2p::CONNECT);
 	cntRespond = pktRespond.mutable_connectrespond();
 	//检查来源peer是否已经存在
 	FIND_USER(pktRequest.peeridentity(), srcPeer);
-	if (result >= 0){
-		printf("peer %s has beeb exist!!!", pktRequest.peeridentity().c_str());
+	if (result < 0){
+		printf("peer %s is not exist!!!", pktRequest.peeridentity().c_str());
 		return result;
 	}
 		
@@ -188,7 +192,6 @@ int servant_connect(PacketRequst& pktRequest, int s){
 		}
 	}
 
-	pktRespond.set_rpcapi(p2p::CONNECT);
 	SEND_MESSAGE(srcPeer, pktRespond, pktRequest.peeridentity());
 	return result;
 }
@@ -197,12 +200,12 @@ int servant_connect(PacketRequst& pktRequest, int s){
 int servant_getpeeronline(PacketRequst& pktRequest, int s)
 {
 	int result = 0; 
-	PSPeer user;
+	PSPeer peer;
 	GetUsersOnlineRespond *pRspGetUserOnline;
 	PacketRespond pktRsp;
 	
 	CHECK_PEERID();
-	FIND_USER(pktRequest.peeridentity(), user);
+	FIND_USER(pktRequest.peeridentity(), peer);
 	
 	if (result < 0){
 		return result;
@@ -217,7 +220,7 @@ int servant_getpeeronline(PacketRequst& pktRequest, int s)
 
 	//返回请求;
 	pktRsp.set_rpcapi(p2p::GETUSERSONLINE);
-	SEND_MESSAGE(user, pktRsp, pktRequest.peeridentity());
+	SEND_MESSAGE(peer, pktRsp, pktRequest.peeridentity());
 
 	printf("ok ......... \n");
 	return result;	
@@ -229,13 +232,13 @@ int serveant_hello(PacketRequst& pktRequest, int s)
 {
 	int result = 0;
 	PSPeer newPeer;
+	PacketRespond pktRsp;
 	sockaddr_in addr;
 
 	CHECK_PEERID();
 	if (result < 0){
 		return -1;
 	}
-
 
 	FIND_USER(pktRequest.peeridentity(), newPeer);
 	if (result < 0){
@@ -252,6 +255,9 @@ int serveant_hello(PacketRequst& pktRequest, int s)
 		peerList.insert(std::map<string, PSPeer>::value_type(pktRequest.peeridentity(), newPeer));
 		pthread_mutex_unlock(&peerListLock);
 	}
+
+	pktRsp.set_rpcapi(p2p::HELLO);
+	SEND_MESSAGE(newPeer, pktRsp, pktRequest.peeridentity());
 
 	return 0;
 }
@@ -320,7 +326,7 @@ void registry_servant_api(p2p:: RPCAPI type, SERVANT_API api)
 	if (iter == list_api.end()){\
 		printf("the api is not exist\n");\
 		return NULL;\
-	}else if (!iter->second(X, Y)){\
+	}else if (0 != iter->second(X, Y)){\
 		printf("the result is error \n");\
 	}\
 	return NULL;\
@@ -348,7 +354,7 @@ static void* recv_cb_ch(void* p, const char* message, unsigned int len, int& s)
 		return NULL;
 	}
 	
-
+	printf("the rpc id is %d\n", pktRequst.rpcapi());
 	FIND_API(pktRequst, s);
 }
 
@@ -401,7 +407,7 @@ static void* recv_cb_cs(void* p, const char* message, unsigned int len, int& s, 
 
 
 
-int start()
+int server_start()
 {
 	//CServerUdp = new CUdp();
 	CServerTcp = new CTcp();
@@ -412,9 +418,10 @@ int start()
 	pthread_mutex_init(&peerListLock, &lockMutex);
 	pthread_mutex_init(&holeListLock, &lockMutex);
 
+	registry_servant_api(p2p::GETUSERSONLINE, servant_getpeeronline);
 	registry_servant_api(p2p::CONNECT, servant_connect);
 	registry_servant_api(p2p::INFO, servant_transmit);
-	registry_servant_api(p2p::GETUSERSONLINE, servant_getpeeronline);
+	registry_servant_api(p2p::HELLO, serveant_hello);
 
 	CServerTcp->bindAddress(NULL, TCP_PORT);
 	
@@ -433,7 +440,7 @@ int start()
 	return 0;	
 }
 
-void stop()
+void server_stop()
 {
 	delete CServerTcp;
 	delete CHoleS;
