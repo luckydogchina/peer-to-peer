@@ -6,11 +6,14 @@
   + 链接接受方 (recver)
 
 流程如下:
-（1） 初始化：sender与recver链接到server，server获取到双方 外网地址 和 id 并保存;
-（2）sender 发送list请求，server返回当前在线的peer id;
-（3）sender 发送链接请求 + recver id 到server;
-（4）server 转发链接请求 + sender 地址 到 recver;
-（5）recver 向 sender 9798端口打洞（发送connect请求），启动本地 9798端口监听服务，发送 ok 通知 + sender id ;
-（6）server 转发 ok 通知 + recver 地址 到 sender;
-（7）sender 向 recver 9798 端口 发送connect请求， 如果正常将链接成功，如果不正常将启动 本地 9798 端口监听服务 ，发送 ok 通知 + recver id 到 server，跳转到第（5）步（此时双方身份互换）。
+  + 初始化：alice与bob链接到hole_server，hole_server获取到双方 外网地址 和 id 并保存;
+  + alice 发送list请求，hole_server返回当前在线的peer id;
+  + alice 绑定固定端口 alice_hole_port, 发送引导与bob链接的请求到hole_server,同时监听 alice_hole_port的connect请求（此时要保持与hole_server的链接）;
+  + hole_server 转发链接请求 + alice的外网地址到bob;
+  + bob 绑定固定端口 bob_hole_port,向 alice 的外网映射地址（发送connect请求），如果链接成功，则打洞结束， 否则执行下一步;
+  + bob 绑定固定端口 bob_hole_port，向hole_server发送 connect alice的请求，hole_server 如上转发请求（注意，此时bob已经在alice的网关上打了一个洞了）;
+  + alice收到connect message后仍然绑定alice_hole_port，向bob 的外网地址发起链接 。
+ 
+ # 注意：
+  如果alice和bob处在同一个网关后面无法成功。
 
